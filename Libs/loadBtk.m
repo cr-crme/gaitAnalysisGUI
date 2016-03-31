@@ -18,8 +18,8 @@ function loadBtk(Path)
         if nargin > 0
             folder = dir(Path);
         else
-            folder = dir('C:/Program Files/BTK/share/btk*');
-            Path = ['C:/Program Files/BTK/share/' folder.name '/Wrapping/Matlab/btk'];
+            folder = dir('C:/Program Files/BTK/btk*');
+            Path = ['C:/Program Files/BTK/' folder.name '/btk'];
             folder = dir(Path);
         end
         if isempty(folder)

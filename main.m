@@ -38,6 +38,9 @@ end
     % Extraction et calculs sur la cinétique
     c.results = kineticsComputations(c.data, c.results);
     
+    % Copy struct si un côté est inexistant
+    c.results = createEmptyIfNecessary(c.results);
+    
     % Faire la moyenne gauche et droite sur toutes les valeurs
     c.results.MeanLeg = meanLegs(c.results.Left, c.results.Right);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -51,6 +54,9 @@ end
     
     % Extraction et calculs sur la cinétique
     c.staticfile.results = kineticsComputations(c.staticfile.data, c.staticfile.results);
+    
+    % Copy struct si un côté est inexistant
+    c.staticfile.results = createEmptyIfNecessary(c.staticfile.results);
     
     % Faire la moyenne gauche et droite sur toutes les valeurs
     c.staticfile.results.MeanLeg = meanLegs(c.staticfile.results.Left, c.staticfile.results.Right);

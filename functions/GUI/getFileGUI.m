@@ -364,8 +364,8 @@ end
 function exportFile(~,~, h)
     c = get(h.userFig, 'userdata');
     % Copier quelques infos
-    c.info.name = get(h.nom, 'string') * 10; % Transformer en mm
-    c.info.height = str2double(get(h.taille, 'string'));
+    c.info.name = get(h.nom, 'string'); 
+    c.info.height = str2double(get(h.taille, 'string')) * 10; % Transformer en mm
     c.info.mass = str2double(get(h.masse, 'string'));
     c.info.age = str2double(get(h.age, 'string'));
     c.info.sexe = get(h.sexe, 'value');
