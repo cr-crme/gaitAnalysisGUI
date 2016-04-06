@@ -1,24 +1,24 @@
 function [ c ] = getFile( c )
 %GETFILE Summary of this function goes here
 %   Detailed explanation goes here
-    c = getFileGUI(c);
-%     c.info.name = 'Benjamin';
-%     c.info.height = 1756;
-%     c.info.mass = 50.1;
-%     c.info.age = 11.5;
-%     c.info.sexe = 0;
-%     c.info.aide = 2;
-%     c.info.aideStr = 'Canne (2)';
-%     c.info.note = 'Yo!';
-%     c.file.path = 'data/Annie/';
-%     c.file.names = {'CTL-enf-008_marche_09.c3d' 'CTL-enf-008_marche_10.c3d' 'CTL-enf-011_marche_08.c3d' 'CTL-enf-011_marche_10.c3d'};
-%     c.file.savepath = 'result/coucou.csv';
-%     c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
-%     c.staticfile.path = []; %'data/Annie/';
-%     c.eei.fc_repos = 80.4;
-%     c.eei.fc_marche = 172.52;
-%     c.eei.v_marche = 37.58;
-
+%     c = getFileGUI(c);
+    c.info.name = 'Benjamin';
+    c.info.height = 1756;
+    c.info.mass = 50.1;
+    c.info.age = 11.5;
+    c.info.sexe = 0;
+    c.info.aide = 2;
+    c.info.aideStr = 'Canne (2)';
+    c.info.note = 'Yo!';
+    c.file.path = 'data/Patient 3/';
+    c.file.names = {'Edouard_Theriault_Marche_04.c3d' 'Edouard_Theriault_Marche_08.c3d' 'Edouard_Theriault_Marche_10.c3d' 'Edouard_Theriault_Marche_12.c3d' 'Edouard_Theriault_Marche_15.c3d' 'Edouard_Theriault_Marche_16.c3d'};
+    c.file.savepath = 'result/coucou.csv';
+    c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
+    c.staticfile.path = []; %'data/Annie/';
+    c.eei.fc_repos = 80.4;
+    c.eei.fc_marche = 172.52;
+    c.eei.v_marche = 37.58;
+    
     % S'assurer qu'on veut analyser quelque chose
     if isempty(c)
         return;
@@ -39,11 +39,11 @@ function [ c ] = getFile( c )
     c.staticfile.c3d = c3dStatic;
     
     % Faire choisir à l'utilisateur les essais à conserver
-    [kinToKeep, dynToKeep] = selectFilesToUse(dataAll);
-%     kinToKeep.Left = [1 2 7 8];
-%     kinToKeep.Right = [];
-%     dynToKeep.Left = [1 7];
-%     dynToKeep.Right = []; %#ok<NBRAK>
+%     [kinToKeep, dynToKeep] = selectFilesToUse(dataAll);
+    kinToKeep.Left = [1 2 7 8];
+    kinToKeep.Right = [1];
+    dynToKeep.Left = [1 7];
+    dynToKeep.Right = [1 ]; %#ok<NBRAK>
     
     
     % Élager les données selon ce qui a été choisi
@@ -74,6 +74,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                 for i = 1:length(dataKinAll)
                     kin_angle.(angle_fnames{j})(:,:,i) = dataKinAll(i).angle.(angle_fnames{j});
                 end
+                kin_angleStd.(angle_fnames{j}) = std(kin_angle.(angle_fnames{j}),[],3);
                 kin_angle.(angle_fnames{j}) = mean(kin_angle.(angle_fnames{j}),3);
             end
 
@@ -88,6 +89,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                     % Partir en fct de l'extrême min pour lat,  0 pour frontal et ne rien changer en hauteur 
                     kin_markers.(marker_fnames{j})(:,:,i) = d - [repmat([min(d(:,1)), d(1,2)], [size(d,1), 1]), zeros(size(d(:,3)))]; 
                 end
+                kin_markersStd.(marker_fnames{j}) = std(kin_markers.(marker_fnames{j}),[],3);
                 kin_markers.(marker_fnames{j}) = mean(kin_markers.(marker_fnames{j}),3);
             end
 
@@ -104,6 +106,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                 for i = 1:length(dataKinAll)
                     kin_moment.(moment_fnames{j})(:,:,i) = dataKinAll(i).moment.(moment_fnames{j});
                 end
+                kin_momentStd.(moment_fnames{j}) = std(kin_moment.(moment_fnames{j}), [], 3);
                 kin_moment.(moment_fnames{j}) = mean(kin_moment.(moment_fnames{j}), 3);
             end
 
@@ -112,6 +115,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                 for i = 1:length(dataKinAll)
                     kin_power.(power_fnames{j})(:,:,i) = dataKinAll(i).power.(power_fnames{j});
                 end
+                kin_powerStd.(power_fnames{j}) = std(kin_power.(power_fnames{j}),[],3);
                 kin_power.(power_fnames{j}) = mean(kin_power.(power_fnames{j}),3);
             end
 
@@ -123,9 +127,12 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                         dyn_forceplate = [];
                         for i = 1:length(dataDynAll)
                             comp_names = fieldnames(dataDynAll(i).forceplate(pf).channels);
-                            dyn_forceplate(pf).channels.(fp_fnames{j})(:,:,i) = dataDynAll(i).forceplate(pf).channels.(comp_names{j}); %#ok<AGROW>
+                            if ~isempty(dataDynAll(i).forceplate(pf).channels.(comp_names{j}))
+                                dyn_forceplate(pf).channels.(fp_fnames{j})(:,:,i) = dataDynAll(i).forceplate(pf).channels.(comp_names{j}); %#ok<AGROW>
+                            end
                         end
                         if ~isempty(dyn_forceplate)
+                            dyn_forceplateStd(pf).channels.(fp_fnames{j}) = std(dyn_forceplate(pf).channels.(fp_fnames{j}),[],3); %#ok<AGROW>
                             dyn_forceplate(pf).channels.(fp_fnames{j}) = mean(dyn_forceplate(pf).channels.(fp_fnames{j}),3); %#ok<AGROW>
                         end
                     end
@@ -151,11 +158,16 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
             dataFinalTp.info = info; % Prendre les infos demandé à l'ouverture
             dataFinalTp.angleInfos = dataAll.Left(1).angleInfos; 
             dataFinalTp.angle = kin_angle;
+            dataFinalTp.angleStd = kin_angleStd;
             dataFinalTp.markers = kin_markers;
+            dataFinalTp.markersStd = kin_markersStd;
             dataFinalTp.CentreOfMass = com_info;
             dataFinalTp.moment = kin_moment;
+            dataFinalTp.momentStd = kin_momentStd;
             dataFinalTp.power = kin_power;
+            dataFinalTp.powerStd = kin_powerStd;
             dataFinalTp.forceplate = dyn_forceplate;
+            dataFinalTp.forceplateStd = dyn_forceplateStd;
             dataFinalTp.stamps = stamps;
             dataFinalTp.tempsCycle = tempsCycle;
 

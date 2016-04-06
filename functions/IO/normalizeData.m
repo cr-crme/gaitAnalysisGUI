@@ -12,17 +12,43 @@ function dataOut = normalizeData(data)
 
     
     % Conserver les angles de 0 à 100% pour le pied gauche
-    for j=1:length(idxPiedGauche)
-        % Trouver les nouveaux stamps
-        dataOut.Left(j) = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(j)},...
-            intersect(idxPiedGauche(j),onPlateFormeLeft), numPFGauche, fieldToNormalize, analFieldToNormalize); 
+    if isempty(numPFGauche) && isempty(onPlateFormeLeft)
+        dataOut.Left(1) = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(1)},...
+            intersect(idxPiedGauche(1),idxPiedGauche(1)), 1, fieldToNormalize, analFieldToNormalize); 
+        dataOut.Left(1).IsFootOnPF = false;
+        dataOut.Left(1).idxPlateForme = [];
+        dataOut.Left(1).forceplate.channels.Fx1 = [];
+        dataOut.Left(1).forceplate.channels.Fy1 = [];
+        dataOut.Left(1).forceplate.channels.Fz1 = [];
+        dataOut.Left(1).forceplate.channels.Mx1 = [];
+        dataOut.Left(1).forceplate.channels.My1 = [];
+        dataOut.Left(1).forceplate.channels.Mz1 = [];
+    else
+        for j=1:length(idxPiedGauche)
+            % Trouver les nouveaux stamps
+            dataOut.Left(j) = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(j)},...
+                intersect(idxPiedGauche(j),onPlateFormeLeft), numPFGauche, fieldToNormalize, analFieldToNormalize); 
+        end
     end
 
     % Conserver les angles de 0 à 100% pour le pied gauche
-    for j=1:length(idxPiedDroit)
-        % Trouver les nouveaux stamps
-        dataOut.Right(j) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(j)},...
-            intersect(idxPiedDroit(j),idxPlateFormePiedDroit), numPFDroit, fieldToNormalize, analFieldToNormalize);
+    if isempty(numPFDroit) && isempty(idxPlateFormePiedDroit)
+        dataOut.Right(1) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(1)},...
+            intersect(idxPiedDroit(1),idxPiedDroit(1)), 1, fieldToNormalize, analFieldToNormalize); 
+        dataOut.Right(1).IsFootOnPF = false;
+        dataOut.Right(1).idxPlateForme = [];
+        dataOut.Right(1).forceplate.channels.Fx1 = [];
+        dataOut.Right(1).forceplate.channels.Fy1 = [];
+        dataOut.Right(1).forceplate.channels.Fz1 = [];
+        dataOut.Right(1).forceplate.channels.Mx1 = [];
+        dataOut.Right(1).forceplate.channels.My1 = [];
+        dataOut.Right(1).forceplate.channels.Mz1 = [];
+    else
+        for j=1:length(idxPiedDroit)
+            % Trouver les nouveaux stamps
+            dataOut.Right(j) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(j)},...
+                intersect(idxPiedDroit(j),idxPlateFormePiedDroit), numPFDroit, fieldToNormalize, analFieldToNormalize);
+        end
     end
 
 end
@@ -46,6 +72,8 @@ function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePie
     isRightFootFound = false;
     idxPlateFormePiedGauche = [];
     idxPlateFormePiedDroit = [];
+    numPFGauche = [];
+    numPFDroit = [];
     for iPf = 1:length(data.forceplate)
         nameChannels = fieldnames(data.forceplate(iPf).channels);
         % Find Fz

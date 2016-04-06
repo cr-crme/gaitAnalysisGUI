@@ -10,8 +10,13 @@ function results = kineticsComputations(data, results)
 
     if ~isempty(data.Left.stamps)
         % Extraction des moments
+        results.Left.moment_FullCycle = extractData(data.Left, data.Left.stamps.Left_Foot_FullCycle.frameStamps, 'moment', 'Moment');
         results.Left.moment_0_OppFootOff = extractData(data.Left, data.Left.stamps.Left_Foot_0_OppPushOff.frameStamps, 'moment', 'Moment');
         results.Left.moment_OppStrike_100 = extractData(data.Left, data.Left.stamps.Left_Foot_OppStrike_100.frameStamps, 'moment', 'Moment');
+
+        % Calcul du peak de couple sur tout le cycle
+        results.Left.momentMax_FullCycle = computeCustomCalculation(results.Left.moment_FullCycle, @max);
+        results.Left.momentMin_FullCycle = computeCustomCalculation(results.Left.moment_FullCycle, @min);
         
         % Calcul du peak de couple au contact talon
         results.Left.momentMax_0_OppFootOff = computeCustomCalculation(results.Left.moment_0_OppFootOff, @max);
@@ -22,8 +27,13 @@ function results = kineticsComputations(data, results)
         results.Left.momentMin_OppStrike_100 = computeCustomCalculation(results.Left.moment_OppStrike_100, @min);
         
         % Extraction des puissances
+        results.Left.power_FullCycle = extractData(data.Left, data.Left.stamps.Left_Foot_FullCycle.frameStamps, 'power', 'Power');
         results.Left.power_FullStance = extractData(data.Left, data.Left.stamps.Left_Foot_FullStance.frameStamps, 'power', 'Power');
         results.Left.power_OppStrike_PushOff = extractData(data.Left, data.Left.stamps.Left_Foot_OppStrike_PushOff.frameStamps, 'power', 'Power');
+        
+        % Calcul du peak max et min de la puissance lors de support
+        results.Left.powerMax_FullCycle = computeCustomCalculation(results.Left.power_FullCycle, @max);
+        results.Left.powerMin_FullCycle = computeCustomCalculation(results.Left.power_FullCycle, @min);
         
         % Calcul du peak max et min de la puissance lors de support
         results.Left.powerMax_FullStance = computeCustomCalculation(results.Left.power_FullStance, @max);
@@ -37,8 +47,13 @@ function results = kineticsComputations(data, results)
     
     if ~isempty(data.Right.stamps)
         % Extraction des moments
+        results.Right.moment_FullCycle = extractData(data.Right, data.Right.stamps.Right_Foot_FullCycle.frameStamps, 'moment', 'Moment');
         results.Right.moment_0_OppFootOff = extractData(data.Right, data.Right.stamps.Right_Foot_0_OppPushOff.frameStamps, 'moment', 'Moment');
         results.Right.moment_OppStrike_100 = extractData(data.Right, data.Right.stamps.Right_Foot_OppStrike_100.frameStamps, 'moment', 'Moment');
+
+        % Calcul du peak de couple sur tout le cycle
+        results.Right.momentMax_FullCycle = computeCustomCalculation(results.Right.moment_FullCycle, @max);
+        results.Right.momentMin_FullCycle = computeCustomCalculation(results.Right.moment_FullCycle, @min);
 
         % Calcul du peak de couple au contact talon
         results.Right.momentMax_0_OppFootOff = computeCustomCalculation(results.Right.moment_0_OppFootOff, @max);
@@ -49,9 +64,14 @@ function results = kineticsComputations(data, results)
         results.Right.momentMin_OppStrike_100 = computeCustomCalculation(results.Right.moment_OppStrike_100, @min);
 
         % Extraction des puissances
+        results.Right.power_FullCycle = extractData(data.Right, data.Right.stamps.Right_Foot_FullCycle.frameStamps, 'power', 'Power');
         results.Right.power_FullStance = extractData(data.Right, data.Right.stamps.Right_Foot_FullStance.frameStamps, 'power', 'Power');
         results.Right.power_OppStrike_PushOff = extractData(data.Right, data.Right.stamps.Right_Foot_OppStrike_PushOff.frameStamps, 'power', 'Power');
 
+        % Calcul du peak max et min de la puissance lors de support
+        results.Right.powerMax_FullCycle = computeCustomCalculation(results.Right.power_FullCycle, @max);
+        results.Right.powerMin_FullCycle = computeCustomCalculation(results.Right.power_FullCycle, @min);
+        
         % Calcul du peak max et min de la puissance lors de support
         results.Right.powerMax_FullStance = computeCustomCalculation(results.Right.power_FullStance, @max);
         results.Right.powerMin_FullStance = computeCustomCalculation(results.Right.power_FullStance, @min);

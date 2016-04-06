@@ -10,6 +10,14 @@ function data = extractDataFromC3D(c3d)
 
     % Récupérer la cinétique
     data.moment = btkGetMoments(c3d);
+    if ~isfield(data.moment, 'LGroundReactionMoment')
+        f = fieldnames(data.moment);
+        data.moment.LGroundReactionMoment = nan(size(data.moment.(f{1})));
+    end
+    if ~isfield(data.moment, 'RGroundReactionMoment')
+        f = fieldnames(data.moment);
+        data.moment.RGroundReactionMoment = nan(size(data.moment.(f{1})));
+    end
     data.power = btkGetPowers(c3d);
 
 
