@@ -1,27 +1,31 @@
 function [ c ] = getFile( c )
 %GETFILE Summary of this function goes here
 %   Detailed explanation goes here
-    c = getFileGUI(c);
-%     c.info.name = 'Benjamin';
-%     c.info.height = 1756;
-%     c.info.mass = 50.1;
-%     c.info.age = 11.5;
-%     c.info.sexe = 0;
-%     c.info.aide = 2;
-%     c.info.aideStr = 'Canne (2)';
-%     c.info.note = 'Yo!';
-%     c.file.path = '/home/pariterre/Programmation/c3dToExcel/data/Annie/';
-%     c.file.names = {'CTL-enf-008_marche_09.c3d' 'CTL-enf-008_marche_10.c3d' 'CTL-enf-011_marche_08.c3d' 'CTL-enf-011_marche_10.c3d'};
-%     c.file.savepath = '/home/pariterre/Programmation/c3dToExcel/result/coucou.csv';
-%     c.staticfile.names = {'CTL-enf-008_marche_09.c3d'};
-%     c.staticfile.path = '/home/pariterre/Programmation/c3dToExcel/data/Annie/';
-%     c.eei.fc_repos = 80.4;
-%     c.eei.fc_marche = 172.52;
-%     c.eei.v_marche = 37.58;
-
+%     c = getFileGUI(c);
+    c.info.name = 'Benjamin';
+    c.info.height = 1756;
+    c.info.mass = 50.1;
+    c.info.age = 11.5;
+    c.info.sexe = 0;
+    c.info.aide = 2;
+    c.info.aideStr = 'Canne (2)';
+    c.info.note = 'Yo!';
+    c.file.path = 'data/Patient 3/';
+    c.file.names = {'Edouard_Theriault_Marche_04.c3d' 'Edouard_Theriault_Marche_08.c3d' 'Edouard_Theriault_Marche_10.c3d' 'Edouard_Theriault_Marche_12.c3d' 'Edouard_Theriault_Marche_15.c3d' 'Edouard_Theriault_Marche_16.c3d'};
+    c.file.savepath = 'result/coucou.csv';
+    c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
+    c.staticfile.path = []; %'data/Annie/';
+    c.eei.fc_repos = 80.4;
+    c.eei.fc_marche = 172.52;
+    c.eei.v_marche = 37.58;
+    
     % S'assurer qu'on veut analyser quelque chose
     if isempty(c)
         return;
+    end
+    
+    if ~exist('result/matfiles', 'dir')
+        mkdir('result/matfiles')
     end
     
     % Ouvrir et découper les données
@@ -35,11 +39,11 @@ function [ c ] = getFile( c )
     c.staticfile.c3d = c3dStatic;
     
     % Faire choisir à l'utilisateur les essais à conserver
-    [kinToKeep, dynToKeep] = selectFilesToUse(dataAll);
-%     kinToKeep.Left = [1 2 7 8];
-%     kinToKeep.Right = [5 6 7 8];
-%     dynToKeep.Left = [1 7];
-%     dynToKeep.Right = [7]; %#ok<NBRAK>
+%     [kinToKeep, dynToKeep] = selectFilesToUse(dataAll);
+    kinToKeep.Left = [1 2 7 8];
+    kinToKeep.Right = [1];
+    dynToKeep.Left = [1 7];
+    dynToKeep.Right = [1 ]; %#ok<NBRAK>
     
     
     % Élager les données selon ce qui a été choisi
@@ -57,100 +61,149 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
         dataKinAll = dataAll.(s)(kinToKeep.(s));
         dataDynAll = dataAll.(s)(dynToKeep.(s));
 
-        % Faire le moyennage des données
-        angle_fnames = fieldnames(dataAll.(s)(1).angle);
-        marker_fnames = fieldnames(dataAll.(s)(1).markers);
-        moment_fnames = fieldnames(dataAll.(s)(1).moment);
-        power_fnames = fieldnames(dataAll.(s)(1).power);
-        CentreOfMass = fieldnames(dataAll.(s)(1).CentreOfMass);
-        for j = 1:length(angle_fnames)
-            for i = 1:length(dataKinAll)
-                kin_angle.(angle_fnames{j})(:,:,i) = dataKinAll(i).angle.(angle_fnames{j});
-            end
-            kin_angle.(angle_fnames{j}) = mean(kin_angle.(angle_fnames{j}),3);
-        end
-        for j = 1:length(marker_fnames)
-            for i = 1:length(dataKinAll)
-                d = dataKinAll(i).markers.(marker_fnames{j});
-                % S'assurer que la marche est vers l'avant (tourne autour de z)
-                if d(end,2) - d(1,2) < 0
-                    d(:,[1 2]) = -d(:,[1 2]);
+        if ~isempty(dataKinAll)
+            % Faire le moyennage des données
+            angle_fnames = fieldnames(dataAll.(s)(1).angle);
+            marker_fnames = fieldnames(dataAll.(s)(1).markers);
+            moment_fnames = fieldnames(dataAll.(s)(1).moment);
+            power_fnames = fieldnames(dataAll.(s)(1).power);
+            CentreOfMass = fieldnames(dataAll.(s)(1).CentreOfMass);
+
+            kin_angle = [];
+            for j = 1:length(angle_fnames)
+                for i = 1:length(dataKinAll)
+                    kin_angle.(angle_fnames{j})(:,:,i) = dataKinAll(i).angle.(angle_fnames{j});
                 end
-                % Partir en fct de l'extrême min pour lat,  0 pour frontal et ne rien changer en hauteur 
-                kin_markers.(marker_fnames{j})(:,:,i) = d - [repmat([min(d(:,1)), d(1,2)], [size(d,1), 1]), zeros(size(d(:,3)))]; 
+                kin_angleStd.(angle_fnames{j}) = std(kin_angle.(angle_fnames{j}),[],3);
+                kin_angle.(angle_fnames{j}) = mean(kin_angle.(angle_fnames{j}),3);
             end
-            kin_markers.(marker_fnames{j}) = mean(kin_markers.(marker_fnames{j}),3);
-        end
-        for j = 1:length(CentreOfMass)
-            for i = 1:length(dataKinAll)
-                com_info.(CentreOfMass{j})(:,:,i) = dataKinAll(i).CentreOfMass.(CentreOfMass{j});
-            end
-            com_info.(CentreOfMass{j}) = mean(com_info.(CentreOfMass{j}),3);
-        end
-        for j = 1:length(moment_fnames)
-            for i = 1:length(dataKinAll)
-                kin_moment.(moment_fnames{j})(:,:,i) = dataKinAll(i).moment.(moment_fnames{j});
-            end
-            kin_moment.(moment_fnames{j}) = mean(kin_moment.(moment_fnames{j}), 3);
-        end
-        for j = 1:length(power_fnames)
-            for i = 1:length(dataKinAll)
-                kin_power.(power_fnames{j})(:,:,i) = dataKinAll(i).power.(power_fnames{j});
-            end
-            kin_power.(power_fnames{j}) = mean(kin_power.(power_fnames{j}),3);
-        end
-        for pf = 1:length(dataAll.(s)(i).forceplate)
-            fp_fnames = {'Fx' 'Fy' 'Fz' 'Mx' 'My' 'Mz'};
-            for j = 1:length(fp_fnames)
-                dyn_forceplate = [];
-                for i = 1:length(dataDynAll)
-                    comp_names = fieldnames(dataDynAll(i).forceplate(pf).channels);
-                    dyn_forceplate(pf).channels.(fp_fnames{j})(:,:,i) = dataDynAll(i).forceplate(pf).channels.(comp_names{j}); %#ok<AGROW>
+
+            kin_markers = [];
+            for j = 1:length(marker_fnames)
+                for i = 1:length(dataKinAll)
+                    d = dataKinAll(i).markers.(marker_fnames{j});
+                    % S'assurer que la marche est vers l'avant (tourne autour de z)
+                    if d(end,2) - d(1,2) < 0
+                        d(:,[1 2]) = -d(:,[1 2]);
+                    end
+                    % Partir en fct de l'extrême min pour lat,  0 pour frontal et ne rien changer en hauteur 
+                    kin_markers.(marker_fnames{j})(:,:,i) = d - [repmat([min(d(:,1)), d(1,2)], [size(d,1), 1]), zeros(size(d(:,3)))]; 
                 end
-                if ~isempty(dyn_forceplate)
-                    dyn_forceplate(pf).channels.(fp_fnames{j}) = mean(dyn_forceplate(pf).channels.(fp_fnames{j}),3); %#ok<AGROW>
+                kin_markersStd.(marker_fnames{j}) = std(kin_markers.(marker_fnames{j}),[],3);
+                kin_markers.(marker_fnames{j}) = mean(kin_markers.(marker_fnames{j}),3);
+            end
+
+            com_info = [];
+            for j = 1:length(CentreOfMass)
+                for i = 1:length(dataKinAll)
+                    com_info.(CentreOfMass{j})(:,:,i) = dataKinAll(i).CentreOfMass.(CentreOfMass{j});
+                end
+                com_info.(CentreOfMass{j}) = mean(com_info.(CentreOfMass{j}),3);
+            end
+
+            kin_moment = [];
+            for j = 1:length(moment_fnames)
+                for i = 1:length(dataKinAll)
+                    kin_moment.(moment_fnames{j})(:,:,i) = dataKinAll(i).moment.(moment_fnames{j});
+                end
+                kin_momentStd.(moment_fnames{j}) = std(kin_moment.(moment_fnames{j}), [], 3);
+                kin_moment.(moment_fnames{j}) = mean(kin_moment.(moment_fnames{j}), 3);
+            end
+
+            kin_power = [];
+            for j = 1:length(power_fnames)
+                for i = 1:length(dataKinAll)
+                    kin_power.(power_fnames{j})(:,:,i) = dataKinAll(i).power.(power_fnames{j});
+                end
+                kin_powerStd.(power_fnames{j}) = std(kin_power.(power_fnames{j}),[],3);
+                kin_power.(power_fnames{j}) = mean(kin_power.(power_fnames{j}),3);
+            end
+
+            dyn_forceplate = [];
+            if ~isempty(dataDynAll)
+                for pf = 1:length(dataAll.(s)(i).forceplate)
+                    fp_fnames = {'Fx' 'Fy' 'Fz' 'Mx' 'My' 'Mz'};
+                    for j = 1:length(fp_fnames)
+                        dyn_forceplate = [];
+                        for i = 1:length(dataDynAll)
+                            comp_names = fieldnames(dataDynAll(i).forceplate(pf).channels);
+                            if ~isempty(dataDynAll(i).forceplate(pf).channels.(comp_names{j}))
+                                dyn_forceplate(pf).channels.(fp_fnames{j})(:,:,i) = dataDynAll(i).forceplate(pf).channels.(comp_names{j}); %#ok<AGROW>
+                            end
+                        end
+                        if ~isempty(dyn_forceplate)
+                            dyn_forceplateStd(pf).channels.(fp_fnames{j}) = std(dyn_forceplate(pf).channels.(fp_fnames{j}),[],3); %#ok<AGROW>
+                            dyn_forceplate(pf).channels.(fp_fnames{j}) = mean(dyn_forceplate(pf).channels.(fp_fnames{j}),3); %#ok<AGROW>
+                        end
+                    end
                 end
             end
-        end
-        stampsToDo = {'Left_Foot_Off', setdiff( {'Left_Foot_Strike', 'Right_Foot_Strike'}, [s '_Foot_Strike']), 'Right_Foot_Off'};
-        stampsToDo(2) = stampsToDo{2};
-        for j=1:length(stampsToDo)
-            for i = 1:length(dataKinAll)
-                stamps.(stampsToDo{j}).frameStamp(i) = dataKinAll(i).stamps.(stampsToDo{j}).frameStamp;
+
+            stamps = [];
+            stampsToDo = {'Left_Foot_Off', setdiff( {'Left_Foot_Strike', 'Right_Foot_Strike'}, [s '_Foot_Strike']), 'Right_Foot_Off'};
+            stampsToDo(2) = stampsToDo{2};
+            for j=1:length(stampsToDo)
+                for i = 1:length(dataKinAll)
+                    stamps.(stampsToDo{j}).frameStamp(i) = dataKinAll(i).stamps.(stampsToDo{j}).frameStamp;
+                end
+                stamps.(stampsToDo{j}).frameStamp = round(mean(stamps.(stampsToDo{j}).frameStamp));
             end
-            stamps.(stampsToDo{j}).frameStamp = round(mean(stamps.(stampsToDo{j}).frameStamp));
+            tempsCycle = mean([dataKinAll(:).tempsCycle]);
+
+            % Le cas de Left_Foot_Strike est spécial car 2 valeurs (1 et 100)
+            stamps.([s '_Foot_Strike']).frameStamp = [1 100]; 
+            stamps = extractStamps(stamps, 100);
+
+            % Assembler les données moyennées
+            dataFinalTp.info = info; % Prendre les infos demandé à l'ouverture
+            dataFinalTp.angleInfos = dataAll.Left(1).angleInfos; 
+            dataFinalTp.angle = kin_angle;
+            dataFinalTp.angleStd = kin_angleStd;
+            dataFinalTp.markers = kin_markers;
+            dataFinalTp.markersStd = kin_markersStd;
+            dataFinalTp.CentreOfMass = com_info;
+            dataFinalTp.moment = kin_moment;
+            dataFinalTp.momentStd = kin_momentStd;
+            dataFinalTp.power = kin_power;
+            dataFinalTp.powerStd = kin_powerStd;
+            dataFinalTp.forceplate = dyn_forceplate;
+            dataFinalTp.forceplateStd = dyn_forceplateStd;
+            dataFinalTp.stamps = stamps;
+            dataFinalTp.tempsCycle = tempsCycle;
+
+            % Inutile maintenant, mais j'ai besoin des stamps quand même!
+            dataFinalTp = computePourcentCycleMarche(dataFinalTp);
+
+            % Rearranger les données pour extraire certains paramètres
+            dataFinalTp.eventData(i) = rearangeIntoEvents(dataFinalTp, ...
+                    {'Left_Foot_Off' 'Right_Foot_Off' 'Left_Foot_Strike' 'Right_Foot_Strike'}, ...
+                    {'LHipAngles' 'RHipAngles' 'LKneeAngles' 'RKneeAngles' 'LAnkleAngles' 'RAnkleAngles'});
+        else
+            dataFinalTp.info = [];
+            dataFinalTp.angleInfos = [];
+            dataFinalTp.angle = [];
+            dataFinalTp.markers = [];
+            dataFinalTp.CentreOfMass = [];
+            dataFinalTp.moment = [];
+            dataFinalTp.power = [];
+            dataFinalTp.forceplate = [];
+            dataFinalTp.stamps = [];
+            dataFinalTp.tempsCycle = [];
         end
-        tempsCycle = mean([dataKinAll(:).tempsCycle]);
-
-        % Le cas de Left_Foot_Strike est spécial car 2 valeurs (1 et 100)
-        stamps.([s '_Foot_Strike']).frameStamp = [1 100]; 
-        stamps = extractStamps(stamps, 100);
-
-        % Assembler les données moyennées
-        dataFinalTp.info = info; % Prendre les infos demandé à l'ouverture
-        dataFinalTp.angleInfos = dataAll.Left(1).angleInfos; 
-        dataFinalTp.angle = kin_angle;
-        dataFinalTp.markers = kin_markers;
-        dataFinalTp.CentreOfMass = com_info;
-        dataFinalTp.moment = kin_moment;
-        dataFinalTp.power = kin_power;
-        dataFinalTp.forceplate = dyn_forceplate;
-        dataFinalTp.stamps = stamps;
-        dataFinalTp.tempsCycle = tempsCycle;
-
-        % Inutile maintenant, mais j'ai besoin des stamps quand même!
-        dataFinalTp = computePourcentCycleMarche(dataFinalTp);
-
-        % Rearranger les données pour extraire certains paramètres
-        dataFinalTp.eventData(i) = rearangeIntoEvents(dataFinalTp, ...
-                {'Left_Foot_Off' 'Right_Foot_Off' 'Left_Foot_Strike' 'Right_Foot_Strike'}, ...
-                {'LHipAngles' 'RHipAngles' 'LKneeAngles' 'RKneeAngles' 'LAnkleAngles' 'RAnkleAngles'});
         dataFinal.(s) = dataFinalTp;
         clear dataFinalTp
     end
 end
 
 function [dataAll, file, c3d] = openAndParseC3Ds(file)
+    if isempty(file.names)
+        dataAll.Left = [];
+        dataAll.Right = [];
+        file = []; 
+        c3d = [];
+        return;
+    end
+
 % Parse and open
     cmpLeft = 1;
     cmpRight = 1;

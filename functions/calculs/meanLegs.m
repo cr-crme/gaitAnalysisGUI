@@ -1,7 +1,8 @@
 function rMean = meanLegs(rLeft, rRight)
 
+    % Aller chercher les fields qu'il faut moyenner
     fields = fieldnames(rLeft);
-
+    
     for iF = 1:length(fields)
         if strcmp( fields{iF}(1), 'R')  
             % Si la première lettre est R, c'est que c'est quelque chose du
@@ -9,18 +10,18 @@ function rMean = meanLegs(rLeft, rRight)
             % réutiliser
             continue 
         end
-        if isnumeric(rLeft.(fields{iF}))
+        if isnumeric(rLeft.(fields{iF})) || islogical(rLeft.(fields{iF})) 
             val = [];
             if strcmp( fields{iF}(1), 'L')  
                  % Si la première lettre est R, c'est que c'est quelque chose du
                 % type 'Larticulation'
                 val(:,:,:,1) = rLeft.(fields{iF}); % Le mettre sur la 4e car rien n'est sur 4
                 val(:,:,:,2) = rRight.(['R' fields{iF}(2:end)]); % Le mettre sur la 4e car rien n'est sur 4
-                rMean.(fields{iF}(2:end)) = mean(val, 4);
+                rMean.(fields{iF}(2:end)) = nmean(val, 4);
             else
                 val(:,:,:,1) = rLeft.(fields{iF}); % Le mettre sur la 4e car rien n'est sur 4
                 val(:,:,:,2) = rRight.(fields{iF}); % Le mettre sur la 4e car rien n'est sur 4
-                rMean.(fields{iF}) = mean(val, 4);
+                rMean.(fields{iF}) = nmean(val, 4);
             end
         elseif iscell(rLeft.(fields{iF}))
             for i = 1:length(rLeft.(fields{iF}))
@@ -30,7 +31,7 @@ function rMean = meanLegs(rLeft, rRight)
                     val(:,:,:,2) = rRight.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
                     % Ne pas moyenner si c'est un truc au cours du temps,
                     % ça n'est pas une valeur de sortie de toute façon
-                    rMean.(fields{iF}){i} = mean(val,4);
+                    rMean.(fields{iF}){i} = nmean(val,4);
                 else
                     rMean.(fields{iF}){i} = [];
                 end
