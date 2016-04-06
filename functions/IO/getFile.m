@@ -1,23 +1,23 @@
 function [ c ] = getFile( c )
 %GETFILE Summary of this function goes here
 %   Detailed explanation goes here
-%     c = getFileGUI(c);
-    c.info.name = 'Benjamin';
-    c.info.height = 1756;
-    c.info.mass = 50.1;
-    c.info.age = 11.5;
-    c.info.sexe = 0;
-    c.info.aide = 2;
-    c.info.aideStr = 'Canne (2)';
-    c.info.note = 'Yo!';
-    c.file.path = 'data/Patient 3/';
-    c.file.names = {'Edouard_Theriault_Marche_04.c3d' 'Edouard_Theriault_Marche_08.c3d' 'Edouard_Theriault_Marche_10.c3d' 'Edouard_Theriault_Marche_12.c3d' 'Edouard_Theriault_Marche_15.c3d' 'Edouard_Theriault_Marche_16.c3d'};
-    c.file.savepath = 'result/coucou.csv';
-    c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
-    c.staticfile.path = []; %'data/Annie/';
-    c.eei.fc_repos = 80.4;
-    c.eei.fc_marche = 172.52;
-    c.eei.v_marche = 37.58;
+    c = getFileGUI(c);
+%     c.info.name = 'Benjamin';
+%     c.info.height = 1756;
+%     c.info.mass = 50.1;
+%     c.info.age = 11.5;
+%     c.info.sexe = 0;
+%     c.info.aide = 2;
+%     c.info.aideStr = 'Canne (2)';
+%     c.info.note = 'Yo!';
+%     c.file.path = 'data/Patient 3/';
+%     c.file.names = {'Edouard_Theriault_Marche_04.c3d' 'Edouard_Theriault_Marche_08.c3d' 'Edouard_Theriault_Marche_10.c3d' 'Edouard_Theriault_Marche_12.c3d' 'Edouard_Theriault_Marche_15.c3d' 'Edouard_Theriault_Marche_16.c3d'};
+%     c.file.savepath = 'result/coucou.csv';
+%     c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
+%     c.staticfile.path = []; %'data/Annie/';
+%     c.eei.fc_repos = 80.4;
+%     c.eei.fc_marche = 172.52;
+%     c.eei.v_marche = 37.58;
     
     % S'assurer qu'on veut analyser quelque chose
     if isempty(c)
@@ -39,11 +39,11 @@ function [ c ] = getFile( c )
     c.staticfile.c3d = c3dStatic;
     
     % Faire choisir à l'utilisateur les essais à conserver
-%     [kinToKeep, dynToKeep] = selectFilesToUse(dataAll);
-    kinToKeep.Left = [1 2 7 8];
-    kinToKeep.Right = [1];
-    dynToKeep.Left = [1 7];
-    dynToKeep.Right = [1 ]; %#ok<NBRAK>
+    [kinToKeep, dynToKeep] = selectFilesToUse(dataAll);
+%     kinToKeep.Left = [1 2 7 8];
+%     kinToKeep.Right = [1];
+%     dynToKeep.Left = [1 7];
+%     dynToKeep.Right = [1 ]; %#ok<NBRAK>
     
     
     % Élager les données selon ce qui a été choisi
