@@ -1,4 +1,4 @@
-function idx = chooseFromAngle(dataToShow, dataToShowName, nameAngToKeep)
+function idx = chooseFromMoment(dataToShow, dataToShowName, nameAngToKeep, trialWithPlateForme)
     % Figure pour afficher les essais en terme d'angle afin d'élaguer les essais non pertinents
     h = figure( 'name', 'Choix des essais', ...
                 'units', 'normalize', ...
@@ -64,6 +64,9 @@ function idx = chooseFromAngle(dataToShow, dataToShowName, nameAngToKeep)
                             'units', 'normalize'); %#ok<AGROW>
         pos = get(check(i), 'position');
         set(check(i), 'position', [0.75 position(i) .5 pos(4)]);
+        if isempty(intersect(trialWithPlateForme, i))
+            set(check(i), 'value', false, 'enable', 'off') % S'il a été retiré dans la cinématique, on ne garde pas l'essai
+        end
     end
     for i =1:length(xyzNames)
         set(xyzCheck(i), 'callback', {@addRemoveTrial, check, xyzCheck, dataToShow,hplot, hplotmean,pop, Echelle});
@@ -86,7 +89,9 @@ function idx = chooseFromAngle(dataToShow, dataToShowName, nameAngToKeep)
                 'callback', @closeWindow, ...
                 'position', [0.80 .06 .1 .05]);
     
-    changeAngles(pop,[],hplot,hplotmean,dataToShow, check, true, Echelle);
+    set(Echelle, 'value', false);
+    addRemoveTrial([],[],check,xyzCheck,dataToShow,hplot,hplotmean,pop,Echelle);
+    set(Echelle, 'value', true);
     uiwait(h);
     
     % Une fois le choix fait 
@@ -96,6 +101,7 @@ end
 function closeWindow(h,~)
     close(get(h,'parent'));
 end
+
 
 function boldPlot(h,~, check, hplot)
     %Grandeur de l'écran

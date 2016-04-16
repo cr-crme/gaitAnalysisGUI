@@ -10,8 +10,8 @@ function [ c ] = getFile( c )
 %     c.info.aide = 2;
 %     c.info.aideStr = 'Canne (2)';
 %     c.info.note = 'Yo!';
-%     c.file.path = 'data/JC_Dou_POST2/';
-%     c.file.names = {'JC_DOU_post2ans_marche 02.c3d', 'JC_DOU_post2ans_marche 07.c3d', 'JC_DOU_post2ans_marche 08.c3d'};
+%     c.file.path = 'data/DMC_Essai_POST2/';
+%     c.file.names = {'DMC-essai_post2ans_marche 02.c3d', 'DMC-essai_post2ans_marche 07.c3d', 'DMC-essai_post2ans_marche 08.c3d'};
 %     c.file.savepath = 'result/coucou.csv';
 %     c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
 %     c.staticfile.path = []; %'data/Annie/';
@@ -86,7 +86,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                     elseif strcmp(s, 'Right')
                         zeroPosition = dataKinAll(i).markers.RHEE;
                     else
-                        error('Côté erronné')
+                        error('CÃ´tÃ© erronnÃ©')
                     end
                     if zeroPosition(end,2) - zeroPosition(1,2) < 0
                         zeroPosition(:,[1 2]) = -zeroPosition(:,[1 2]);
@@ -133,10 +133,9 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
 
             dyn_forceplate = [];
             if ~isempty(dataDynAll)
-                for pf = 1:length(dataAll.(s)(i).forceplate)
+                for pf = 1:length(dataAll.(s)(1).forceplate)
                     fp_fnames = {'Fx' 'Fy' 'Fz' 'Mx' 'My' 'Mz'};
                     for j = 1:length(fp_fnames)
-                        dyn_forceplate = [];
                         for i = 1:length(dataDynAll)
                             comp_names = fieldnames(dataDynAll(i).forceplate(pf).channels);
                             if ~isempty(dataDynAll(i).forceplate(pf).channels.(comp_names{j}))
@@ -148,6 +147,13 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                             dyn_forceplate(pf).channels.(fp_fnames{j}) = mean(dyn_forceplate(pf).channels.(fp_fnames{j}),3); %#ok<AGROW>
                         end
                     end
+                end
+            end
+            if isempty(dyn_forceplate)
+                fp_fnames = {'Fx' 'Fy' 'Fz' 'Mx' 'My' 'Mz'};
+                for j = 1:length(fp_fnames)
+                    dyn_forceplate.channels.(fp_fnames{j}) = nan(100,1); 
+                    dyn_forceplateStd.channels.(fp_fnames{j}) = nan(100,1);
                 end
             end
 
@@ -230,8 +236,8 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
         try
             data = extractDataFromC3D(c3d(i));
         catch me
-            uiwait(errordlg(sprintf('Le fichier %s a retourné l''erreur suivante : \n %s', file.names{i}, me.message)));
-            error('Le fichier %s a retourné l''erreur suivante : \n %s', file.names{i}, me.message);       
+            uiwait(errordlg(sprintf('Le fichier %s a retournÃ© l''erreur suivante : \n %s', file.names{i}, me.message)));
+            error('Le fichier %s a retournÃ© l''erreur suivante : \n %s', file.names{i}, me.message);       
         end
             
             

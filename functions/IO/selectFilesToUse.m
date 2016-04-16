@@ -9,6 +9,15 @@ function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data)
     end
     nameAngToKeepToPopMenu = unique(nameAngToKeepToPopMenu);
    
+    % Nom des moments
+    % Retirer le préfixe L ou R
+    nameMomentToKeep = fieldnames(data.Left(1).moment); % Pareil pour tous essais + côtés
+    for i = 1:length(nameMomentToKeep)
+        nameMomentToKeep{i} = nameMomentToKeep{i}(2:end);
+    end
+    nameMomentToKeep = unique(nameMomentToKeep);
+   
+    
     trialWithPlateForme = [];
     cmp = 0;
     idxLeft = [];
@@ -28,9 +37,14 @@ function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data)
 
             % Dispatch des angles
             for iN = 1:length(nameAngToKeepToPopMenu)
-                dataToShow.(nameAngToKeepToPopMenu{iN})(:,:,cmp) = data.(sides{iSide})(i).angle.([sides{iSide}(1) nameAngToKeepToPopMenu{iN}]);
+                dataToShowAng.(nameAngToKeepToPopMenu{iN})(:,:,cmp) = data.(sides{iSide})(i).angle.([sides{iSide}(1) nameAngToKeepToPopMenu{iN}]);
             end
 
+            % Dispatch des moments aux articulations
+            for iN = 1:length(nameMomentToKeep)
+                dataToShowMoment.(nameMomentToKeep{iN})(:,:,cmp) = data.(sides{iSide})(i).moment.([sides{iSide}(1) nameMomentToKeep{iN}]);
+            end
+            
             % Dispatch des plateforme de force
             dataToShowFP(cmp).pf = data.(sides{iSide})(i).forceplate; %#ok<AGROW>
             if data.(sides{iSide})(i).IsFootOnPF
@@ -41,12 +55,15 @@ function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data)
     end
 
     % Demander les essais cinématiques à conserver
-    idx_kin = chooseFromAngle(dataToShow, dataToShowName, nameAngToKeepToPopMenu);
+    idx_kin = chooseFromAngle(dataToShowAng, dataToShowName, nameAngToKeepToPopMenu);
 
+    % Demander les essais avec moments à conserver
+    trialWithPlateForme = intersect(trialWithPlateForme, idx_kin);
+    idx_moment = chooseFromMoment(dataToShowMoment, dataToShowName, nameMomentToKeep, trialWithPlateForme);
+    
     % Demander les essais avec de la dynamique à conserver
     % Retirer ce qui a été retiré à l'instant précédent
-    trialWithPlateForme = intersect(trialWithPlateForme, idx_kin);
-%     idx_dyn = chooseFromDynamics_reverse(dataToShowFP, dataToShowName, trialWithPlateForme);
+    trialWithPlateForme = intersect(trialWithPlateForme, idx_moment);
     idx_dyn = chooseFromDynamics(dataToShowFP, dataToShowName, trialWithPlateForme);
     
     % Séparer gauche droite

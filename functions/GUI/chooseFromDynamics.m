@@ -84,9 +84,12 @@ function idx = chooseFromDynamics(dataToShow, dataToShowName, trialWithPlateForm
                 'units', 'normalize', ...
                 'callback', @closeWindow, ...
                 'position', [0.80 .06 .1 .05]);
-    
+    % Regarder où est la souris
+    set(h, 'windowbuttonmotionfcn', {@boldPlot, check, hplot});
+       
+    set(Echelle, 'value', false);
     addRemoveTrial([],[],check,pfCheck,dataToShow,hplot,pop, Echelle);
-    changeAngles(pop,[],hplot,dataToShow, check,true, Echelle);
+    set(Echelle, 'value', true);
     uiwait(h);
     
     % Une fois le choix fait 
@@ -95,6 +98,51 @@ end
 
 function closeWindow(h,~)
     close(get(h,'parent'));
+end
+
+function boldPlot(h,~, check, hplot)
+    %Grandeur de l'écran
+    screensize = get( groot, 'Screensize' );
+    % Position de la fenêtre
+    figPosition = get( h, 'Position' );
+    % Position de la souris
+    mousePosition = get(groot,'PointerLocation');
+    mousePosition = mousePosition ./ screensize(3:4); % Mettre en relatif par rapport a l'écran
+    mousePosition = mousePosition - figPosition(1:2); % Selon la figure
+    mousePosition = mousePosition ./ figPosition(3:4); % Selon la figure
+    
+    % Tester une collision avec un check
+    % Ils sont tous allignés à gauche 
+    checkPos = get(check(1), 'position');
+    % Si la souris est consignée en x
+    hitCheckIdx = 0;
+    if mousePosition(1) > checkPos(1) && mousePosition(1) < checkPos(1)+checkPos(3)
+        for i = 1:length(check)
+            checkPos = get(check(i), 'position');
+            % Si la souris est consignée en y
+            if mousePosition(2) > checkPos(2) && mousePosition(2) < checkPos(2)+checkPos(4)
+                hitCheckIdx = i;
+                break;
+            end
+        end
+    end
+    
+    % Si hitCheckIdx == 0, alors on n'est pas sur un check
+    if hitCheckIdx == 0
+        for i = 1:size(hplot,1)
+            set( hplot(i,1), 'linewidth', .5 )
+        end
+    else
+        for i = 1:size(hplot,1)
+            for j = 1:size(hplot,2)
+                if i == hitCheckIdx
+                    set( hplot(i,j), 'linewidth', 3 )
+                else
+                    set( hplot(i,j), 'linewidth', .5 )
+                end
+            end
+        end
+    end
 end
 
 function idxout = trialToKeep(check)
