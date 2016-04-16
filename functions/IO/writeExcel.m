@@ -47,6 +47,23 @@ function writeExcel(c)
 %                     'Force poussée' 'Genou_Flexion (N)'         'DG'
 %                     'Force poussée' 'Genou_Flexion (N)'         'D'
 %                     'Force poussée' 'Genou_Flexion (N)'         'G'
+                    % Force musculaire isom�trique
+                    'ForceIsometrique'  'Genou_Ext'       'DG'
+                    'ForceIsometrique'  'Genou_Ext'       'D'
+                    'ForceIsometrique'  'Genou_Ext'       'G'
+                    'ForceIsometrique'  'Genou_Flex'      'DG'
+                    'ForceIsometrique'  'Genou_Flex'      'D'
+                    'ForceIsometrique'  'Genou_Flex'      'G'
+                    'ForceIsometrique'  'Hanche_Ext'      'DG'
+                    'ForceIsometrique'  'Hanche_Ext'      'D'
+                    'ForceIsometrique'  'Hanche_Ext'      'G'
+                    'ForceIsometrique'  'Hanche_Flex'     'DG'
+                    'ForceIsometrique'  'Hanche_Flex'     'D'
+                    'ForceIsometrique'  'Hanche_Flex'     'G'
+                    'ForceIsometrique'  'Hanche_Abd'      'DG'
+                    'ForceIsometrique'  'Hanche_Abd'      'D'
+                    'ForceIsometrique'  'Hanche_Abd'      'G'
+                    % EEI
                     'EEI'   'FC_Repos'                          ''
                     'EEI'   'FC_Marche'                         ''
                     'EEI'   'Vmarche (m/min)'                   ''
@@ -970,14 +987,31 @@ function writeExcel(c)
 %                 '%1.2f',    c.results.MeanLeg.momentMin_OppStrike_100.Knee(1) % Genou Peak extension poussée
 %                 '%1.2f',    c.results.Right.momentMin_OppStrike_100.RHip(1)
 %                 '%1.2f',    c.results.Left.momentMin_OppStrike_100.LHip(1)
+                % Force musculaire isom�trique
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
                 % EEI
                 '%1.2f',    c.results.eei.fc_repos
                 '%1.2f',    c.results.eei.fc_marche
                 '%1.2f',    c.results.eei.v_marche
                 '%1.2f',    c.results.eei.eei
-                '%s',       'GDI_dg'
-                '%s',       'GDI_d'
-                '%s',       'GDI_g'
+                % GDI
+                '%s',       ''
+                '%s',       ''
+                '%s',       ''
                 % Param spatio-tempo
                 '%1.1f'     c.results.MeanLeg.pctToeOff
                 '%1.1f'     c.results.Right.pctToeOff
