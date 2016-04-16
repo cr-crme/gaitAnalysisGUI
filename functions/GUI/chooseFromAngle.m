@@ -11,13 +11,19 @@ function idx = chooseFromAngle(dataToShow, dataToShowName, nameAngToKeep)
 %     hplotmean{1} = confplot(nan, nan, nan, nan, 'LineWidth',2, 'color', 'r'); % Moyenne x
 %     hplotmean{2} = confplot(nan, nan, nan, nan, 'LineWidth',2, 'color', 'g'); % Moyenne y
 %     hplotmean{3} = confplot(nan, nan, nan, nan, 'LineWidth',2, 'color', 'b'); % Moyenne z
-    hplotmean{1} = plot(nan, 'LineWidth',2, 'color', 'r'); % Moyenne x
-    hplotmean{2} = plot(nan, 'LineWidth',2, 'color', 'g'); % Moyenne y
-    hplotmean{3} = plot(nan, 'LineWidth',2, 'color', 'b'); % Moyenne z
+    hplotmean{1} = plot(nan, 'LineWidth',2, 'color', 'k'); % Moyenne x
+    hplotmean{2} = plot(nan, 'LineWidth',2, 'color', 'k'); % Moyenne y
+    hplotmean{3} = plot(nan, 'LineWidth',2, 'color', 'k'); % Moyenne z
     for i = 1:length(dataToShowName)
-        hplot(i,1) = plot(nan, 'r--');  %#ok<AGROW> X 
-        hplot(i,2) = plot(nan, 'g--');  %#ok<AGROW> Y
-        hplot(i,3) = plot(nan, 'b--');  %#ok<AGROW> Z
+        if strfind(dataToShowName{i}, '_CôtéGauche_')
+            hplot(i,1) = plot(nan, 'r--');  %#ok<AGROW> X 
+            hplot(i,2) = plot(nan, 'r--');  %#ok<AGROW> Y
+            hplot(i,3) = plot(nan, 'r--');  %#ok<AGROW> Z
+        elseif strfind(dataToShowName{i}, '_CôtéDroit_')
+            hplot(i,1) = plot(nan, 'g--');  %#ok<AGROW> X 
+            hplot(i,2) = plot(nan, 'g--');  %#ok<AGROW> Y
+            hplot(i,3) = plot(nan, 'g--');  %#ok<AGROW> Z
+        end
    end
     
     % Demander si on affiche X,Y,Z

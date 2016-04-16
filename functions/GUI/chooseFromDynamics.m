@@ -17,7 +17,11 @@ function idx = chooseFromDynamics(dataToShow, dataToShowName, trialWithPlateForm
     hold on
     for i = 1:length(dataToShow)
         for j=1:length(namePF) % pour chaque PF
-            hplot(i,j) = plot(nan);  %#ok<AGROW>
+            if strfind(dataToShowName{i}, '_CôtéGauche_')
+                hplot(i,j) = plot(nan, 'r--');  %#ok<AGROW> X
+            elseif strfind(dataToShowName{i}, '_CôtéDroit_')
+                hplot(i,j) = plot(nan, 'g--');  %#ok<AGROW> 
+            end
         end
     end
     
