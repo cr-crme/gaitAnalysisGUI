@@ -81,13 +81,25 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
             kin_markers = [];
             for j = 1:length(marker_fnames)
                 for i = 1:length(dataKinAll)
+                    if strcmp(s, 'Left')
+                        zeroPosition = dataKinAll(i).markers.LHEE;
+                    elseif strcmp(s, 'Right')
+                        zeroPosition = dataKinAll(i).markers.RHEE;
+                    else
+                        error('Côté erronné')
+                    end
+                    if zeroPosition(end,2) - zeroPosition(1,2) < 0
+                        zeroPosition(:,[1 2]) = -zeroPosition(:,[1 2]);
+                    end
+                    zeroPosition = [repmat([min(zeroPosition(:,1)), zeroPosition(1,2)], [size(zeroPosition,1), 1]), zeros(size(zeroPosition(:,3)))];
                     d = dataKinAll(i).markers.(marker_fnames{j});
                     % S'assurer que la marche est vers l'avant (tourne autour de z)
                     if d(end,2) - d(1,2) < 0
                         d(:,[1 2]) = -d(:,[1 2]);
                     end
                     % Partir en fct de l'extrÃªme min pour lat,  0 pour frontal et ne rien changer en hauteur 
-                    kin_markers.(marker_fnames{j})(:,:,i) = d - [repmat([min(d(:,1)), d(1,2)], [size(d,1), 1]), zeros(size(d(:,3)))]; 
+                    kin_markers.(marker_fnames{j})(:,:,i) = d - zeroPosition; 
+                
                 end
                 kin_markersStd.(marker_fnames{j}) = std(kin_markers.(marker_fnames{j}),[],3);
                 kin_markers.(marker_fnames{j}) = mean(kin_markers.(marker_fnames{j}),3);
@@ -170,7 +182,8 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
             dataFinalTp.forceplateStd = dyn_forceplateStd;
             dataFinalTp.stamps = stamps;
             dataFinalTp.tempsCycle = tempsCycle;
-
+            dataFinalTp.angleInfos.frequency = 1/(dataFinalTp.tempsCycle/100); 
+            
             % Inutile maintenant, mais j'ai besoin des stamps quand mÃªme!
             dataFinalTp = computePourcentCycleMarche(dataFinalTp);
 
@@ -242,5 +255,8 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
     end
     % Prendre les infos du derniers (ils sont sensÃ©s Ãªtre tous les mÃªmes)
     dataAll.Left(1).angleInfos = data.angleInfos;
+    dataAll.Left(1).angleInfos.frequency = 1/(dataAll.Left(1).tempsCycle/100);
+    
     dataAll.Right(1).angleInfos = data.angleInfos;
+    dataAll.Right(1).angleInfos.frequency = 1/(dataAll.Right(1).tempsCycle/100);
 end
