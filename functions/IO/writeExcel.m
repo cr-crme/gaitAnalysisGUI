@@ -16,37 +16,37 @@ function writeExcel(c)
                     'Info'  'Masse (kg)'                        ''
                     'Info'  'Taille (cm)'                       ''
                     % Moment à l'attaque
-                    'Force attaque' 'Hanche_Extension (N)'      'DG'
-                    'Force attaque' 'Hanche_Extension (N)'      'D'
-                    'Force attaque' 'Hanche_Extension (N)'      'G'
-                    'Force attaque' 'Hanche_Flexion (N)'        'DG'
-                    'Force attaque' 'Hanche_Flexion (N)'        'D'
-                    'Force attaque' 'Hanche_Flexion (N)'        'G'
-                    'Force attaque' 'Hanche_Abduction (N)'      'DG'
-                    'Force attaque' 'Hanche_Abduction (N)'      'D'
-                    'Force attaque' 'Hanche_Abduction (N)'      'G'
-                    'Force attaque' 'Genou_Extension (N)'       'DG'
-                    'Force attaque' 'Genou_Extension (N)'       'D'
-                    'Force attaque' 'Genou_Extension (N)'       'G'
-                    'Force attaque' 'Genou_Flexion (N)'         'DG'
-                    'Force attaque' 'Genou_Flexion (N)'         'D'
-                    'Force attaque' 'Genou_Flexion (N)'         'G'
-                    % Moment à la poussée
-                    'Force poussée' 'Hanche_Extension (N)'      'DG'
-                    'Force poussée' 'Hanche_Extension (N)'      'D'
-                    'Force poussée' 'Hanche_Extension (N)'      'G'
-                    'Force poussée' 'Hanche_Flexion (N)'        'DG'
-                    'Force poussée' 'Hanche_Flexion (N)'        'D'
-                    'Force poussée' 'Hanche_Flexion (N)'        'G'
-                    'Force poussée' 'Hanche_Abduction (N)'      'DG'
-                    'Force poussée' 'Hanche_Abduction (N)'      'D'
-                    'Force poussée' 'Hanche_Abduction (N)'      'G'
-                    'Force poussée' 'Genou_Extension (N)'       'DG'
-                    'Force poussée' 'Genou_Extension (N)'       'D'
-                    'Force poussée' 'Genou_Extension (N)'       'G'
-                    'Force poussée' 'Genou_Flexion (N)'         'DG'
-                    'Force poussée' 'Genou_Flexion (N)'         'D'
-                    'Force poussée' 'Genou_Flexion (N)'         'G'
+%                     'Force attaque' 'Hanche_Extension (N)'      'DG'
+%                     'Force attaque' 'Hanche_Extension (N)'      'D'
+%                     'Force attaque' 'Hanche_Extension (N)'      'G'
+%                     'Force attaque' 'Hanche_Flexion (N)'        'DG'
+%                     'Force attaque' 'Hanche_Flexion (N)'        'D'
+%                     'Force attaque' 'Hanche_Flexion (N)'        'G'
+%                     'Force attaque' 'Hanche_Abduction (N)'      'DG'
+%                     'Force attaque' 'Hanche_Abduction (N)'      'D'
+%                     'Force attaque' 'Hanche_Abduction (N)'      'G'
+%                     'Force attaque' 'Genou_Extension (N)'       'DG'
+%                     'Force attaque' 'Genou_Extension (N)'       'D'
+%                     'Force attaque' 'Genou_Extension (N)'       'G'
+%                     'Force attaque' 'Genou_Flexion (N)'         'DG'
+%                     'Force attaque' 'Genou_Flexion (N)'         'D'
+%                     'Force attaque' 'Genou_Flexion (N)'         'G'
+%                     % Moment à la poussée
+%                     'Force poussée' 'Hanche_Extension (N)'      'DG'
+%                     'Force poussée' 'Hanche_Extension (N)'      'D'
+%                     'Force poussée' 'Hanche_Extension (N)'      'G'
+%                     'Force poussée' 'Hanche_Flexion (N)'        'DG'
+%                     'Force poussée' 'Hanche_Flexion (N)'        'D'
+%                     'Force poussée' 'Hanche_Flexion (N)'        'G'
+%                     'Force poussée' 'Hanche_Abduction (N)'      'DG'
+%                     'Force poussée' 'Hanche_Abduction (N)'      'D'
+%                     'Force poussée' 'Hanche_Abduction (N)'      'G'
+%                     'Force poussée' 'Genou_Extension (N)'       'DG'
+%                     'Force poussée' 'Genou_Extension (N)'       'D'
+%                     'Force poussée' 'Genou_Extension (N)'       'G'
+%                     'Force poussée' 'Genou_Flexion (N)'         'DG'
+%                     'Force poussée' 'Genou_Flexion (N)'         'D'
+%                     'Force poussée' 'Genou_Flexion (N)'         'G'
                     'EEI'   'FC_Repos'                          ''
                     'EEI'   'FC_Marche'                         ''
                     'EEI'   'Vmarche (m/min)'                   ''
@@ -938,38 +938,38 @@ function writeExcel(c)
                 '%d',       c.info.sexe
                 '%1.1f',    c.info.mass
                 '%1.1f',    c.info.height/10
-                % Moments à l'attaque
-                '%1.2f',    c.results.MeanLeg.momentMax_0_OppFootOff.Hip(1) % Hanche Peak extension attaque
-                '%1.2f',    c.results.Right.momentMax_0_OppFootOff.RHip(1)
-                '%1.2f',    c.results.Left.momentMax_0_OppFootOff.LHip(1)
-                '%1.2f',    c.results.MeanLeg.momentMin_0_OppFootOff.Hip(1) % Hanche Peak flexion attaque
-                '%1.2f',    c.results.Right.momentMin_0_OppFootOff.RHip(1)
-                '%1.2f',    c.results.Left.momentMin_0_OppFootOff.LHip(1)
-                '%1.2f',    c.results.MeanLeg.momentMin_0_OppFootOff.Hip(2) % Hanche Peak abduction attaque
-                '%1.2f',    c.results.Right.momentMin_0_OppFootOff.RHip(2)
-                '%1.2f',    c.results.Left.momentMin_0_OppFootOff.LHip(2)
-                '%1.2f',    c.results.MeanLeg.momentMax_0_OppFootOff.Knee(1) % Genou Peak extension attaque
-                '%1.2f',    c.results.Right.momentMax_0_OppFootOff.RHip(1)
-                '%1.2f',    c.results.Left.momentMax_0_OppFootOff.LHip(1)
-                '%1.2f',    c.results.MeanLeg.momentMin_0_OppFootOff.Knee(1) % Genou Peak extension attaque
-                '%1.2f',    c.results.Right.momentMin_0_OppFootOff.RHip(1)
-                '%1.2f',    c.results.Left.momentMin_0_OppFootOff.LHip(1)
-                % Moments à la poussée
-                '%1.2f',    c.results.MeanLeg.momentMax_OppStrike_100.Hip(1) % Hanche Peak extension poussée
-                '%1.2f',    c.results.Right.momentMax_OppStrike_100.RHip(1)
-                '%1.2f',    c.results.Left.momentMax_OppStrike_100.LHip(1)
-                '%1.2f',    c.results.MeanLeg.momentMin_OppStrike_100.Hip(1) % Hanche Peak flexion poussée
-                '%1.2f',    c.results.Right.momentMin_OppStrike_100.RHip(1)
-                '%1.2f',    c.results.Left.momentMin_OppStrike_100.LHip(1)
-                '%1.2f',    c.results.MeanLeg.momentMin_OppStrike_100.Hip(2) % Hanche Peak abduction poussée
-                '%1.2f',    c.results.Right.momentMin_OppStrike_100.RHip(2)
-                '%1.2f',    c.results.Left.momentMin_OppStrike_100.LHip(2)
-                '%1.2f',    c.results.MeanLeg.momentMax_OppStrike_100.Knee(1) % Genou Peak extension poussée
-                '%1.2f',    c.results.Right.momentMax_OppStrike_100.RHip(1)
-                '%1.2f',    c.results.Left.momentMax_OppStrike_100.LHip(1)
-                '%1.2f',    c.results.MeanLeg.momentMin_OppStrike_100.Knee(1) % Genou Peak extension poussée
-                '%1.2f',    c.results.Right.momentMin_OppStrike_100.RHip(1)
-                '%1.2f',    c.results.Left.momentMin_OppStrike_100.LHip(1)
+%                 % Moments à l'attaque
+%                 '%1.2f',    c.results.MeanLeg.momentMax_0_OppFootOff.Hip(1) % Hanche Peak extension attaque
+%                 '%1.2f',    c.results.Right.momentMax_0_OppFootOff.RHip(1)
+%                 '%1.2f',    c.results.Left.momentMax_0_OppFootOff.LHip(1)
+%                 '%1.2f',    c.results.MeanLeg.momentMin_0_OppFootOff.Hip(1) % Hanche Peak flexion attaque
+%                 '%1.2f',    c.results.Right.momentMin_0_OppFootOff.RHip(1)
+%                 '%1.2f',    c.results.Left.momentMin_0_OppFootOff.LHip(1)
+%                 '%1.2f',    c.results.MeanLeg.momentMin_0_OppFootOff.Hip(2) % Hanche Peak abduction attaque
+%                 '%1.2f',    c.results.Right.momentMin_0_OppFootOff.RHip(2)
+%                 '%1.2f',    c.results.Left.momentMin_0_OppFootOff.LHip(2)
+%                 '%1.2f',    c.results.MeanLeg.momentMax_0_OppFootOff.Knee(1) % Genou Peak extension attaque
+%                 '%1.2f',    c.results.Right.momentMax_0_OppFootOff.RHip(1)
+%                 '%1.2f',    c.results.Left.momentMax_0_OppFootOff.LHip(1)
+%                 '%1.2f',    c.results.MeanLeg.momentMin_0_OppFootOff.Knee(1) % Genou Peak extension attaque
+%                 '%1.2f',    c.results.Right.momentMin_0_OppFootOff.RHip(1)
+%                 '%1.2f',    c.results.Left.momentMin_0_OppFootOff.LHip(1)
+%                 % Moments à la poussée
+%                 '%1.2f',    c.results.MeanLeg.momentMax_OppStrike_100.Hip(1) % Hanche Peak extension poussée
+%                 '%1.2f',    c.results.Right.momentMax_OppStrike_100.RHip(1)
+%                 '%1.2f',    c.results.Left.momentMax_OppStrike_100.LHip(1)
+%                 '%1.2f',    c.results.MeanLeg.momentMin_OppStrike_100.Hip(1) % Hanche Peak flexion poussée
+%                 '%1.2f',    c.results.Right.momentMin_OppStrike_100.RHip(1)
+%                 '%1.2f',    c.results.Left.momentMin_OppStrike_100.LHip(1)
+%                 '%1.2f',    c.results.MeanLeg.momentMin_OppStrike_100.Hip(2) % Hanche Peak abduction poussée
+%                 '%1.2f',    c.results.Right.momentMin_OppStrike_100.RHip(2)
+%                 '%1.2f',    c.results.Left.momentMin_OppStrike_100.LHip(2)
+%                 '%1.2f',    c.results.MeanLeg.momentMax_OppStrike_100.Knee(1) % Genou Peak extension poussée
+%                 '%1.2f',    c.results.Right.momentMax_OppStrike_100.RHip(1)
+%                 '%1.2f',    c.results.Left.momentMax_OppStrike_100.LHip(1)
+%                 '%1.2f',    c.results.MeanLeg.momentMin_OppStrike_100.Knee(1) % Genou Peak extension poussée
+%                 '%1.2f',    c.results.Right.momentMin_OppStrike_100.RHip(1)
+%                 '%1.2f',    c.results.Left.momentMin_OppStrike_100.LHip(1)
                 % EEI
                 '%1.2f',    c.results.eei.fc_repos
                 '%1.2f',    c.results.eei.fc_marche
