@@ -10,8 +10,8 @@ function [ c ] = getFile( c )
 %     c.info.aide = 2;
 %     c.info.aideStr = 'Canne (2)';
 %     c.info.note = 'Yo!';
-%     c.file.path = 'data/Patient 3/';
-%     c.file.names = {'Edouard_Theriault_Marche_04.c3d' 'Edouard_Theriault_Marche_08.c3d' 'Edouard_Theriault_Marche_10.c3d' 'Edouard_Theriault_Marche_12.c3d' 'Edouard_Theriault_Marche_15.c3d' 'Edouard_Theriault_Marche_16.c3d'};
+%     c.file.path = 'data/JC_Dou_POST2/';
+%     c.file.names = {'JC_DOU_post2ans_marche 02.c3d', 'JC_DOU_post2ans_marche 07.c3d', 'JC_DOU_post2ans_marche 08.c3d'};
 %     c.file.savepath = 'result/coucou.csv';
 %     c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
 %     c.staticfile.path = []; %'data/Annie/';
@@ -214,8 +214,14 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
         % Ouvrir un fichier BTK
         c3d(i) = btkReadAcquisition(file.fullpath{i}); %#ok<AGROW>
         
-        data = extractDataFromC3D(c3d(i));
-        
+        try
+            data = extractDataFromC3D(c3d(i));
+        catch me
+            uiwait(errordlg(sprintf('Le fichier %s a retourné l''erreur suivante : \n %s', file.names{i}, me.message)));
+            error('Le fichier %s a retourné l''erreur suivante : \n %s', file.names{i}, me.message);       
+        end
+            
+            
         % Reclasser les donnÃ©es (faire qu'un essai soit un "fichier")
         for j = 1:length(data.norm.Left)
             data.norm.Left(j).filename = sprintf('%s_CÃ´tÃ©Gauche_%d', file.names{i}, j);
