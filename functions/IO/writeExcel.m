@@ -104,12 +104,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin contact init sagittal (°)' 'DG'
                     'Cinématique', 'Bassin contact init sagittal (°)' 'D'
                     'Cinématique', 'Bassin contact init sagittal (°)' 'G'
+                    'Cinématique', 'Hanche contact init sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche contact init sagittal (°)' 'D'
+                    'Cinématique', 'Hanche contact init sagittal (°)' 'G'
                     'Cinématique', 'Genou contact init sagittal (°)' 'DG'
                     'Cinématique', 'Genou contact init sagittal (°)' 'D'
                     'Cinématique', 'Genou contact init sagittal (°)' 'G'
-                    'Cinématique', 'Chevile contact init sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile contact init sagittal (°)' 'D'
-                    'Cinématique', 'Chevile contact init sagittal (°)' 'G'
+                    'Cinématique', 'Cheville contact init sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville contact init sagittal (°)' 'D'
+                    'Cinématique', 'Cheville contact init sagittal (°)' 'G'
                     'Cinématique', 'Foot progress contact init sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress contact init sagittal (°)' 'D'
                     'Cinématique', 'Foot progress contact init sagittal (°)' 'G'
@@ -120,12 +123,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin contact init frontal (°)' 'DG'
                     'Cinématique', 'Bassin contact init frontal (°)' 'D'
                     'Cinématique', 'Bassin contact init frontal (°)' 'G'
+                    'Cinématique', 'Hanche contact init frontal (°)' 'DG'
+                    'Cinématique', 'Hanche contact init frontal (°)' 'D'
+                    'Cinématique', 'Hanche contact init frontal (°)' 'G'
                     'Cinématique', 'Genou contact init frontal (°)' 'DG'
                     'Cinématique', 'Genou contact init frontal (°)' 'D'
                     'Cinématique', 'Genou contact init frontal (°)' 'G'
-                    'Cinématique', 'Chevile contact init frontal (°)' 'DG'
-                    'Cinématique', 'Chevile contact init frontal (°)' 'D'
-                    'Cinématique', 'Chevile contact init frontal (°)' 'G'
+                    'Cinématique', 'Cheville contact init frontal (°)' 'DG'
+                    'Cinématique', 'Cheville contact init frontal (°)' 'D'
+                    'Cinématique', 'Cheville contact init frontal (°)' 'G'
                     'Cinématique', 'Foot progress contact init frontal (°)' 'DG'
                     'Cinématique', 'Foot progress contact init frontal (°)' 'D'
                     'Cinématique', 'Foot progress contact init frontal (°)' 'G'
@@ -136,12 +142,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin contact init transverse (°)' 'DG'
                     'Cinématique', 'Bassin contact init transverse (°)' 'D'
                     'Cinématique', 'Bassin contact init transverse (°)' 'G'
+                    'Cinématique', 'Hanche contact init transverse (°)' 'DG'
+                    'Cinématique', 'Hanche contact init transverse (°)' 'D'
+                    'Cinématique', 'Hanche contact init transverse (°)' 'G'
                     'Cinématique', 'Genou contact init transverse (°)' 'DG'
                     'Cinématique', 'Genou contact init transverse (°)' 'D'
                     'Cinématique', 'Genou contact init transverse (°)' 'G'
-                    'Cinématique', 'Chevile contact init transverse (°)' 'DG'
-                    'Cinématique', 'Chevile contact init transverse (°)' 'D'
-                    'Cinématique', 'Chevile contact init transverse (°)' 'G'
+                    'Cinématique', 'Cheville contact init transverse (°)' 'DG'
+                    'Cinématique', 'Cheville contact init transverse (°)' 'D'
+                    'Cinématique', 'Cheville contact init transverse (°)' 'G'
                     'Cinématique', 'Foot progress contact init transverse (°)' 'DG'
                     'Cinématique', 'Foot progress contact init transverse (°)' 'D'
                     'Cinématique', 'Foot progress contact init transverse (°)' 'G'
@@ -153,12 +162,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin poussée sagittal (°)' 'DG'
                     'Cinématique', 'Bassin poussée sagittal (°)' 'D'
                     'Cinématique', 'Bassin poussée sagittal (°)' 'G'
+                    'Cinématique', 'Hanche poussée sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche poussée sagittal (°)' 'D'
+                    'Cinématique', 'Hanche poussée sagittal (°)' 'G'
                     'Cinématique', 'Genou poussée sagittal (°)' 'DG'
                     'Cinématique', 'Genou poussée sagittal (°)' 'D'
                     'Cinématique', 'Genou poussée sagittal (°)' 'G'
-                    'Cinématique', 'Chevile poussée sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile poussée sagittal (°)' 'D'
-                    'Cinématique', 'Chevile poussée sagittal (°)' 'G'
+                    'Cinématique', 'Cheville poussée sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville poussée sagittal (°)' 'D'
+                    'Cinématique', 'Cheville poussée sagittal (°)' 'G'
                     'Cinématique', 'Foot progress poussée sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress poussée sagittal (°)' 'D'
                     'Cinématique', 'Foot progress poussée sagittal (°)' 'G'
@@ -169,12 +181,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin poussée frontal (°)' 'DG'
                     'Cinématique', 'Bassin poussée frontal (°)' 'D'
                     'Cinématique', 'Bassin poussée frontal (°)' 'G'
+                    'Cinématique', 'Hanche poussée frontal (°)' 'DG'
+                    'Cinématique', 'Hanche poussée frontal (°)' 'D'
+                    'Cinématique', 'Hanche poussée frontal (°)' 'G'
                     'Cinématique', 'Genou poussée frontal (°)' 'DG'
                     'Cinématique', 'Genou poussée frontal (°)' 'D'
                     'Cinématique', 'Genou poussée frontal (°)' 'G'
-                    'Cinématique', 'Chevile poussée frontal (°)' 'DG'
-                    'Cinématique', 'Chevile poussée frontal (°)' 'D'
-                    'Cinématique', 'Chevile poussée frontal (°)' 'G'
+                    'Cinématique', 'Cheville poussée frontal (°)' 'DG'
+                    'Cinématique', 'Cheville poussée frontal (°)' 'D'
+                    'Cinématique', 'Cheville poussée frontal (°)' 'G'
                     'Cinématique', 'Foot progress poussée frontal (°)' 'DG'
                     'Cinématique', 'Foot progress poussée frontal (°)' 'D'
                     'Cinématique', 'Foot progress poussée frontal (°)' 'G'
@@ -185,6 +200,9 @@ function writeExcel(c)
                     'Cinématique', 'Bassin poussée transverse (°)' 'DG'
                     'Cinématique', 'Bassin poussée transverse (°)' 'D'
                     'Cinématique', 'Bassin poussée transverse (°)' 'G'
+                    'Cinématique', 'Hanche poussée transverse (°)' 'DG'
+                    'Cinématique', 'Hanche poussée transverse (°)' 'D'
+                    'Cinématique', 'Hanche poussée transverse (°)' 'G'
                     'Cinématique', 'Genou poussée transverse (°)' 'DG'
                     'Cinématique', 'Genou poussée transverse (°)' 'D'
                     'Cinématique', 'Genou poussée transverse (°)' 'G'
@@ -202,12 +220,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin min unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Bassin min unipodal sagittal (°)' 'D'
                     'Cinématique', 'Bassin min unipodal sagittal (°)' 'G'
+                    'Cinématique', 'Hanche min unipodal sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche min unipodal sagittal (°)' 'D'
+                    'Cinématique', 'Hanche min unipodal sagittal (°)' 'G'
                     'Cinématique', 'Genou min unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Genou min unipodal sagittal (°)' 'D'
                     'Cinématique', 'Genou min unipodal sagittal (°)' 'G'
-                    'Cinématique', 'Chevile min unipodal sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile min unipodal sagittal (°)' 'D'
-                    'Cinématique', 'Chevile min unipodal sagittal (°)' 'G'
+                    'Cinématique', 'Cheville min unipodal sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville min unipodal sagittal (°)' 'D'
+                    'Cinématique', 'Cheville min unipodal sagittal (°)' 'G'
                     'Cinématique', 'Foot progress min unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress min unipodal sagittal (°)' 'D'
                     'Cinématique', 'Foot progress min unipodal sagittal (°)' 'G'
@@ -218,12 +239,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin min unipodal frontal (°)' 'DG'
                     'Cinématique', 'Bassin min unipodal frontal (°)' 'D'
                     'Cinématique', 'Bassin min unipodal frontal (°)' 'G'
+                    'Cinématique', 'Hanche min unipodal frontal (°)' 'DG'
+                    'Cinématique', 'Hanche min unipodal frontal (°)' 'D'
+                    'Cinématique', 'Hanche min unipodal frontal (°)' 'G'
                     'Cinématique', 'Genou min unipodal frontal (°)' 'DG'
                     'Cinématique', 'Genou min unipodal frontal (°)' 'D'
                     'Cinématique', 'Genou min unipodal frontal (°)' 'G'
-                    'Cinématique', 'Chevile min unipodal frontal (°)' 'DG'
-                    'Cinématique', 'Chevile min unipodal frontal (°)' 'D'
-                    'Cinématique', 'Chevile min unipodal frontal (°)' 'G'
+                    'Cinématique', 'Cheville min unipodal frontal (°)' 'DG'
+                    'Cinématique', 'Cheville min unipodal frontal (°)' 'D'
+                    'Cinématique', 'Cheville min unipodal frontal (°)' 'G'
                     'Cinématique', 'Foot progress min unipodal frontal (°)' 'DG'
                     'Cinématique', 'Foot progress min unipodal frontal (°)' 'D'
                     'Cinématique', 'Foot progress min unipodal frontal (°)' 'G'
@@ -234,29 +258,35 @@ function writeExcel(c)
                     'Cinématique', 'Bassin min unipodal transverse (°)' 'DG'
                     'Cinématique', 'Bassin min unipodal transverse (°)' 'D'
                     'Cinématique', 'Bassin min unipodal transverse (°)' 'G'
+                    'Cinématique', 'Hanche min unipodal transverse (°)' 'DG'
+                    'Cinématique', 'Hanche min unipodal transverse (°)' 'D'
+                    'Cinématique', 'Hanche min unipodal transverse (°)' 'G'
                     'Cinématique', 'Genou min unipodal transverse (°)' 'DG'
                     'Cinématique', 'Genou min unipodal transverse (°)' 'D'
                     'Cinématique', 'Genou min unipodal transverse (°)' 'G'
-                    'Cinématique', 'Chevile min unipodal transverse (°)' 'DG'
-                    'Cinématique', 'Chevile min unipodal transverse (°)' 'D'
-                    'Cinématique', 'Chevile min unipodal transverse (°)' 'G'
+                    'Cinématique', 'Cheville min unipodal transverse (°)' 'DG'
+                    'Cinématique', 'Cheville min unipodal transverse (°)' 'D'
+                    'Cinématique', 'Cheville min unipodal transverse (°)' 'G'
                     'Cinématique', 'Foot progress min unipodal transverse (°)' 'DG'
                     'Cinématique', 'Foot progress min unipodal transverse (°)' 'D'
                     'Cinématique', 'Foot progress min unipodal transverse (°)' 'G'
                     
-                    % Cinématique angle maximum durant le support
+                    % Cinématique angle maximum durant le support unipodal
                     'Cinématique', 'Tronc max unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Tronc max unipodal sagittal (°)' 'D'
                     'Cinématique', 'Tronc max unipodal sagittal (°)' 'G'
                     'Cinématique', 'Bassin max unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Bassin max unipodal sagittal (°)' 'D'
                     'Cinématique', 'Bassin max unipodal sagittal (°)' 'G'
+                    'Cinématique', 'Hanche max unipodal sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche max unipodal sagittal (°)' 'D'
+                    'Cinématique', 'Hanche max unipodal sagittal (°)' 'G'
                     'Cinématique', 'Genou max unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Genou max unipodal sagittal (°)' 'D'
                     'Cinématique', 'Genou max unipodal sagittal (°)' 'G'
-                    'Cinématique', 'Chevile max unipodal sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile max unipodal sagittal (°)' 'D'
-                    'Cinématique', 'Chevile max unipodal sagittal (°)' 'G'
+                    'Cinématique', 'Cheville max unipodal sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville max unipodal sagittal (°)' 'D'
+                    'Cinématique', 'Cheville max unipodal sagittal (°)' 'G'
                     'Cinématique', 'Foot progress max unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress max unipodal sagittal (°)' 'D'
                     'Cinématique', 'Foot progress max unipodal sagittal (°)' 'G'
@@ -267,12 +297,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin max unipodal frontal (°)' 'DG'
                     'Cinématique', 'Bassin max unipodal frontal (°)' 'D'
                     'Cinématique', 'Bassin max unipodal frontal (°)' 'G'
+                    'Cinématique', 'Hanche max unipodal frontal (°)' 'DG'
+                    'Cinématique', 'Hanche max unipodal frontal (°)' 'D'
+                    'Cinématique', 'Hanche max unipodal frontal (°)' 'G'
                     'Cinématique', 'Genou max unipodal frontal (°)' 'DG'
                     'Cinématique', 'Genou max unipodal frontal (°)' 'D'
                     'Cinématique', 'Genou max unipodal frontal (°)' 'G'
-                    'Cinématique', 'Chevile max unipodal frontal (°)' 'DG'
-                    'Cinématique', 'Chevile max unipodal frontal (°)' 'D'
-                    'Cinématique', 'Chevile max unipodal frontal (°)' 'G'
+                    'Cinématique', 'Cheville max unipodal frontal (°)' 'DG'
+                    'Cinématique', 'Cheville max unipodal frontal (°)' 'D'
+                    'Cinématique', 'Cheville max unipodal frontal (°)' 'G'
                     'Cinématique', 'Foot progress max unipodal frontal (°)' 'DG'
                     'Cinématique', 'Foot progress max unipodal frontal (°)' 'D'
                     'Cinématique', 'Foot progress max unipodal frontal (°)' 'G'
@@ -283,29 +316,35 @@ function writeExcel(c)
                     'Cinématique', 'Bassin max unipodal transverse (°)' 'DG'
                     'Cinématique', 'Bassin max unipodal transverse (°)' 'D'
                     'Cinématique', 'Bassin max unipodal transverse (°)' 'G'
+                    'Cinématique', 'Hanche max unipodal transverse (°)' 'DG'
+                    'Cinématique', 'Hanche max unipodal transverse (°)' 'D'
+                    'Cinématique', 'Hanche max unipodal transverse (°)' 'G'
                     'Cinématique', 'Genou max unipodal transverse (°)' 'DG'
                     'Cinématique', 'Genou max unipodal transverse (°)' 'D'
                     'Cinématique', 'Genou max unipodal transverse (°)' 'G'
-                    'Cinématique', 'Chevile max unipodal transverse (°)' 'DG'
-                    'Cinématique', 'Chevile max unipodal transverse (°)' 'D'
-                    'Cinématique', 'Chevile max unipodal transverse (°)' 'G'
+                    'Cinématique', 'Cheville max unipodal transverse (°)' 'DG'
+                    'Cinématique', 'Cheville max unipodal transverse (°)' 'D'
+                    'Cinématique', 'Cheville max unipodal transverse (°)' 'G'
                     'Cinématique', 'Foot progress max unipodal transverse (°)' 'DG'
                     'Cinématique', 'Foot progress max unipodal transverse (°)' 'D'
                     'Cinématique', 'Foot progress max unipodal transverse (°)' 'G'
                     
-                    % Cinématique angle minimum durant l'appuie
+                    % Cinématique angle minimum durant l'appui
                     'Cinématique', 'Tronc min appui sagittal (°)' 'DG'
                     'Cinématique', 'Tronc min appui sagittal (°)' 'D'
                     'Cinématique', 'Tronc min appui sagittal (°)' 'G'
                     'Cinématique', 'Bassin min appui sagittal (°)' 'DG'
                     'Cinématique', 'Bassin min appui sagittal (°)' 'D'
                     'Cinématique', 'Bassin min appui sagittal (°)' 'G'
+                    'Cinématique', 'Hanche min appui sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche min appui sagittal (°)' 'D'
+                    'Cinématique', 'Hanche min appui sagittal (°)' 'G'
                     'Cinématique', 'Genou min appui sagittal (°)' 'DG'
                     'Cinématique', 'Genou min appui sagittal (°)' 'D'
                     'Cinématique', 'Genou min appui sagittal (°)' 'G'
-                    'Cinématique', 'Chevile min appui sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile min appui sagittal (°)' 'D'
-                    'Cinématique', 'Chevile min appui sagittal (°)' 'G'
+                    'Cinématique', 'Cheville min appui sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville min appui sagittal (°)' 'D'
+                    'Cinématique', 'Cheville min appui sagittal (°)' 'G'
                     'Cinématique', 'Foot progress min appui sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress min appui sagittal (°)' 'D'
                     'Cinématique', 'Foot progress min appui sagittal (°)' 'G'
@@ -316,12 +355,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin min appui frontal (°)' 'DG'
                     'Cinématique', 'Bassin min appui frontal (°)' 'D'
                     'Cinématique', 'Bassin min appui frontal (°)' 'G'
+                    'Cinématique', 'Hanche min appui frontal (°)' 'DG'
+                    'Cinématique', 'Hanche min appui frontal (°)' 'D'
+                    'Cinématique', 'Hanche min appui frontal (°)' 'G'
                     'Cinématique', 'Genou min appui frontal (°)' 'DG'
                     'Cinématique', 'Genou min appui frontal (°)' 'D'
                     'Cinématique', 'Genou min appui frontal (°)' 'G'
-                    'Cinématique', 'Chevile min appui frontal (°)' 'DG'
-                    'Cinématique', 'Chevile min appui frontal (°)' 'D'
-                    'Cinématique', 'Chevile min appui frontal (°)' 'G'
+                    'Cinématique', 'Cheville min appui frontal (°)' 'DG'
+                    'Cinématique', 'Cheville min appui frontal (°)' 'D'
+                    'Cinématique', 'Cheville min appui frontal (°)' 'G'
                     'Cinématique', 'Foot progress min appui frontal (°)' 'DG'
                     'Cinématique', 'Foot progress min appui frontal (°)' 'D'
                     'Cinématique', 'Foot progress min appui frontal (°)' 'G'
@@ -332,12 +374,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin min appui transverse (°)' 'DG'
                     'Cinématique', 'Bassin min appui transverse (°)' 'D'
                     'Cinématique', 'Bassin min appui transverse (°)' 'G'
+                    'Cinématique', 'Hanche min appui transverse (°)' 'DG'
+                    'Cinématique', 'Hanche min appui transverse (°)' 'D'
+                    'Cinématique', 'Hanche min appui transverse (°)' 'G'
                     'Cinématique', 'Genou min appui transverse (°)' 'DG'
                     'Cinématique', 'Genou min appui transverse (°)' 'D'
                     'Cinématique', 'Genou min appui transverse (°)' 'G'
-                    'Cinématique', 'Chevile min appui transverse (°)' 'DG'
-                    'Cinématique', 'Chevile min appui transverse (°)' 'D'
-                    'Cinématique', 'Chevile min appui transverse (°)' 'G'
+                    'Cinématique', 'Cheville min appui transverse (°)' 'DG'
+                    'Cinématique', 'Cheville min appui transverse (°)' 'D'
+                    'Cinématique', 'Cheville min appui transverse (°)' 'G'
                     'Cinématique', 'Foot progress min appui transverse (°)' 'DG'
                     'Cinématique', 'Foot progress min appui transverse (°)' 'D'
                     'Cinématique', 'Foot progress min appui transverse (°)' 'G'
@@ -349,12 +394,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin max appui sagittal (°)' 'DG'
                     'Cinématique', 'Bassin max appui sagittal (°)' 'D'
                     'Cinématique', 'Bassin max appui sagittal (°)' 'G'
+                    'Cinématique', 'Hanche max appui sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche max appui sagittal (°)' 'D'
+                    'Cinématique', 'Hanche max appui sagittal (°)' 'G'
                     'Cinématique', 'Genou max appui sagittal (°)' 'DG'
                     'Cinématique', 'Genou max appui sagittal (°)' 'D'
                     'Cinématique', 'Genou max appui sagittal (°)' 'G'
-                    'Cinématique', 'Chevile max appui sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile max appui sagittal (°)' 'D'
-                    'Cinématique', 'Chevile max appui sagittal (°)' 'G'
+                    'Cinématique', 'Cheville max appui sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville max appui sagittal (°)' 'D'
+                    'Cinématique', 'Cheville max appui sagittal (°)' 'G'
                     'Cinématique', 'Foot progress max appui sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress max appui sagittal (°)' 'D'
                     'Cinématique', 'Foot progress max appui sagittal (°)' 'G'
@@ -365,12 +413,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin max appui frontal (°)' 'DG'
                     'Cinématique', 'Bassin max appui frontal (°)' 'D'
                     'Cinématique', 'Bassin max appui frontal (°)' 'G'
+                    'Cinématique', 'Hanche max appui frontal (°)' 'DG'
+                    'Cinématique', 'Hanche max appui frontal (°)' 'D'
+                    'Cinématique', 'Hanche max appui frontal (°)' 'G'
                     'Cinématique', 'Genou max appui frontal (°)' 'DG'
                     'Cinématique', 'Genou max appui frontal (°)' 'D'
                     'Cinématique', 'Genou max appui frontal (°)' 'G'
-                    'Cinématique', 'Chevile max appui frontal (°)' 'DG'
-                    'Cinématique', 'Chevile max appui frontal (°)' 'D'
-                    'Cinématique', 'Chevile max appui frontal (°)' 'G'
+                    'Cinématique', 'Cheville max appui frontal (°)' 'DG'
+                    'Cinématique', 'Cheville max appui frontal (°)' 'D'
+                    'Cinématique', 'Cheville max appui frontal (°)' 'G'
                     'Cinématique', 'Foot progress max appui frontal (°)' 'DG'
                     'Cinématique', 'Foot progress max appui frontal (°)' 'D'
                     'Cinématique', 'Foot progress max appui frontal (°)' 'G'
@@ -381,12 +432,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin max appui transverse (°)' 'DG'
                     'Cinématique', 'Bassin max appui transverse (°)' 'D'
                     'Cinématique', 'Bassin max appui transverse (°)' 'G'
+                    'Cinématique', 'Hanche max appui transverse (°)' 'DG'
+                    'Cinématique', 'Hanche max appui transverse (°)' 'D'
+                    'Cinématique', 'Hanche max appui transverse (°)' 'G'
                     'Cinématique', 'Genou max appui transverse (°)' 'DG'
                     'Cinématique', 'Genou max appui transverse (°)' 'D'
                     'Cinématique', 'Genou max appui transverse (°)' 'G'
-                    'Cinéma c.results.Left.comRangeHeighttique', 'Chevile max appui transverse (°)' 'DG'
-                    'Cinématique', 'Chevile max appui transverse (°)' 'D'
-                    'Cinématique', 'Chevile max appui transverse (°)' 'G'
+                    'Cinématique', 'Cheville max appui transverse (°)' 'DG'
+                    'Cinématique', 'Cheville max appui transverse (°)' 'D'
+                    'Cinématique', 'Cheville max appui transverse (°)' 'G'
                     'Cinématique', 'Foot progress max appui transverse (°)' 'DG'
                     'Cinématique', 'Foot progress max appui transverse (°)' 'D'
                     'Cinématique', 'Foot progress max appui transverse (°)' 'G'
@@ -398,12 +452,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin RoM unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Bassin RoM unipodal sagittal (°)' 'D'
                     'Cinématique', 'Bassin RoM unipodal sagittal (°)' 'G'
+                    'Cinématique', 'Hanche RoM unipodal sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche RoM unipodal sagittal (°)' 'D'
+                    'Cinématique', 'Hanche RoM unipodal sagittal (°)' 'G'
                     'Cinématique', 'Genou RoM unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Genou RoM unipodal sagittal (°)' 'D'
                     'Cinématique', 'Genou RoM unipodal sagittal (°)' 'G'
-                    'Cinématique', 'Chevile RoM unipodal sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile RoM unipodal sagittal (°)' 'D'
-                    'Cinématique', 'Chevile RoM unipodal sagittal (°)' 'G'
+                    'Cinématique', 'Cheville RoM unipodal sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville RoM unipodal sagittal (°)' 'D'
+                    'Cinématique', 'Cheville RoM unipodal sagittal (°)' 'G'
                     'Cinématique', 'Foot progress RoM unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress RoM unipodal sagittal (°)' 'D'
                     'Cinématique', 'Foot progress RoM unipodal sagittal (°)' 'G'
@@ -414,12 +471,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin RoM unipodal frontal (°)' 'DG'
                     'Cinématique', 'Bassin RoM unipodal frontal (°)' 'D'
                     'Cinématique', 'Bassin RoM unipodal frontal (°)' 'G'
+                    'Cinématique', 'Hanche RoM unipodal frontal (°)' 'DG'
+                    'Cinématique', 'Hanche RoM unipodal frontal (°)' 'D'
+                    'Cinématique', 'Hanche RoM unipodal frontal (°)' 'G'
                     'Cinématique', 'Genou RoM unipodal frontal (°)' 'DG'
                     'Cinématique', 'Genou RoM unipodal frontal (°)' 'D'
                     'Cinématique', 'Genou RoM unipodal frontal (°)' 'G'
-                    'Cinématique', 'Chevile RoM unipodal frontal (°)' 'DG'
-                    'Cinématique', 'Chevile RoM unipodal frontal (°)' 'D'
-                    'Cinématique', 'Chevile RoM unipodal frontal (°)' 'G'
+                    'Cinématique', 'Cheville RoM unipodal frontal (°)' 'DG'
+                    'Cinématique', 'Cheville RoM unipodal frontal (°)' 'D'
+                    'Cinématique', 'Cheville RoM unipodal frontal (°)' 'G'
                     'Cinématique', 'Foot progress RoM unipodal frontal (°)' 'DG'
                     'Cinématique', 'Foot progress RoM unipodal frontal (°)' 'D'
                     'Cinématique', 'Foot progress RoM unipodal frontal (°)' 'G'
@@ -430,12 +490,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin RoM unipodal transverse (°)' 'DG'
                     'Cinématique', 'Bassin RoM unipodal transverse (°)' 'D'
                     'Cinématique', 'Bassin RoM unipodal transverse (°)' 'G'
+                    'Cinématique', 'Hanche RoM unipodal transverse (°)' 'DG'
+                    'Cinématique', 'Hanche RoM unipodal transverse (°)' 'D'
+                    'Cinématique', 'Hanche RoM unipodal transverse (°)' 'G'
                     'Cinématique', 'Genou RoM unipodal transverse (°)' 'DG'
                     'Cinématique', 'Genou RoM unipodal transverse (°)' 'D'
                     'Cinématique', 'Genou RoM unipodal transverse (°)' 'G'
-                    'Cinématique', 'Chevile RoM unipodal transverse (°)' 'DG'
-                    'Cinématique', 'Chevile RoM unipodal transverse (°)' 'D'
-                    'Cinématique', 'Chevile RoM unipodal transverse (°)' 'G'
+                    'Cinématique', 'Cheville RoM unipodal transverse (°)' 'DG'
+                    'Cinématique', 'Cheville RoM unipodal transverse (°)' 'D'
+                    'Cinématique', 'Cheville RoM unipodal transverse (°)' 'G'
                     'Cinématique', 'Foot progress RoM unipodal transverse (°)' 'DG'
                     'Cinématique', 'Foot progress RoM unipodal transverse (°)' 'D'
                     'Cinématique', 'Foot progress RoM unipodal transverse (°)' 'G'
@@ -447,12 +510,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin RoM appui sagittal (°)' 'DG'
                     'Cinématique', 'Bassin RoM appui sagittal (°)' 'D'
                     'Cinématique', 'Bassin RoM appui sagittal (°)' 'G'
+                    'Cinématique', 'Hanche RoM appui sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche RoM appui sagittal (°)' 'D'
+                    'Cinématique', 'Hanche RoM appui sagittal (°)' 'G'
                     'Cinématique', 'Genou RoM appui sagittal (°)' 'DG'
                     'Cinématique', 'Genou RoM appui sagittal (°)' 'D'
                     'Cinématique', 'Genou RoM appui sagittal (°)' 'G'
-                    'Cinématique', 'Chevile RoM appui sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile RoM appui sagittal (°)' 'D'
-                    'Cinématique', 'Chevile RoM appui sagittal (°)' 'G'
+                    'Cinématique', 'Cheville RoM appui sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville RoM appui sagittal (°)' 'D'
+                    'Cinématique', 'Cheville RoM appui sagittal (°)' 'G'
                     'Cinématique', 'Foot progress RoM appui sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress RoM appui sagittal (°)' 'D'
                     'Cinématique', 'Foot progress RoM appui sagittal (°)' 'G'
@@ -463,12 +529,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin RoM appui frontal (°)' 'DG'
                     'Cinématique', 'Bassin RoM appui frontal (°)' 'D'
                     'Cinématique', 'Bassin RoM appui frontal (°)' 'G'
+                    'Cinématique', 'Hanche RoM appui frontal (°)' 'DG'
+                    'Cinématique', 'Hanche RoM appui frontal (°)' 'D'
+                    'Cinématique', 'Hanche RoM appui frontal (°)' 'G'
                     'Cinématique', 'Genou RoM appui frontal (°)' 'DG'
                     'Cinématique', 'Genou RoM appui frontal (°)' 'D'
                     'Cinématique', 'Genou RoM appui frontal (°)' 'G'
-                    'Cinématique', 'Chevile RoM appui frontal (°)' 'DG'
-                    'Cinématique', 'Chevile RoM appui frontal (°)' 'D'
-                    'Cinématique', 'Chevile RoM appui frontal (°)' 'G'
+                    'Cinématique', 'Cheville RoM appui frontal (°)' 'DG'
+                    'Cinématique', 'Cheville RoM appui frontal (°)' 'D'
+                    'Cinématique', 'Cheville RoM appui frontal (°)' 'G'
                     'Cinématique', 'Foot progress RoM appui frontal (°)' 'DG'
                     'Cinématique', 'Foot progress RoM appui frontal (°)' 'D'
                     'Cinématique', 'Foot progress RoM appui frontal (°)' 'G'
@@ -479,12 +548,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin RoM appui transverse (°)' 'DG'
                     'Cinématique', 'Bassin RoM appui transverse (°)' 'D'
                     'Cinématique', 'Bassin RoM appui transverse (°)' 'G'
+                    'Cinématique', 'Hanche RoM appui transverse (°)' 'DG'
+                    'Cinématique', 'Hanche RoM appui transverse (°)' 'D'
+                    'Cinématique', 'Hanche RoM appui transverse (°)' 'G'
                     'Cinématique', 'Genou RoM appui transverse (°)' 'DG'
                     'Cinématique', 'Genou RoM appui transverse (°)' 'D'
                     'Cinématique', 'Genou RoM appui transverse (°)' 'G'
-                    'Cinématique', 'Chevile RoM appui transverse (°)' 'DG'
-                    'Cinématique', 'Chevile RoM appui transverse (°)' 'D'
-                    'Cinématique', 'Chevile RoM appui transverse (°)' 'G'
+                    'Cinématique', 'Cheville RoM appui transverse (°)' 'DG'
+                    'Cinématique', 'Cheville RoM appui transverse (°)' 'D'
+                    'Cinématique', 'Cheville RoM appui transverse (°)' 'G'
                     'Cinématique', 'Foot progress RoM appui transverse (°)' 'DG'
                     'Cinématique', 'Foot progress RoM appui transverse (°)' 'D'
                     'Cinématique', 'Foot progress RoM appui transverse (°)' 'G'
@@ -496,12 +568,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin moyenne unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Bassin moyenne unipodal sagittal (°)' 'D'
                     'Cinématique', 'Bassin moyenne unipodal sagittal (°)' 'G'
+                    'Cinématique', 'Hanche moyenne unipodal sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche moyenne unipodal sagittal (°)' 'D'
+                    'Cinématique', 'Hanche moyenne unipodal sagittal (°)' 'G'
                     'Cinématique', 'Genou moyenne unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Genou moyenne unipodal sagittal (°)' 'D'
                     'Cinématique', 'Genou moyenne unipodal sagittal (°)' 'G'
-                    'Cinématique', 'Chevile moyenne unipodal sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile moyenne unipodal sagittal (°)' 'D'
-                    'Cinématique', 'Chevile moyenne unipodal sagittal (°)' 'G'
+                    'Cinématique', 'Cheville moyenne unipodal sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville moyenne unipodal sagittal (°)' 'D'
+                    'Cinématique', 'Cheville moyenne unipodal sagittal (°)' 'G'
                     'Cinématique', 'Foot progress moyenne unipodal sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress moyenne unipodal sagittal (°)' 'D'
                     'Cinématique', 'Foot progress moyenne unipodal sagittal (°)' 'G'
@@ -512,12 +587,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin moyenne unipodal frontal (°)' 'DG'
                     'Cinématique', 'Bassin moyenne unipodal frontal (°)' 'D'
                     'Cinématique', 'Bassin moyenne unipodal frontal (°)' 'G'
+                    'Cinématique', 'Hanche moyenne unipodal frontal (°)' 'DG'
+                    'Cinématique', 'Hanche moyenne unipodal frontal (°)' 'D'
+                    'Cinématique', 'Hanche moyenne unipodal frontal (°)' 'G'
                     'Cinématique', 'Genou moyenne unipodal frontal (°)' 'DG'
                     'Cinématique', 'Genou moyenne unipodal frontal (°)' 'D'
                     'Cinématique', 'Genou moyenne unipodal frontal (°)' 'G'
-                    'Cinématique', 'Chevile moyenne unipodal frontal (°)' 'DG'
-                    'Cinématique', 'Chevile moyenne unipodal frontal (°)' 'D'
-                    'Cinématique', 'Chevile moyenne unipodal frontal (°)' 'G'
+                    'Cinématique', 'Cheville moyenne unipodal frontal (°)' 'DG'
+                    'Cinématique', 'Cheville moyenne unipodal frontal (°)' 'D'
+                    'Cinématique', 'Cheville moyenne unipodal frontal (°)' 'G'
                     'Cinématique', 'Foot progress moyenne unipodal frontal (°)' 'DG'
                     'Cinématique', 'Foot progress moyenne unipodal frontal (°)' 'D'
                     'Cinématique', 'Foot progress moyenne unipodal frontal (°)' 'G'
@@ -528,12 +606,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin moyenne unipodal transverse (°)' 'DG'
                     'Cinématique', 'Bassin moyenne unipodal transverse (°)' 'D'
                     'Cinématique', 'Bassin moyenne unipodal transverse (°)' 'G'
+                    'Cinématique', 'Hanche moyenne unipodal transverse (°)' 'DG'
+                    'Cinématique', 'Hanche moyenne unipodal transverse (°)' 'D'
+                    'Cinématique', 'Hanche moyenne unipodal transverse (°)' 'G'
                     'Cinématique', 'Genou moyenne unipodal transverse (°)' 'DG'
                     'Cinématique', 'Genou moyenne unipodal transverse (°)' 'D'
                     'Cinématique', 'Genou moyenne unipodal transverse (°)' 'G'
-                    'Cinématique', 'Chevile moyenne unipodal transverse (°)' 'DG'
-                    'Cinématique', 'Chevile moyenne unipodal transverse (°)' 'D'
-                    'Cinématique', 'Chevile moyenne unipodal transverse (°)' 'G'
+                    'Cinématique', 'Cheville moyenne unipodal transverse (°)' 'DG'
+                    'Cinématique', 'Cheville moyenne unipodal transverse (°)' 'D'
+                    'Cinématique', 'Cheville moyenne unipodal transverse (°)' 'G'
                     'Cinématique', 'Foot progress moyenne unipodal transverse (°)' 'DG'
                     'Cinématique', 'Foot progress moyenne unipodal transverse (°)' 'D'
                     'Cinématique', 'Foot progress moyenne unipodal transverse (°)' 'G'
@@ -545,12 +626,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin moyenne appui sagittal (°)' 'DG'
                     'Cinématique', 'Bassin moyenne appui sagittal (°)' 'D'
                     'Cinématique', 'Bassin moyenne appui sagittal (°)' 'G'
+                    'Cinématique', 'Hanche moyenne appui sagittal (°)' 'DG'
+                    'Cinématique', 'Hanche moyenne appui sagittal (°)' 'D'
+                    'Cinématique', 'Hanche moyenne appui sagittal (°)' 'G'
                     'Cinématique', 'Genou moyenne appui sagittal (°)' 'DG'
                     'Cinématique', 'Genou moyenne appui sagittal (°)' 'D'
                     'Cinématique', 'Genou moyenne appui sagittal (°)' 'G'
-                    'Cinématique', 'Chevile moyenne appui sagittal (°)' 'DG'
-                    'Cinématique', 'Chevile moyenne appui sagittal (°)' 'D'
-                    'Cinématique', 'Chevile moyenne appui sagittal (°)' 'G'
+                    'Cinématique', 'Cheville moyenne appui sagittal (°)' 'DG'
+                    'Cinématique', 'Cheville moyenne appui sagittal (°)' 'D'
+                    'Cinématique', 'Cheville moyenne appui sagittal (°)' 'G'
                     'Cinématique', 'Foot progress moyenne appui sagittal (°)' 'DG'
                     'Cinématique', 'Foot progress moyenne appui sagittal (°)' 'D'
                     'Cinématique', 'Foot progress moyenne appui sagittal (°)' 'G'
@@ -561,12 +645,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin moyenne appui frontal (°)' 'DG'
                     'Cinématique', 'Bassin moyenne appui frontal (°)' 'D'
                     'Cinématique', 'Bassin moyenne appui frontal (°)' 'G'
+                    'Cinématique', 'Hanche moyenne appui frontal (°)' 'DG'
+                    'Cinématique', 'Hanche moyenne appui frontal (°)' 'D'
+                    'Cinématique', 'Hanche moyenne appui frontal (°)' 'G'
                     'Cinématique', 'Genou moyenne appui frontal (°)' 'DG'
                     'Cinématique', 'Genou moyenne appui frontal (°)' 'D'
                     'Cinématique', 'Genou moyenne appui frontal (°)' 'G'
-                    'Cinématique', 'Chevile moyenne appui frontal (°)' 'DG'
-                    'Cinématique', 'Chevile moyenne appui frontal (°)' 'D'
-                    'Cinématique', 'Chevile moyenne appui frontal (°)' 'G'
+                    'Cinématique', 'Cheville moyenne appui frontal (°)' 'DG'
+                    'Cinématique', 'Cheville moyenne appui frontal (°)' 'D'
+                    'Cinématique', 'Cheville moyenne appui frontal (°)' 'G'
                     'Cinématique', 'Foot progress moyenne appui frontal (°)' 'DG'
                     'Cinématique', 'Foot progress moyenne appui frontal (°)' 'D'
                     'Cinématique', 'Foot progress moyenne appui frontal (°)' 'G'
@@ -577,12 +664,15 @@ function writeExcel(c)
                     'Cinématique', 'Bassin moyenne appui transverse (°)' 'DG'
                     'Cinématique', 'Bassin moyenne appui transverse (°)' 'D'
                     'Cinématique', 'Bassin moyenne appui transverse (°)' 'G'
+                    'Cinématique', 'Hanche moyenne appui transverse (°)' 'DG'
+                    'Cinématique', 'Hanche moyenne appui transverse (°)' 'D'
+                    'Cinématique', 'Hanche moyenne appui transverse (°)' 'G'
                     'Cinématique', 'Genou moyenne appui transverse (°)' 'DG'
                     'Cinématique', 'Genou moyenne appui transverse (°)' 'D'
                     'Cinématique', 'Genou moyenne appui transverse (°)' 'G'
-                    'Cinématique', 'Chevile moyenne appui transverse (°)' 'DG'
-                    'Cinématique', 'Chevile moyenne appui transverse (°)' 'D'
-                    'Cinématique', 'Chevile moyenne appui transverse (°)' 'G'
+                    'Cinématique', 'Cheville moyenne appui transverse (°)' 'DG'
+                    'Cinématique', 'Cheville moyenne appui transverse (°)' 'D'
+                    'Cinématique', 'Cheville moyenne appui transverse (°)' 'G'
                     'Cinématique', 'Foot progress moyenne appui transverse (°)' 'DG'
                     'Cinématique', 'Foot progress moyenne appui transverse (°)' 'D'
                     'Cinématique', 'Foot progress moyenne appui transverse (°)' 'G'
@@ -857,7 +947,7 @@ function writeExcel(c)
                     'Moment'        'Pic flexion cheville à la poussée transverse (N/m)'    'D'
                     'Moment'        'Pic flexion cheville à la poussée transverse (N/m)'    'G'
                     
-                    % Puissance max articulaires à l'appui en sagitta
+                    % Puissance max articulaires à l'appui en sagittal
                     'Puissance'     'Pic extension hanche à l''appui sagittal (N/m)'   'DG'
                     'Puissance'     'Pic extension hanche à l''appui sagittal (N/m)'   'D'
                     'Puissance'     'Pic extension hanche à l''appui sagittal (N/m)'   'G'
@@ -1045,6 +1135,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Pelvis(1,1)
                 '%1.2f'     c.results.Right.angAtFoot_Strike.RPelvis(1,1)
                 '%1.2f'     c.results.Left.angAtFoot_Strike.LPelvis(1,1)
+                '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Hip(1,1)
+                '%1.2f'     c.results.Right.angAtFoot_Strike.RHip(1,1)
+                '%1.2f'     c.results.Left.angAtFoot_Strike.LHip(1,1)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Knee(1,1)
                 '%1.2f'     c.results.Right.angAtFoot_Strike.RKnee(1,1)
                 '%1.2f'     c.results.Left.angAtFoot_Strike.LKnee(1,1)
@@ -1061,6 +1154,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Pelvis(1,2)
                 '%1.2f'     c.results.Right.angAtFoot_Strike.RPelvis(1,2)
                 '%1.2f'     c.results.Left.angAtFoot_Strike.LPelvis(1,2)
+                '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Hip(1,2)
+                '%1.2f'     c.results.Right.angAtFoot_Strike.RHip(1,2)
+                '%1.2f'     c.results.Left.angAtFoot_Strike.LHip(1,2)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Knee(1,2)
                 '%1.2f'     c.results.Right.angAtFoot_Strike.RKnee(1,2)
                 '%1.2f'     c.results.Left.angAtFoot_Strike.LKnee(1,2)
@@ -1077,6 +1173,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Pelvis(1,3)
                 '%1.2f'     c.results.Right.angAtFoot_Strike.RPelvis(1,3)
                 '%1.2f'     c.results.Left.angAtFoot_Strike.LPelvis(1,3)
+                '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Hip(1,3)
+                '%1.2f'     c.results.Right.angAtFoot_Strike.RHip(1,3)
+                '%1.2f'     c.results.Left.angAtFoot_Strike.LHip(1,3)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Knee(1,3)
                 '%1.2f'     c.results.Right.angAtFoot_Strike.RKnee(1,3)
                 '%1.2f'     c.results.Left.angAtFoot_Strike.LKnee(1,3)
@@ -1094,6 +1193,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Pelvis(1)
                 '%1.2f'     c.results.Right.angAtFoot_Off.RPelvis(1)
                 '%1.2f'     c.results.Left.angAtFoot_Off.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Hip(1)
+                '%1.2f'     c.results.Right.angAtFoot_Off.RHip(1)
+                '%1.2f'     c.results.Left.angAtFoot_Off.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Knee(1)
                 '%1.2f'     c.results.Right.angAtFoot_Off.RKnee(1)
                 '%1.2f'     c.results.Left.angAtFoot_Off.LKnee(1)
@@ -1110,6 +1212,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Pelvis(2)
                 '%1.2f'     c.results.Right.angAtFoot_Off.RPelvis(2)
                 '%1.2f'     c.results.Left.angAtFoot_Off.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Hip(2)
+                '%1.2f'     c.results.Right.angAtFoot_Off.RHip(2)
+                '%1.2f'     c.results.Left.angAtFoot_Off.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Knee(2)
                 '%1.2f'     c.results.Right.angAtFoot_Off.RKnee(2)
                 '%1.2f'     c.results.Left.angAtFoot_Off.LKnee(2)
@@ -1126,6 +1231,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Pelvis(3)
                 '%1.2f'     c.results.Right.angAtFoot_Off.RPelvis(3)
                 '%1.2f'     c.results.Left.angAtFoot_Off.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Hip(3)
+                '%1.2f'     c.results.Right.angAtFoot_Off.RHip(3)
+                '%1.2f'     c.results.Left.angAtFoot_Off.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Off.Knee(3)
                 '%1.2f'     c.results.Right.angAtFoot_Off.RKnee(3)
                 '%1.2f'     c.results.Left.angAtFoot_Off.LKnee(3)
@@ -1143,6 +1251,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Pelvis(1)
                 '%1.2f'     c.results.Right.angMinAtUnipodal.RPelvis(1)
                 '%1.2f'     c.results.Left.angMinAtUnipodal.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Hip(1)
+                '%1.2f'     c.results.Right.angMinAtUnipodal.RHip(1)
+                '%1.2f'     c.results.Left.angMinAtUnipodal.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Knee(1)
                 '%1.2f'     c.results.Right.angMinAtUnipodal.RKnee(1)
                 '%1.2f'     c.results.Left.angMinAtUnipodal.LKnee(1)
@@ -1159,6 +1270,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Pelvis(2)
                 '%1.2f'     c.results.Right.angMinAtUnipodal.RPelvis(2)
                 '%1.2f'     c.results.Left.angMinAtUnipodal.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Hip(2)
+                '%1.2f'     c.results.Right.angMinAtUnipodal.RHip(2)
+                '%1.2f'     c.results.Left.angMinAtUnipodal.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Knee(2)
                 '%1.2f'     c.results.Right.angMinAtUnipodal.RKnee(2)
                 '%1.2f'     c.results.Left.angMinAtUnipodal.LKnee(2)
@@ -1175,6 +1289,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Pelvis(3)
                 '%1.2f'     c.results.Right.angMinAtUnipodal.RPelvis(3)
                 '%1.2f'     c.results.Left.angMinAtUnipodal.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Hip(3)
+                '%1.2f'     c.results.Right.angMinAtUnipodal.RHip(3)
+                '%1.2f'     c.results.Left.angMinAtUnipodal.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angMinAtUnipodal.Knee(3)
                 '%1.2f'     c.results.Right.angMinAtUnipodal.RKnee(3)
                 '%1.2f'     c.results.Left.angMinAtUnipodal.LKnee(3)
@@ -1192,6 +1309,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Pelvis(1)
                 '%1.2f'     c.results.Right.angMaxAtUnipodal.RPelvis(1)
                 '%1.2f'     c.results.Left.angMaxAtUnipodal.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Hip(1)
+                '%1.2f'     c.results.Right.angMaxAtUnipodal.RHip(1)
+                '%1.2f'     c.results.Left.angMaxAtUnipodal.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Knee(1)
                 '%1.2f'     c.results.Right.angMaxAtUnipodal.RKnee(1)
                 '%1.2f'     c.results.Left.angMaxAtUnipodal.LKnee(1)
@@ -1208,6 +1328,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Pelvis(2)
                 '%1.2f'     c.results.Right.angMaxAtUnipodal.RPelvis(2)
                 '%1.2f'     c.results.Left.angMaxAtUnipodal.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Hip(2)
+                '%1.2f'     c.results.Right.angMaxAtUnipodal.RHip(2)
+                '%1.2f'     c.results.Left.angMaxAtUnipodal.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Knee(2)
                 '%1.2f'     c.results.Right.angMaxAtUnipodal.RKnee(2)
                 '%1.2f'     c.results.Left.angMaxAtUnipodal.LKnee(2)
@@ -1224,6 +1347,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Pelvis(3)
                 '%1.2f'     c.results.Right.angMaxAtUnipodal.RPelvis(3)
                 '%1.2f'     c.results.Left.angMaxAtUnipodal.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Hip(3)
+                '%1.2f'     c.results.Right.angMaxAtUnipodal.RHip(3)
+                '%1.2f'     c.results.Left.angMaxAtUnipodal.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angMaxAtUnipodal.Knee(3)
                 '%1.2f'     c.results.Right.angMaxAtUnipodal.RKnee(3)
                 '%1.2f'     c.results.Left.angMaxAtUnipodal.LKnee(3)
@@ -1241,6 +1367,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Pelvis(1)
                 '%1.2f'     c.results.Right.angMinAtFullStance.RPelvis(1)
                 '%1.2f'     c.results.Left.angMinAtFullStance.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Hip(1)
+                '%1.2f'     c.results.Right.angMinAtFullStance.RHip(1)
+                '%1.2f'     c.results.Left.angMinAtFullStance.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Knee(1)
                 '%1.2f'     c.results.Right.angMinAtFullStance.RKnee(1)
                 '%1.2f'     c.results.Left.angMinAtFullStance.LKnee(1)
@@ -1257,6 +1386,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Pelvis(2)
                 '%1.2f'     c.results.Right.angMinAtFullStance.RPelvis(2)
                 '%1.2f'     c.results.Left.angMinAtFullStance.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Hip(2)
+                '%1.2f'     c.results.Right.angMinAtFullStance.RHip(2)
+                '%1.2f'     c.results.Left.angMinAtFullStance.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Knee(2)
                 '%1.2f'     c.results.Right.angMinAtFullStance.RKnee(2)
                 '%1.2f'     c.results.Left.angMinAtFullStance.LKnee(2)
@@ -1273,6 +1405,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Pelvis(3)
                 '%1.2f'     c.results.Right.angMinAtFullStance.RPelvis(3)
                 '%1.2f'     c.results.Left.angMinAtFullStance.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Hip(3)
+                '%1.2f'     c.results.Right.angMinAtFullStance.RHip(3)
+                '%1.2f'     c.results.Left.angMinAtFullStance.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angMinAtFullStance.Knee(3)
                 '%1.2f'     c.results.Right.angMinAtFullStance.RKnee(3)
                 '%1.2f'     c.results.Left.angMinAtFullStance.LKnee(3)
@@ -1290,6 +1425,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Pelvis(1)
                 '%1.2f'     c.results.Right.angMaxAtFullStance.RPelvis(1)
                 '%1.2f'     c.results.Left.angMaxAtFullStance.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Hip(1)
+                '%1.2f'     c.results.Right.angMaxAtFullStance.RHip(1)
+                '%1.2f'     c.results.Left.angMaxAtFullStance.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Knee(1)
                 '%1.2f'     c.results.Right.angMaxAtFullStance.RKnee(1)
                 '%1.2f'     c.results.Left.angMaxAtFullStance.LKnee(1)
@@ -1306,6 +1444,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Pelvis(2)
                 '%1.2f'     c.results.Right.angMaxAtFullStance.RPelvis(2)
                 '%1.2f'     c.results.Left.angMaxAtFullStance.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Hip(2)
+                '%1.2f'     c.results.Right.angMaxAtFullStance.RHip(2)
+                '%1.2f'     c.results.Left.angMaxAtFullStance.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Knee(2)
                 '%1.2f'     c.results.Right.angMaxAtFullStance.RKnee(2)
                 '%1.2f'     c.results.Left.angMaxAtFullStance.LKnee(2)
@@ -1322,6 +1463,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Pelvis(3)
                 '%1.2f'     c.results.Right.angMaxAtFullStance.RPelvis(3)
                 '%1.2f'     c.results.Left.angMaxAtFullStance.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Hip(3)
+                '%1.2f'     c.results.Right.angMaxAtFullStance.RHip(3)
+                '%1.2f'     c.results.Left.angMaxAtFullStance.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angMaxAtFullStance.Knee(3)
                 '%1.2f'     c.results.Right.angMaxAtFullStance.RKnee(3)
                 '%1.2f'     c.results.Left.angMaxAtFullStance.LKnee(3)
@@ -1339,6 +1483,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Pelvis(1)
                 '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RPelvis(1)
                 '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Hip(1)
+                '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RHip(1)
+                '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Knee(1)
                 '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RKnee(1)
                 '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LKnee(1)
@@ -1355,6 +1502,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Pelvis(2)
                 '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RPelvis(2)
                 '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Hip(2)
+                '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RHip(2)
+                '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Knee(2)
                 '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RKnee(2)
                 '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LKnee(2)
@@ -1371,6 +1521,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Pelvis(3)
                 '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RPelvis(3)
                 '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Hip(3)
+                '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RHip(3)
+                '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtUnipodal.Knee(3)
                 '%1.2f'     c.results.Right.angRangeMotionAtUnipodal.RKnee(3)
                 '%1.2f'     c.results.Left.angRangeMotionAtUnipodal.LKnee(3)
@@ -1388,6 +1541,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Pelvis(1)
                 '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RPelvis(1)
                 '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Hip(1)
+                '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RHip(1)
+                '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Knee(1)
                 '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RKnee(1)
                 '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LKnee(1)
@@ -1404,6 +1560,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Pelvis(2)
                 '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RPelvis(2)
                 '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Hip(2)
+                '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RHip(2)
+                '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Knee(2)
                 '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RKnee(2)
                 '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LKnee(2)
@@ -1420,6 +1579,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Pelvis(3)
                 '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RPelvis(3)
                 '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Hip(3)
+                '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RHip(3)
+                '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angRangeMotionAtFullStance.Knee(3)
                 '%1.2f'     c.results.Right.angRangeMotionAtFullStance.RKnee(3)
                 '%1.2f'     c.results.Left.angRangeMotionAtFullStance.LKnee(3)
@@ -1437,6 +1599,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Pelvis(1)
                 '%1.2f'     c.results.Right.angMeanAtUnipodal.RPelvis(1)
                 '%1.2f'     c.results.Left.angMeanAtUnipodal.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Hip(1)
+                '%1.2f'     c.results.Right.angMeanAtUnipodal.RHip(1)
+                '%1.2f'     c.results.Left.angMeanAtUnipodal.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Knee(1)
                 '%1.2f'     c.results.Right.angMeanAtUnipodal.RKnee(1)
                 '%1.2f'     c.results.Left.angMeanAtUnipodal.LKnee(1)
@@ -1453,6 +1618,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Pelvis(2)
                 '%1.2f'     c.results.Right.angMeanAtUnipodal.RPelvis(2)
                 '%1.2f'     c.results.Left.angMeanAtUnipodal.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Hip(2)
+                '%1.2f'     c.results.Right.angMeanAtUnipodal.RHip(2)
+                '%1.2f'     c.results.Left.angMeanAtUnipodal.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Knee(2)
                 '%1.2f'     c.results.Right.angMeanAtUnipodal.RKnee(2)
                 '%1.2f'     c.results.Left.angMeanAtUnipodal.LKnee(2)
@@ -1469,6 +1637,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Pelvis(3)
                 '%1.2f'     c.results.Right.angMeanAtUnipodal.RPelvis(3)
                 '%1.2f'     c.results.Left.angMeanAtUnipodal.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Hip(3)
+                '%1.2f'     c.results.Right.angMeanAtUnipodal.RHip(3)
+                '%1.2f'     c.results.Left.angMeanAtUnipodal.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angMeanAtUnipodal.Knee(3)
                 '%1.2f'     c.results.Right.angMeanAtUnipodal.RKnee(3)
                 '%1.2f'     c.results.Left.angMeanAtUnipodal.LKnee(3)
@@ -1486,6 +1657,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Pelvis(1)
                 '%1.2f'     c.results.Right.angMeanAtFullStance.RPelvis(1)
                 '%1.2f'     c.results.Left.angMeanAtFullStance.LPelvis(1)
+                '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Hip(1)
+                '%1.2f'     c.results.Right.angMeanAtFullStance.RHip(1)
+                '%1.2f'     c.results.Left.angMeanAtFullStance.LHip(1)
                 '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Knee(1)
                 '%1.2f'     c.results.Right.angMeanAtFullStance.RKnee(1)
                 '%1.2f'     c.results.Left.angMeanAtFullStance.LKnee(1)
@@ -1502,6 +1676,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Pelvis(2)
                 '%1.2f'     c.results.Right.angMeanAtFullStance.RPelvis(2)
                 '%1.2f'     c.results.Left.angMeanAtFullStance.LPelvis(2)
+                '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Hip(2)
+                '%1.2f'     c.results.Right.angMeanAtFullStance.RHip(2)
+                '%1.2f'     c.results.Left.angMeanAtFullStance.LHip(2)
                 '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Knee(2)
                 '%1.2f'     c.results.Right.angMeanAtFullStance.RKnee(2)
                 '%1.2f'     c.results.Left.angMeanAtFullStance.LKnee(2)
@@ -1518,6 +1695,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Pelvis(3)
                 '%1.2f'     c.results.Right.angMeanAtFullStance.RPelvis(3)
                 '%1.2f'     c.results.Left.angMeanAtFullStance.LPelvis(3)
+                '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Hip(3)
+                '%1.2f'     c.results.Right.angMeanAtFullStance.RHip(3)
+                '%1.2f'     c.results.Left.angMeanAtFullStance.LHip(3)
                 '%1.2f'     c.results.MeanLeg.angMeanAtFullStance.Knee(3)
                 '%1.2f'     c.results.Right.angMeanAtFullStance.RKnee(3)
                 '%1.2f'     c.results.Left.angMeanAtFullStance.LKnee(3)
@@ -1700,7 +1880,7 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Ankle(1)
                 '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RAnkle(1)
                 '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LAnkle(1)
-                % Couples articulaires au contact talon en sagittal
+                % Couples articulaires au contact talon en frontal
                 '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Hip(2)
                 '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RHip(2)
                 '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LHip(2)
@@ -1719,7 +1899,7 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Ankle(2)
                 '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RAnkle(2)
                 '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LAnkle(2)
-                % Couples articulaires au contact talon en sagittal
+                % Couples articulaires au contact talon en transverse
                 '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Hip(3)
                 '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RHip(3)
                 '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LHip(3)
@@ -1758,7 +1938,7 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Ankle(1)
                 '%1.2f'     c.results.Right.momentMin_OppStrike_100.RAnkle(1)
                 '%1.2f'     c.results.Left.momentMin_OppStrike_100.LAnkle(1)
-                % Couples articulaires à la poussée talon en sagittal
+                % Couples articulaires à la poussée talon en frontal
                 '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Hip(2)
                 '%1.2f'     c.results.Right.momentMax_OppStrike_100.RHip(2)
                 '%1.2f'     c.results.Left.momentMax_OppStrike_100.LHip(2)
@@ -1777,7 +1957,7 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Ankle(2)
                 '%1.2f'     c.results.Right.momentMin_OppStrike_100.RAnkle(2)
                 '%1.2f'     c.results.Left.momentMin_OppStrike_100.LAnkle(2)
-                % Couples articulaires à la poussée talon en sagittal
+                % Couples articulaires à la poussée talon en transverse
                 '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Hip(3)
                 '%1.2f'     c.results.Right.momentMax_OppStrike_100.RHip(3)
                 '%1.2f'     c.results.Left.momentMax_OppStrike_100.LHip(3)
