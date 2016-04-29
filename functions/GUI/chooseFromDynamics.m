@@ -1,4 +1,5 @@
 function idx = chooseFromDynamics(dataToShow, dataToShowName, trialWithPlateForme)
+    
     % Figure pour afficher les essais en terme d'angle afin d'élaguer les essais non pertinents
     h = figure( 'name', 'Choix des essais', ...
                 'units', 'normalize', ...
@@ -101,12 +102,15 @@ function closeWindow(h,~)
 end
 
 function boldPlot(h,~, check, hplot)
+    if verLessThan('matlab', 'R2016a')
+        groot = 0;
+    end
     %Grandeur de l'écran
-    screensize = get( 0, 'Screensize' );
+    screensize = get( groot, 'Screensize' );
     % Position de la fenêtre
     figPosition = get( h, 'Position' );
     % Position de la souris
-    mousePosition = get(0,'PointerLocation');
+    mousePosition = get(groot,'PointerLocation');
     mousePosition = mousePosition ./ screensize(3:4); % Mettre en relatif par rapport a l'écran
     mousePosition = mousePosition - figPosition(1:2); % Selon la figure
     mousePosition = mousePosition ./ figPosition(3:4); % Selon la figure
