@@ -832,182 +832,182 @@ function writeExcel(c)
                     'Cinématique', 'Secousse max CoM axe vertical (mm/s³)'           'G'
                     
                     % Couples articulaires au contact talon en sagittal
-                    'Moment'        'Pic extension hanche au contact talon sagittal (N/m)'   'DG'
-                    'Moment'        'Pic extension hanche au contact talon sagittal (N/m)'   'D'
-                    'Moment'        'Pic extension hanche au contact talon sagittal (N/m)'   'G'
-                    'Moment'        'Pic flexion hanche au contact talon sagittal (N/m)'   'DG'
-                    'Moment'        'Pic flexion hanche au contact talon sagittal (N/m)'   'D'
-                    'Moment'        'Pic flexion hanche au contact talon sagittal (N/m)'   'G'
-                    'Moment'        'Pic extension genou au contact talon sagittal (N/m)'    'DG'
-                    'Moment'        'Pic extension genou au contact talon sagittal (N/m)'    'D'
-                    'Moment'        'Pic extension genou au contact talon sagittal (N/m)'    'G'
-                    'Moment'        'Pic flexion genou au contact talon sagittal (N/m)'    'DG'
-                    'Moment'        'Pic flexion genou au contact talon sagittal (N/m)'    'D'
-                    'Moment'        'Pic flexion genou au contact talon sagittal (N/m)'    'G'
-                    'Moment'        'Pic extension cheville au contact talon sagittal (N/m)'    'DG'
-                    'Moment'        'Pic extension cheville au contact talon sagittal (N/m)'    'D'
-                    'Moment'        'Pic extension cheville au contact talon sagittal (N/m)'    'G'
-                    'Moment'        'Pic flexion cheville au contact talon sagittal (N/m)'    'DG'
-                    'Moment'        'Pic flexion cheville au contact talon sagittal (N/m)'    'D'
-                    'Moment'        'Pic flexion cheville au contact talon sagittal (N/m)'    'G'
+                    'Moment'        'Pic extension hanche au contact talon sagittal (Nm/kg)'   'DG'
+                    'Moment'        'Pic extension hanche au contact talon sagittal (Nm/kg)'   'D'
+                    'Moment'        'Pic extension hanche au contact talon sagittal (Nm/kg)'   'G'
+                    'Moment'        'Pic flexion hanche au contact talon sagittal (Nm/kg)'   'DG'
+                    'Moment'        'Pic flexion hanche au contact talon sagittal (Nm/kg)'   'D'
+                    'Moment'        'Pic flexion hanche au contact talon sagittal (Nm/kg)'   'G'
+                    'Moment'        'Pic extension genou au contact talon sagittal (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension genou au contact talon sagittal (Nm/kg)'    'D'
+                    'Moment'        'Pic extension genou au contact talon sagittal (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion genou au contact talon sagittal (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion genou au contact talon sagittal (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion genou au contact talon sagittal (Nm/kg)'    'G'
+                    'Moment'        'Pic extension cheville au contact talon sagittal (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension cheville au contact talon sagittal (Nm/kg)'    'D'
+                    'Moment'        'Pic extension cheville au contact talon sagittal (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion cheville au contact talon sagittal (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion cheville au contact talon sagittal (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion cheville au contact talon sagittal (Nm/kg)'    'G'
                     % Couples articulaires au contact talon en frontal
-                    'Moment'        'Pic extension hanche au contact talon frontal (N/m)'   'DG'
-                    'Moment'        'Pic extension hanche au contact talon frontal (N/m)'   'D'
-                    'Moment'        'Pic extension hanche au contact talon frontal (N/m)'   'G'
-                    'Moment'        'Pic flexion hanche au contact talon frontal (N/m)'   'DG'
-                    'Moment'        'Pic flexion hanche au contact talon frontal (N/m)'   'D'
-                    'Moment'        'Pic flexion hanche au contact talon frontal (N/m)'   'G'
-                    'Moment'        'Pic extension genou au contact talon frontal (N/m)'    'DG'
-                    'Moment'        'Pic extension genou au contact talon frontal (N/m)'    'D'
-                    'Moment'        'Pic extension genou au contact talon frontal (N/m)'    'G'
-                    'Moment'        'Pic flexion genou au contact talon frontal (N/m)'    'DG'
-                    'Moment'        'Pic flexion genou au contact talon frontal (N/m)'    'D'
-                    'Moment'        'Pic flexion genou au contact talon frontal (N/m)'    'G'
-                    'Moment'        'Pic extension cheville au contact talon frontal (N/m)'    'DG'
-                    'Moment'        'Pic extension cheville au contact talon frontal (N/m)'    'D'
-                    'Moment'        'Pic extension cheville au contact talon frontal (N/m)'    'G'
-                    'Moment'        'Pic flexion cheville au contact talon frontal (N/m)'    'DG'
-                    'Moment'        'Pic flexion cheville au contact talon frontal (N/m)'    'D'
-                    'Moment'        'Pic flexion cheville au contact talon frontal (N/m)'    'G'
+                    'Moment'        'Pic extension hanche au contact talon frontal (Nm/kg)'   'DG'
+                    'Moment'        'Pic extension hanche au contact talon frontal (Nm/kg)'   'D'
+                    'Moment'        'Pic extension hanche au contact talon frontal (Nm/kg)'   'G'
+                    'Moment'        'Pic flexion hanche au contact talon frontal (Nm/kg)'   'DG'
+                    'Moment'        'Pic flexion hanche au contact talon frontal (Nm/kg)'   'D'
+                    'Moment'        'Pic flexion hanche au contact talon frontal (Nm/kg)'   'G'
+                    'Moment'        'Pic extension genou au contact talon frontal (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension genou au contact talon frontal (Nm/kg)'    'D'
+                    'Moment'        'Pic extension genou au contact talon frontal (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion genou au contact talon frontal (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion genou au contact talon frontal (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion genou au contact talon frontal (Nm/kg)'    'G'
+                    'Moment'        'Pic extension cheville au contact talon frontal (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension cheville au contact talon frontal (Nm/kg)'    'D'
+                    'Moment'        'Pic extension cheville au contact talon frontal (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion cheville au contact talon frontal (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion cheville au contact talon frontal (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion cheville au contact talon frontal (Nm/kg)'    'G'
                     % Couples articulaires au contact talon en transverse
-                    'Moment'        'Pic extension hanche au contact talon transverse (N/m)'   'DG'
-                    'Moment'        'Pic extension hanche au contact talon transverse (N/m)'   'D'
-                    'Moment'        'Pic extension hanche au contact talon transverse (N/m)'   'G'
-                    'Moment'        'Pic flexion hanche au contact talon transverse (N/m)'   'DG'
-                    'Moment'        'Pic flexion hanche au contact talon transverse (N/m)'   'D'
-                    'Moment'        'Pic flexion hanche au contact talon transverse (N/m)'   'G'
-                    'Moment'        'Pic extension genou au contact talon transverse (N/m)'    'DG'
-                    'Moment'        'Pic extension genou au contact talon transverse (N/m)'    'D'
-                    'Moment'        'Pic extension genou au contact talon transverse (N/m)'    'G'
-                    'Moment'        'Pic flexion genou au contact talon transverse (N/m)'    'DG'
-                    'Moment'        'Pic flexion genou au contact talon transverse (N/m)'    'D'
-                    'Moment'        'Pic flexion genou au contact talon transverse (N/m)'    'G'
-                    'Moment'        'Pic extension cheville au contact talon transverse (N/m)'    'DG'
-                    'Moment'        'Pic extension cheville au contact talon transverse (N/m)'    'D'
-                    'Moment'        'Pic extension cheville au contact talon transverse (N/m)'    'G'
-                    'Moment'        'Pic flexion cheville au contact talon transverse (N/m)'    'DG'
-                    'Moment'        'Pic flexion cheville au contact talon transverse (N/m)'    'D'
-                    'Moment'        'Pic flexion cheville au contact talon transverse (N/m)'    'G'
+                    'Moment'        'Pic extension hanche au contact talon transverse (Nm/kg)'   'DG'
+                    'Moment'        'Pic extension hanche au contact talon transverse (Nm/kg)'   'D'
+                    'Moment'        'Pic extension hanche au contact talon transverse (Nm/kg)'   'G'
+                    'Moment'        'Pic flexion hanche au contact talon transverse (Nm/kg)'   'DG'
+                    'Moment'        'Pic flexion hanche au contact talon transverse (Nm/kg)'   'D'
+                    'Moment'        'Pic flexion hanche au contact talon transverse (Nm/kg)'   'G'
+                    'Moment'        'Pic extension genou au contact talon transverse (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension genou au contact talon transverse (Nm/kg)'    'D'
+                    'Moment'        'Pic extension genou au contact talon transverse (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion genou au contact talon transverse (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion genou au contact talon transverse (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion genou au contact talon transverse (Nm/kg)'    'G'
+                    'Moment'        'Pic extension cheville au contact talon transverse (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension cheville au contact talon transverse (Nm/kg)'    'D'
+                    'Moment'        'Pic extension cheville au contact talon transverse (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion cheville au contact talon transverse (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion cheville au contact talon transverse (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion cheville au contact talon transverse (Nm/kg)'    'G'
                     
                     % Couples articulaires à la poussée en sagittal
-                    'Moment'        'Pic extension hanche à la poussée sagittal (N/m)'   'DG'
-                    'Moment'        'Pic extension hanche à la poussée sagittal (N/m)'   'D'
-                    'Moment'        'Pic extension hanche à la poussée sagittal (N/m)'   'G'
-                    'Moment'        'Pic flexion hanche à la poussée sagittal (N/m)'   'DG'
-                    'Moment'        'Pic flexion hanche à la poussée sagittal (N/m)'   'D'
-                    'Moment'        'Pic flexion hanche à la poussée sagittal (N/m)'   'G'
-                    'Moment'        'Pic extension genou à la poussée sagittal (N/m)'    'DG'
-                    'Moment'        'Pic extension genou à la poussée sagittal (N/m)'    'D'
-                    'Moment'        'Pic extension genou à la poussée sagittal (N/m)'    'G'
-                    'Moment'        'Pic flexion genou à la poussée sagittal (N/m)'    'DG'
-                    'Moment'        'Pic flexion genou à la poussée sagittal (N/m)'    'D'
-                    'Moment'        'Pic flexion genou à la poussée sagittal (N/m)'    'G'
-                    'Moment'        'Pic extension cheville à la poussée sagittal (N/m)'    'DG'
-                    'Moment'        'Pic extension cheville à la poussée sagittal (N/m)'    'D'
-                    'Moment'        'Pic extension cheville à la poussée sagittal (N/m)'    'G'
-                    'Moment'        'Pic flexion cheville à la poussée sagittal (N/m)'    'DG'
-                    'Moment'        'Pic flexion cheville à la poussée sagittal (N/m)'    'D'
-                    'Moment'        'Pic flexion cheville à la poussée sagittal (N/m)'    'G'
+                    'Moment'        'Pic extension hanche à la poussée sagittal (Nm/kg)'   'DG'
+                    'Moment'        'Pic extension hanche à la poussée sagittal (Nm/kg)'   'D'
+                    'Moment'        'Pic extension hanche à la poussée sagittal (Nm/kg)'   'G'
+                    'Moment'        'Pic flexion hanche à la poussée sagittal (Nm/kg)'   'DG'
+                    'Moment'        'Pic flexion hanche à la poussée sagittal (Nm/kg)'   'D'
+                    'Moment'        'Pic flexion hanche à la poussée sagittal (Nm/kg)'   'G'
+                    'Moment'        'Pic extension genou à la poussée sagittal (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension genou à la poussée sagittal (Nm/kg)'    'D'
+                    'Moment'        'Pic extension genou à la poussée sagittal (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion genou à la poussée sagittal (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion genou à la poussée sagittal (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion genou à la poussée sagittal (Nm/kg)'    'G'
+                    'Moment'        'Pic extension cheville à la poussée sagittal (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension cheville à la poussée sagittal (Nm/kg)'    'D'
+                    'Moment'        'Pic extension cheville à la poussée sagittal (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion cheville à la poussée sagittal (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion cheville à la poussée sagittal (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion cheville à la poussée sagittal (Nm/kg)'    'G'
                     % Couples articulaires à la poussée en frontal
-                    'Moment'        'Pic extension hanche à la poussée frontal (N/m)'   'DG'
-                    'Moment'        'Pic extension hanche à la poussée frontal (N/m)'   'D'
-                    'Moment'        'Pic extension hanche à la poussée frontal (N/m)'   'G'
-                    'Moment'        'Pic flexion hanche à la poussée frontal (N/m)'   'DG'
-                    'Moment'        'Pic flexion hanche à la poussée frontal (N/m)'   'D'
-                    'Moment'        'Pic flexion hanche à la poussée frontal (N/m)'   'G'
-                    'Moment'        'Pic extension genou à la poussée frontal (N/m)'    'DG'
-                    'Moment'        'Pic extension genou à la poussée frontal (N/m)'    'D'
-                    'Moment'        'Pic extension genou à la poussée frontal (N/m)'    'G'
-                    'Moment'        'Pic flexion genou à la poussée frontal (N/m)'    'DG'
-                    'Moment'        'Pic flexion genou à la poussée frontal (N/m)'    'D'
-                    'Moment'        'Pic flexion genou à la poussée frontal (N/m)'    'G'
-                    'Moment'        'Pic extension cheville à la poussée frontal (N/m)'    'DG'
-                    'Moment'        'Pic extension cheville à la poussée frontal (N/m)'    'D'
-                    'Moment'        'Pic extension cheville à la poussée frontal (N/m)'    'G'
-                    'Moment'        'Pic flexion cheville à la poussée frontal (N/m)'    'DG'
-                    'Moment'        'Pic flexion cheville à la poussée frontal (N/m)'    'D'
-                    'Moment'        'Pic flexion cheville à la poussée frontal (N/m)'    'G'
+                    'Moment'        'Pic extension hanche à la poussée frontal (Nm/kg)'   'DG'
+                    'Moment'        'Pic extension hanche à la poussée frontal (Nm/kg)'   'D'
+                    'Moment'        'Pic extension hanche à la poussée frontal (Nm/kg)'   'G'
+                    'Moment'        'Pic flexion hanche à la poussée frontal (Nm/kg)'   'DG'
+                    'Moment'        'Pic flexion hanche à la poussée frontal (Nm/kg)'   'D'
+                    'Moment'        'Pic flexion hanche à la poussée frontal (Nm/kg)'   'G'
+                    'Moment'        'Pic extension genou à la poussée frontal (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension genou à la poussée frontal (Nm/kg)'    'D'
+                    'Moment'        'Pic extension genou à la poussée frontal (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion genou à la poussée frontal (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion genou à la poussée frontal (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion genou à la poussée frontal (Nm/kg)'    'G'
+                    'Moment'        'Pic extension cheville à la poussée frontal (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension cheville à la poussée frontal (Nm/kg)'    'D'
+                    'Moment'        'Pic extension cheville à la poussée frontal (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion cheville à la poussée frontal (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion cheville à la poussée frontal (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion cheville à la poussée frontal (Nm/kg)'    'G'
                     % Couples articulaires à la poussée en transverse
-                    'Moment'        'Pic extension hanche à la poussée transverse (N/m)'   'DG'
-                    'Moment'        'Pic extension hanche à la poussée transverse (N/m)'   'D'
-                    'Moment'        'Pic extension hanche à la poussée transverse (N/m)'   'G'
-                    'Moment'        'Pic flexion hanche à la poussée transverse (N/m)'   'DG'
-                    'Moment'        'Pic flexion hanche à la poussée transverse (N/m)'   'D'
-                    'Moment'        'Pic flexion hanche à la poussée transverse (N/m)'   'G'
-                    'Moment'        'Pic extension genou à la poussée transverse (N/m)'    'DG'
-                    'Moment'        'Pic extension genou à la poussée transverse (N/m)'    'D'
-                    'Moment'        'Pic extension genou à la poussée transverse (N/m)'    'G'
-                    'Moment'        'Pic flexion genou à la poussée transverse (N/m)'    'DG'
-                    'Moment'        'Pic flexion genou à la poussée transverse (N/m)'    'D'
-                    'Moment'        'Pic flexion genou à la poussée transverse (N/m)'    'G'
-                    'Moment'        'Pic extension cheville à la poussée transverse (N/m)'    'DG'
-                    'Moment'        'Pic extension cheville à la poussée transverse (N/m)'    'D'
-                    'Moment'        'Pic extension cheville à la poussée transverse (N/m)'    'G'
-                    'Moment'        'Pic flexion cheville à la poussée transverse (N/m)'    'DG'
-                    'Moment'        'Pic flexion cheville à la poussée transverse (N/m)'    'D'
-                    'Moment'        'Pic flexion cheville à la poussée transverse (N/m)'    'G'
+                    'Moment'        'Pic extension hanche à la poussée transverse (Nm/kg)'   'DG'
+                    'Moment'        'Pic extension hanche à la poussée transverse (Nm/kg)'   'D'
+                    'Moment'        'Pic extension hanche à la poussée transverse (Nm/kg)'   'G'
+                    'Moment'        'Pic flexion hanche à la poussée transverse (Nm/kg)'   'DG'
+                    'Moment'        'Pic flexion hanche à la poussée transverse (Nm/kg)'   'D'
+                    'Moment'        'Pic flexion hanche à la poussée transverse (Nm/kg)'   'G'
+                    'Moment'        'Pic extension genou à la poussée transverse (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension genou à la poussée transverse (Nm/kg)'    'D'
+                    'Moment'        'Pic extension genou à la poussée transverse (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion genou à la poussée transverse (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion genou à la poussée transverse (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion genou à la poussée transverse (Nm/kg)'    'G'
+                    'Moment'        'Pic extension cheville à la poussée transverse (Nm/kg)'    'DG'
+                    'Moment'        'Pic extension cheville à la poussée transverse (Nm/kg)'    'D'
+                    'Moment'        'Pic extension cheville à la poussée transverse (Nm/kg)'    'G'
+                    'Moment'        'Pic flexion cheville à la poussée transverse (Nm/kg)'    'DG'
+                    'Moment'        'Pic flexion cheville à la poussée transverse (Nm/kg)'    'D'
+                    'Moment'        'Pic flexion cheville à la poussée transverse (Nm/kg)'    'G'
                     
-                    % Puissance max articulaires à l'appui en sagittal
-                    'Puissance'     'Pic extension hanche à l''appui sagittal (N/m)'   'DG'
-                    'Puissance'     'Pic extension hanche à l''appui sagittal (N/m)'   'D'
-                    'Puissance'     'Pic extension hanche à l''appui sagittal (N/m)'   'G'
-                    'Puissance'     'Pic flexion hanche à l''appui sagittal (N/m)'   'DG'
-                    'Puissance'     'Pic flexion hanche à l''appui sagittal (N/m)'   'D'
-                    'Puissance'     'Pic flexion hanche à l''appui sagittal (N/m)'   'G'
-                    'Puissance'     'Pic extension genou à l''appui sagittal (N/m)'    'DG'
-                    'Puissance'     'Pic extension genou à l''appui sagittal (N/m)'    'D'
-                    'Puissance'     'Pic extension genou à l''appui sagittal (N/m)'    'G'
-                    'Puissance'     'Pic flexion genou à l''appui sagittal (N/m)'    'DG'
-                    'Puissance'     'Pic flexion genou à l''appui sagittal (N/m)'    'D'
-                    'Puissance'     'Pic flexion genou à l''appui sagittal (N/m)'    'G'
-                    % Couples articulaires à l''appui en frontal
-                    'Puissance'     'Pic extension hanche à l''appui frontal (N/m)'   'DG'
-                    'Puissance'     'Pic extension hanche à l''appui frontal (N/m)'   'D'
-                    'Puissance'     'Pic extension hanche à l''appui frontal (N/m)'   'G'
-                    'Puissance'     'Pic flexion hanche à l''appui frontal (N/m)'   'DG'
-                    'Puissance'     'Pic flexion hanche à l''appui frontal (N/m)'   'D'
-                    'Puissance'     'Pic flexion hanche à l''appui frontal (N/m)'   'G'
-                    'Puissance'     'Pic extension genou à l''appui frontal (N/m)'    'DG'
-                    'Puissance'     'Pic extension genou à l''appui frontal (N/m)'    'D'
-                    'Puissance'     'Pic extension genou à l''appui frontal (N/m)'    'G'
-                    'Puissance'     'Pic flexion genou à l''appui frontal (N/m)'    'DG'
-                    'Puissance'     'Pic flexion genou à l''appui frontal (N/m)'    'D'
-                    'Puissance'     'Pic flexion genou à l''appui frontal (N/m)'    'G'
-                    % Couples articulaires à l''appui en transverse
-                    'Puissance'     'Pic extension hanche à l''appui transverse (N/m)'   'DG'
-                    'Puissance'     'Pic extension hanche à l''appui transverse (N/m)'   'D'
-                    'Puissance'     'Pic extension hanche à l''appui transverse (N/m)'   'G'
-                    'Puissance'     'Pic flexion hanche à l''appui transverse (N/m)'   'DG'
-                    'Puissance'     'Pic flexion hanche à l''appui transverse (N/m)'   'D'
-                    'Puissance'     'Pic flexion hanche à l''appui transverse (N/m)'   'G'
-                    'Puissance'     'Pic extension genou à l''appui transverse (N/m)'    'DG'
-                    'Puissance'     'Pic extension genou à l''appui transverse (N/m)'    'D'
-                    'Puissance'     'Pic extension genou à l''appui transverse (N/m)'    'G'
-                    'Puissance'     'Pic flexion genou à l''appui transverse (N/m)'    'DG'
-                    'Puissance'     'Pic flexion genou à l''appui transverse (N/m)'    'D'
-                    'Puissance'     'Pic flexion genou à l''appui transverse (N/m)'    'G'
+%                     % Puissance max articulaires à l'appui en sagittal
+%                     'Puissance'     'Pic extension hanche à l''appui sagittal (W/kg)'   'DG'
+%                     'Puissance'     'Pic extension hanche à l''appui sagittal (W/kg)'   'D'
+%                     'Puissance'     'Pic extension hanche à l''appui sagittal (W/kg)'   'G'
+%                     'Puissance'     'Pic flexion hanche à l''appui sagittal (W/kg)'   'DG'
+%                     'Puissance'     'Pic flexion hanche à l''appui sagittal (W/kg)'   'D'
+%                     'Puissance'     'Pic flexion hanche à l''appui sagittal (W/kg)'   'G'
+%                     'Puissance'     'Pic extension genou à l''appui sagittal (W/kg)'    'DG'
+%                     'Puissance'     'Pic extension genou à l''appui sagittal (W/kg)'    'D'
+%                     'Puissance'     'Pic extension genou à l''appui sagittal (W/kg)'    'G'
+%                     'Puissance'     'Pic flexion genou à l''appui sagittal (W/kg)'    'DG'
+%                     'Puissance'     'Pic flexion genou à l''appui sagittal (W/kg)'    'D'
+%                     'Puissance'     'Pic flexion genou à l''appui sagittal (W/kg)'    'G'
+%                     % Puissance max articulaires à l''appui en frontal
+%                     'Puissance'     'Pic extension hanche à l''appui frontal (W/kg)'   'DG'
+%                     'Puissance'     'Pic extension hanche à l''appui frontal (W/kg)'   'D'
+%                     'Puissance'     'Pic extension hanche à l''appui frontal (W/kg)'   'G'
+%                     'Puissance'     'Pic flexion hanche à l''appui frontal (W/kg)'   'DG'
+%                     'Puissance'     'Pic flexion hanche à l''appui frontal (W/kg)'   'D'
+%                     'Puissance'     'Pic flexion hanche à l''appui frontal (W/kg)'   'G'
+%                     'Puissance'     'Pic extension genou à l''appui frontal (W/kg)'    'DG'
+%                     'Puissance'     'Pic extension genou à l''appui frontal (W/kg)'    'D'
+%                     'Puissance'     'Pic extension genou à l''appui frontal (W/kg)'    'G'
+%                     'Puissance'     'Pic flexion genou à l''appui frontal (W/kg)'    'DG'
+%                     'Puissance'     'Pic flexion genou à l''appui frontal (W/kg)'    'D'
+%                     'Puissance'     'Pic flexion genou à l''appui frontal (W/kg)'    'G'
+                    % Puissance max articulaires à l''appui en sagittal
+                    'Puissance'     'Pic extension hanche à l''appui sagittal (W/kg)'   'DG'
+                    'Puissance'     'Pic extension hanche à l''appui sagittal (W/kg)'   'D'
+                    'Puissance'     'Pic extension hanche à l''appui sagittal (W/kg)'   'G'
+                    'Puissance'     'Pic flexion hanche à l''appui sagittal (W/kg)'   'DG'
+                    'Puissance'     'Pic flexion hanche à l''appui sagittal (W/kg)'   'D'
+                    'Puissance'     'Pic flexion hanche à l''appui sagittal (W/kg)'   'G'
+                    'Puissance'     'Pic extension genou à l''appui sagittal (W/kg)'    'DG'
+                    'Puissance'     'Pic extension genou à l''appui sagittal (W/kg)'    'D'
+                    'Puissance'     'Pic extension genou à l''appui sagittal (W/kg)'    'G'
+                    'Puissance'     'Pic flexion genou à l''appui sagittal (W/kg)'    'DG'
+                    'Puissance'     'Pic flexion genou à l''appui sagittal (W/kg)'    'D'
+                    'Puissance'     'Pic flexion genou à l''appui sagittal (W/kg)'    'G'
                     
+%                     % Puissance max articulaires à la poussée en sagittal
+%                     'Puissance'     'Pic extension cheville à la poussée sagittal (W/kg)'   'DG'
+%                     'Puissance'     'Pic extension cheville à la poussée sagittal (W/kg)'   'D'
+%                     'Puissance'     'Pic extension cheville à la poussée sagittal (W/kg)'   'G'
+%                     'Puissance'     'Pic flexion cheville à la poussée sagittal (W/kg)'   'DG'
+%                     'Puissance'     'Pic flexion cheville à la poussée sagittal (W/kg)'   'D'
+%                     'Puissance'     'Pic flexion cheville à la poussée sagittal (W/kg)'   'G'
+%                     % Puissance max articulaires à la poussée en frontal
+%                     'Puissance'     'Pic extension cheville à la poussée frontal (W/kg)'   'DG'
+%                     'Puissance'     'Pic extension cheville à la poussée frontal (W/kg)'   'D'
+%                     'Puissance'     'Pic extension cheville à la poussée frontal (W/kg)'   'G'
+%                     'Puissance'     'Pic flexion cheville à la poussée frontal (W/kg)'   'DG'
+%                     'Puissance'     'Pic flexion cheville à la poussée frontal (W/kg)'   'D'
+%                     'Puissance'     'Pic flexion cheville à la poussée frontal (W/kg)'   'G'
                     % Puissance max articulaires à la poussée en sagittal
-                    'Puissance'     'Pic extension cheville à la poussée sagittal (N/m)'   'DG'
-                    'Puissance'     'Pic extension cheville à la poussée sagittal (N/m)'   'D'
-                    'Puissance'     'Pic extension cheville à la poussée sagittal (N/m)'   'G'
-                    'Puissance'     'Pic flexion cheville à la poussée sagittal (N/m)'   'DG'
-                    'Puissance'     'Pic flexion cheville à la poussée sagittal (N/m)'   'D'
-                    'Puissance'     'Pic flexion cheville à la poussée sagittal (N/m)'   'G'
-                     % Couples articulaires à la poussée en frontal
-                    'Puissance'     'Pic extension cheville à la poussée frontal (N/m)'   'DG'
-                    'Puissance'     'Pic extension cheville à la poussée frontal (N/m)'   'D'
-                    'Puissance'     'Pic extension cheville à la poussée frontal (N/m)'   'G'
-                    'Puissance'     'Pic flexion cheville à la poussée frontal (N/m)'   'DG'
-                    'Puissance'     'Pic flexion cheville à la poussée frontal (N/m)'   'D'
-                    'Puissance'     'Pic flexion cheville à la poussée frontal (N/m)'   'G'
-                    % Couples articulaires à la poussée en transverse
-                    'Puissance'     'Pic extension cheville à la poussée transverse (N/m)'   'DG'
-                    'Puissance'     'Pic extension cheville à la poussée transverse (N/m)'   'D'
-                    'Puissance'     'Pic extension cheville à la poussée transverse (N/m)'   'G'
-                    'Puissance'     'Pic flexion cheville à la poussée transverse (N/m)'   'DG'
-                    'Puissance'     'Pic flexion cheville à la poussée transverse (N/m)'   'D'
-                    'Puissance'     'Pic flexion cheville à la poussée transverse (N/m)'   'G'
+                    'Puissance'     'Pic extension cheville à la poussée sagittal (W/kg)'   'DG'
+                    'Puissance'     'Pic extension cheville à la poussée sagittal (W/kg)'   'D'
+                    'Puissance'     'Pic extension cheville à la poussée sagittal (W/kg)'   'G'
+                    'Puissance'     'Pic flexion cheville à la poussée sagittal (W/kg)'   'DG'
+                    'Puissance'     'Pic flexion cheville à la poussée sagittal (W/kg)'   'D'
+                    'Puissance'     'Pic flexion cheville à la poussée sagittal (W/kg)'   'G'
                     };
         fid = fopen(c.file.savepath, 'w+');
         fprintf(fid, sprintf('%%s%s',sep), header{:,1});
@@ -1862,147 +1862,147 @@ function writeExcel(c)
                 '%1.2f'     c.results.Left.comSecousseMax(3)
                 
                 % Couples articulaires au contact talon en sagittal
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Hip(1)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RHip(1)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LHip(1)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Hip(1)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RHip(1)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LHip(1)
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Knee(1)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RKnee(1)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LKnee(1)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Knee(1)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RKnee(1)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LKnee(1)
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Ankle(1)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RAnkle(1)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LAnkle(1)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Ankle(1)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RAnkle(1)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LAnkle(1)
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Hip(1)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RHip(1)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LHip(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Hip(1)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RHip(1)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LHip(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Knee(1)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RKnee(1)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LKnee(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Knee(1)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RKnee(1)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LKnee(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Ankle(1)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RAnkle(1)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LAnkle(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Ankle(1)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RAnkle(1)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LAnkle(1)/1000
                 % Couples articulaires au contact talon en frontal
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Hip(2)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RHip(2)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LHip(2)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Hip(2)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RHip(2)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LHip(2)
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Knee(2)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RKnee(2)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LKnee(2)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Knee(2)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RKnee(2)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LKnee(2)
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Ankle(2)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RAnkle(2)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LAnkle(2)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Ankle(2)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RAnkle(2)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LAnkle(2)
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Hip(2)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RHip(2)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LHip(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Hip(2)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RHip(2)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LHip(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Knee(2)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RKnee(2)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LKnee(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Knee(2)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RKnee(2)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LKnee(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Ankle(2)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RAnkle(2)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LAnkle(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Ankle(2)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RAnkle(2)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LAnkle(2)/1000
                 % Couples articulaires au contact talon en transverse
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Hip(3)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RHip(3)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LHip(3)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Hip(3)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RHip(3)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LHip(3)
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Knee(3)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RKnee(3)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LKnee(3)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Knee(3)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RKnee(3)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LKnee(3)
-                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Ankle(3)
-                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RAnkle(3)
-                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LAnkle(3)
-                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Ankle(3)
-                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RAnkle(3)
-                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LAnkle(3)
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Hip(3)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RHip(3)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LHip(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Hip(3)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RHip(3)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LHip(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Knee(3)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RKnee(3)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LKnee(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Knee(3)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RKnee(3)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LKnee(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_0_OppFootOff.Ankle(3)/1000
+                '%1.2f'     c.results.Right.momentMax_0_OppFootOff.RAnkle(3)/1000
+                '%1.2f'     c.results.Left.momentMax_0_OppFootOff.LAnkle(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_0_OppFootOff.Ankle(3)/1000
+                '%1.2f'     c.results.Right.momentMin_0_OppFootOff.RAnkle(3)/1000
+                '%1.2f'     c.results.Left.momentMin_0_OppFootOff.LAnkle(3)/1000
                 
                 % Couples articulaires à la poussée en sagittal
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Hip(1)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RHip(1)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LHip(1)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Hip(1)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RHip(1)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LHip(1)
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Knee(1)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RKnee(1)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LKnee(1)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Knee(1)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RKnee(1)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LKnee(1)
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Ankle(1)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RAnkle(1)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LAnkle(1)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Ankle(1)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RAnkle(1)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LAnkle(1)
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Hip(1)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RHip(1)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LHip(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Hip(1)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RHip(1)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LHip(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Knee(1)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RKnee(1)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LKnee(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Knee(1)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RKnee(1)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LKnee(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Ankle(1)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RAnkle(1)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LAnkle(1)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Ankle(1)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RAnkle(1)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LAnkle(1)/1000
                 % Couples articulaires à la poussée talon en frontal
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Hip(2)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RHip(2)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LHip(2)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Hip(2)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RHip(2)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LHip(2)
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Knee(2)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RKnee(2)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LKnee(2)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Knee(2)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RKnee(2)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LKnee(2)
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Ankle(2)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RAnkle(2)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LAnkle(2)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Ankle(2)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RAnkle(2)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LAnkle(2)
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Hip(2)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RHip(2)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LHip(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Hip(2)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RHip(2)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LHip(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Knee(2)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RKnee(2)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LKnee(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Knee(2)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RKnee(2)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LKnee(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Ankle(2)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RAnkle(2)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LAnkle(2)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Ankle(2)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RAnkle(2)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LAnkle(2)/1000
                 % Couples articulaires à la poussée talon en transverse
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Hip(3)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RHip(3)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LHip(3)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Hip(3)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RHip(3)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LHip(3)
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Knee(3)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RKnee(3)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LKnee(3)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Knee(3)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RKnee(3)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LKnee(3)
-                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Ankle(3)
-                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RAnkle(3)
-                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LAnkle(3)
-                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Ankle(3)
-                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RAnkle(3)
-                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LAnkle(3)
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Hip(3)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RHip(3)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LHip(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Hip(3)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RHip(3)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LHip(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Knee(3)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RKnee(3)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LKnee(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Knee(3)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RKnee(3)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LKnee(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMax_OppStrike_100.Ankle(3)/1000
+                '%1.2f'     c.results.Right.momentMax_OppStrike_100.RAnkle(3)/1000
+                '%1.2f'     c.results.Left.momentMax_OppStrike_100.LAnkle(3)/1000
+                '%1.2f'     c.results.MeanLeg.momentMin_OppStrike_100.Ankle(3)/1000
+                '%1.2f'     c.results.Right.momentMin_OppStrike_100.RAnkle(3)/1000
+                '%1.2f'     c.results.Left.momentMin_OppStrike_100.LAnkle(3)/1000
                 
-                % Puissance articulaires à l'appui en sagittal
-                '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Hip(1)
-                '%1.2f'     c.results.Right.powerMax_FullStance.RHip(1)
-                '%1.2f'     c.results.Left.powerMax_FullStance.LHip(1)
-                '%1.2f'     c.results.MeanLeg.powerMin_FullStance.Hip(1)
-                '%1.2f'     c.results.Right.powerMin_FullStance.RHip(1)
-                '%1.2f'     c.results.Left.powerMin_FullStance.LHip(1)
-                '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Knee(1)
-                '%1.2f'     c.results.Right.powerMax_FullStance.RKnee(1)
-                '%1.2f'     c.results.Left.powerMax_FullStance.LKnee(1)
-                '%1.2f'     c.results.MeanLeg.powerMin_FullStance.Knee(1)
-                '%1.2f'     c.results.Right.powerMin_FullStance.RKnee(1)
-                '%1.2f'     c.results.Left.powerMin_FullStance.LKnee(1)
-                % Puissance articulaires à l'appui en sagittal
-                '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Hip(2)
-                '%1.2f'     c.results.Right.powerMax_FullStance.RHip(2)
-                '%1.2f'     c.results.Left.powerMax_FullStance.LHip(2)
-                '%1.2f'     c.results.MeanLeg.powerMin_FullStance.Hip(2)
-                '%1.2f'     c.results.Right.powerMin_FullStance.RHip(2)
-                '%1.2f'     c.results.Left.powerMin_FullStance.LHip(2)
-                '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Knee(2)
-                '%1.2f'     c.results.Right.powerMax_FullStance.RKnee(2)
-                '%1.2f'     c.results.Left.powerMax_FullStance.LKnee(2)
-                '%1.2f'     c.results.MeanLeg.powerMin_FullStance.Knee(2)
-                '%1.2f'     c.results.Right.powerMin_FullStance.RKnee(2)
-                '%1.2f'     c.results.Left.powerMin_FullStance.LKnee(2)
+%                 % Puissance articulaires à l'appui en sagittal
+%                 '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Hip(1)
+%                 '%1.2f'     c.results.Right.powerMax_FullStance.RHip(1)
+%                 '%1.2f'     c.results.Left.powerMax_FullStance.LHip(1)
+%                 '%1.2f'     c.results.MeanLeg.powerMin_FullStance.Hip(1)
+%                 '%1.2f'     c.results.Right.powerMin_FullStance.RHip(1)
+%                 '%1.2f'     c.results.Left.powerMin_FullStance.LHip(1)
+%                 '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Knee(1)
+%                 '%1.2f'     c.results.Right.powerMax_FullStance.RKnee(1)
+%                 '%1.2f'     c.results.Left.powerMax_FullStance.LKnee(1)
+%                 '%1.2f'     c.results.MeanLeg.powerMin_FullStance.Knee(1)
+%                 '%1.2f'     c.results.Right.powerMin_FullStance.RKnee(1)
+%                 '%1.2f'     c.results.Left.powerMin_FullStance.LKnee(1)
+%                 % Puissance articulaires à l'appui en frontal
+%                 '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Hip(2)
+%                 '%1.2f'     c.results.Right.powerMax_FullStance.RHip(2)
+%                 '%1.2f'     c.results.Left.powerMax_FullStance.LHip(2)
+%                 '%1.2f'     c.results.MeanLeg.powerMin_FullStance.Hip(2)
+%                 '%1.2f'     c.results.Right.powerMin_FullStance.RHip(2)
+%                 '%1.2f'     c.results.Left.powerMin_FullStance.LHip(2)
+%                 '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Knee(2)
+%                 '%1.2f'     c.results.Right.powerMax_FullStance.RKnee(2)
+%                 '%1.2f'     c.results.Left.powerMax_FullStance.LKnee(2)
+%                 '%1.2f'     c.results.MeanLeg.powerMin_FullStance.Knee(2)
+%                 '%1.2f'     c.results.Right.powerMin_FullStance.RKnee(2)
+%                 '%1.2f'     c.results.Left.powerMin_FullStance.LKnee(2)
                 % Puissance articulaires à l'appui en sagittal
                 '%1.2f'     c.results.MeanLeg.powerMax_FullStance.Hip(3)
                 '%1.2f'     c.results.Right.powerMax_FullStance.RHip(3)
@@ -2017,20 +2017,20 @@ function writeExcel(c)
                 '%1.2f'     c.results.Right.powerMin_FullStance.RKnee(3)
                 '%1.2f'     c.results.Left.powerMin_FullStance.LKnee(3)
                 
-                % Puissance articulaires à la poussée en sagittal
-                '%1.2f'     c.results.MeanLeg.powerMax_OppStrike_PushOff.Ankle(1)
-                '%1.2f'     c.results.Right.powerMax_OppStrike_PushOff.RAnkle(1)
-                '%1.2f'     c.results.Left.powerMax_OppStrike_PushOff.LAnkle(1)
-                '%1.2f'     c.results.MeanLeg.powerMin_OppStrike_PushOff.Ankle(1)
-                '%1.2f'     c.results.Right.powerMin_OppStrike_PushOff.RAnkle(1)
-                '%1.2f'     c.results.Left.powerMin_OppStrike_PushOff.LAnkle(1)
-                % Puissance articulaires à la poussée en sagittal
-                '%1.2f'     c.results.MeanLeg.powerMax_OppStrike_PushOff.Ankle(2)
-                '%1.2f'     c.results.Right.powerMax_OppStrike_PushOff.RAnkle(2)
-                '%1.2f'     c.results.Left.powerMax_OppStrike_PushOff.LAnkle(2)
-                '%1.2f'     c.results.MeanLeg.powerMin_OppStrike_PushOff.Ankle(2)
-                '%1.2f'     c.results.Right.powerMin_OppStrike_PushOff.RAnkle(2)
-                '%1.2f'     c.results.Left.powerMin_OppStrike_PushOff.LAnkle(2)
+%                 % Puissance articulaires à la poussée en sagittal
+%                 '%1.2f'     c.results.MeanLeg.powerMax_OppStrike_PushOff.Ankle(1)
+%                 '%1.2f'     c.results.Right.powerMax_OppStrike_PushOff.RAnkle(1)
+%                 '%1.2f'     c.results.Left.powerMax_OppStrike_PushOff.LAnkle(1)
+%                 '%1.2f'     c.results.MeanLeg.powerMin_OppStrike_PushOff.Ankle(1)
+%                 '%1.2f'     c.results.Right.powerMin_OppStrike_PushOff.RAnkle(1)
+%                 '%1.2f'     c.results.Left.powerMin_OppStrike_PushOff.LAnkle(1)
+%                 % Puissance articulaires à la poussée en frontal
+%                 '%1.2f'     c.results.MeanLeg.powerMax_OppStrike_PushOff.Ankle(2)
+%                 '%1.2f'     c.results.Right.powerMax_OppStrike_PushOff.RAnkle(2)
+%                 '%1.2f'     c.results.Left.powerMax_OppStrike_PushOff.LAnkle(2)
+%                 '%1.2f'     c.results.MeanLeg.powerMin_OppStrike_PushOff.Ankle(2)
+%                 '%1.2f'     c.results.Right.powerMin_OppStrike_PushOff.RAnkle(2)
+%                 '%1.2f'     c.results.Left.powerMin_OppStrike_PushOff.LAnkle(2)
                 % Puissance articulaires à la poussée en sagittal
                 '%1.2f'     c.results.MeanLeg.powerMax_OppStrike_PushOff.Ankle(3)
                 '%1.2f'     c.results.Right.powerMax_OppStrike_PushOff.RAnkle(3)

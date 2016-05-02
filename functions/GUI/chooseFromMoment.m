@@ -104,7 +104,7 @@ end
 
 
 function boldPlot(h,~, check, hplot)
-%     if verLessThan('matlab', 'R2016a')
+%     if verLessThan('matlab', '9')
         groot = 0;
 %     end
     %Grandeur de l'écran
