@@ -10,8 +10,8 @@ function [ c ] = getFile( c )
 %     c.info.aide = 2;
 %     c.info.aideStr = 'Canne (2)';
 %     c.info.note = 'Yo!';
-%     c.file.path = 'data/DMC_Essai_POST2/';
-%     c.file.names = {'DMC-essai_post2ans_marche 02.c3d', 'DMC-essai_post2ans_marche 07.c3d', 'DMC-essai_post2ans_marche 08.c3d'};
+%     c.file.path = 'data/Bogue/';
+%     c.file.names = {'DMC_BD_11_marche10.c3d' };% 'DMC_BD_09_marche05.c3d' 'DMC_BD_09_marche08.c3d'  'DMC_BD_09_marche14.c3d'};
 %     c.file.savepath = 'result/coucou.csv';
 %     c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
 %     c.staticfile.path = []; %'data/Annie/';
@@ -80,6 +80,9 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
 
             kin_markers = [];
             for j = 1:length(marker_fnames)
+                if length(marker_fnames{j}) > 2 && strcmp(marker_fnames{j}(1:2), 'C_')
+                    continue;
+                end
                 for i = 1:length(dataKinAll)
                     if strcmp(s, 'Left')
                         zeroPosition = dataKinAll(i).markers.LHEE;

@@ -4,11 +4,16 @@ function data = extractEvents(c3d, data)
     tp_field = fieldnames(data.events);
     % Convertir les temps en frames (et retirer les frames retirés au début
     for i = 1:length(tp_field)
-        data.stamps.(tp_field{i}).timeStamp = data.events.(tp_field{i}) - (btkGetFirstFrame(c3d)/data.angleInfos.frequency);
-        data.stamps.(tp_field{i}).frameStamp = round(data.events.(tp_field{i}) * data.angleInfos.frequency) - btkGetFirstFrame(c3d);
+        % S'assurer que si l'essai est coupé avant ou après que des événements
+        % soient définis, que ça les retire
+        idxTrue = round(data.events.(tp_field{i}) * data.angleInfos.frequency) > btkGetFirstFrame(c3d) & ...
+                  round(data.events.(tp_field{i}) * data.angleInfos.frequency) < btkGetLastFrame(c3d);
+        
+        data.stamps.(tp_field{i}).timeStamp = data.events.(tp_field{i})(idxTrue) - (btkGetFirstFrame(c3d)/data.angleInfos.frequency);
+        data.stamps.(tp_field{i}).frameStamp = round(data.events.(tp_field{i})(idxTrue) * data.angleInfos.frequency) - btkGetFirstFrame(c3d);
         
         % Il y a des cas (étranges?) où les times frames descendent sous
-        % zéro, il faut les retirer
+        % zéro, il faut les retirer (ne devrait plus arriver depuis %idxTrue) 
         data.stamps.(tp_field{i}).frameStamp = data.stamps.(tp_field{i}).frameStamp(data.stamps.(tp_field{i}).frameStamp>0);
         data.stamps.(tp_field{i}).timeStamp = data.stamps.(tp_field{i}).timeStamp(data.stamps.(tp_field{i}).frameStamp>0);
     end
