@@ -6,11 +6,12 @@ function data = extractEvents(c3d, data)
     for i = 1:length(tp_field)
         % S'assurer que si l'essai est coupé avant ou après que des événements
         % soient définis, que ça les retire
-        idxTrue = round(data.events.(tp_field{i}) * data.angleInfos.frequency) > btkGetFirstFrame(c3d) & ...
-                  round(data.events.(tp_field{i}) * data.angleInfos.frequency) < btkGetLastFrame(c3d);
+        stamps = unique(data.events.(tp_field{i}));
+        idxTrue = round(stamps * data.angleInfos.frequency) > btkGetFirstFrame(c3d) & ...
+                  round(stamps * data.angleInfos.frequency) < btkGetLastFrame(c3d);
         
-        data.stamps.(tp_field{i}).timeStamp = data.events.(tp_field{i})(idxTrue) - (btkGetFirstFrame(c3d)/data.angleInfos.frequency);
-        data.stamps.(tp_field{i}).frameStamp = round(data.events.(tp_field{i})(idxTrue) * data.angleInfos.frequency) - btkGetFirstFrame(c3d);
+        data.stamps.(tp_field{i}).timeStamp = stamps(idxTrue) - (btkGetFirstFrame(c3d)/data.angleInfos.frequency);
+        data.stamps.(tp_field{i}).frameStamp = round(stamps(idxTrue) * data.angleInfos.frequency) - btkGetFirstFrame(c3d);
         
         % Il y a des cas (étranges?) où les times frames descendent sous
         % zéro, il faut les retirer (ne devrait plus arriver depuis %idxTrue) 
