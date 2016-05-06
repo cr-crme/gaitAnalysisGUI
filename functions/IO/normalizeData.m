@@ -93,7 +93,9 @@ function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePie
                     numPFGauche = iPf;
                     idxPiedGauche(1) = iC;
                     idxPlateFormePiedGauche = iC;
-                    if iC == length(stamps.Left_Foot_FullCycle.frameStamps)
+                    if iC == length(stamps.Left_Foot_FullCycle.frameStamps) && iC == 1
+                        
+                    elseif iC == length(stamps.Left_Foot_FullCycle.frameStamps)
                         idxPiedGauche(2) = iC-1;
                     else
                         idxPiedGauche(2) = iC+1;
@@ -110,7 +112,9 @@ function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePie
                     numPFDroit = iPf;
                     idxPiedDroit(1) = iC;
                     idxPlateFormePiedDroit = iC;
-                    if iC == length(stamps.Right_Foot_FullCycle.frameStamps)
+                    if iC == length(stamps.Right_Foot_FullCycle.frameStamps) && iC == 1
+                        
+                    elseif iC == length(stamps.Right_Foot_FullCycle.frameStamps)
                         idxPiedDroit(2) = iC-1;
                     else
                         idxPiedDroit(2) = iC+1;

@@ -118,20 +118,32 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
 
             kin_moment = [];
             for j = 1:length(moment_fnames)
-                for i = 1:length(dataKinAll)
-                    kin_moment.(moment_fnames{j})(:,:,i) = dataKinAll(i).moment.(moment_fnames{j});
+                kin_moment.(moment_fnames{j}) = [];
+                for i = 1:length(dataDynAll)
+                    kin_moment.(moment_fnames{j})(:,:,i) = dataDynAll(i).moment.(moment_fnames{j});
                 end
-                kin_momentStd.(moment_fnames{j}) = std(kin_moment.(moment_fnames{j}), [], 3);
-                kin_moment.(moment_fnames{j}) = mean(kin_moment.(moment_fnames{j}), 3);
+                if ~isempty(kin_moment.(moment_fnames{j}))
+                    kin_momentStd.(moment_fnames{j}) = std(kin_moment.(moment_fnames{j}), [], 3);
+                    kin_moment.(moment_fnames{j}) = mean(kin_moment.(moment_fnames{j}), 3);
+                else
+                    kin_momentStd.(moment_fnames{j}) = [];
+                    kin_moment.(moment_fnames{j}) = [];
+                end
             end
 
             kin_power = [];
             for j = 1:length(power_fnames)
-                for i = 1:length(dataKinAll)
-                    kin_power.(power_fnames{j})(:,:,i) = dataKinAll(i).power.(power_fnames{j});
+                kin_power.(power_fnames{j}) = [];
+                for i = 1:length(dataDynAll)
+                    kin_power.(power_fnames{j})(:,:,i) = dataDynAll(i).power.(power_fnames{j});
                 end
-                kin_powerStd.(power_fnames{j}) = std(kin_power.(power_fnames{j}),[],3);
-                kin_power.(power_fnames{j}) = mean(kin_power.(power_fnames{j}),3);
+                if ~isempty(kin_power.(power_fnames{j}))
+                    kin_powerStd.(power_fnames{j}) = std(kin_power.(power_fnames{j}),[],3);
+                    kin_power.(power_fnames{j}) = mean(kin_power.(power_fnames{j}),3);
+                else
+                    kin_powerStd.(power_fnames{j}) = [];
+                    kin_power.(power_fnames{j}) = [];
+                end
             end
 
             dyn_forceplate = [];

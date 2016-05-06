@@ -52,19 +52,27 @@ function ang = extractData(data, fieldOrFrameStamps, typeData, typeKin)
                 ang.RPelvis{i} = data.(typeData).(['RPelvis' typeKin])(f{i},:);
             end
             
-            ang.LHip{i} = data.(typeData).(['LHip' typeKin])(f{i},:);
-            ang.RHip{i} = data.(typeData).(['RHip' typeKin])(f{i},:);
+            ang.LHip{i} = fillvalue(data.(typeData).(['LHip' typeKin]), f{i},3);
+            ang.RHip{i} = fillvalue(data.(typeData).(['RHip' typeKin]), f{i},3);
             
-            ang.LKnee{i} = data.(typeData).(['LKnee' typeKin])(f{i},:);
-            ang.RKnee{i} = data.(typeData).(['RKnee' typeKin])(f{i},:);
+            ang.LKnee{i} = fillvalue(data.(typeData).(['LKnee' typeKin]), f{i},3);
+            ang.RKnee{i} = fillvalue(data.(typeData).(['RKnee' typeKin]), f{i},3);
             
-            ang.LAnkle{i} = data.(typeData).(['LAnkle' typeKin])(f{i},:);
-            ang.RAnkle{i} = data.(typeData).(['RAnkle' typeKin])(f{i},:);
+            ang.LAnkle{i} = fillvalue(data.(typeData).(['LAnkle' typeKin]), f{i},3);
+            ang.RAnkle{i} = fillvalue(data.(typeData).(['RAnkle' typeKin]), f{i},3);
             
             if doFootProgress
                 ang.LFootProgress{i} = data.(typeData).(['LFootProgress' typeKin])(f{i},:);
                 ang.RFootProgress{i} = data.(typeData).(['RFootProgress' typeKin])(f{i},:);
             end
         end
+    end
+end
+
+function out = fillvalue(data, frames, col)
+    if isempty(data)
+        out = nan(length(frames),col);
+    else
+        out = data(frames,1:col);
     end
 end
