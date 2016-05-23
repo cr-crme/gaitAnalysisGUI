@@ -141,12 +141,20 @@ function dataOut = resampleData(data, stamps, frames, isFootOnPlateForme, numPF,
     % Frames et leur conversion pour les deux cycles de marche
     newFrames = linspace(frames(1), frames(end), 100);
     dataOut.tempsCycle = (frames(end) - frames(1)) / 100; % ms => s
-        
     for iF = 1:length(fieldToNormalize)
         fields = fieldnames(data.(fieldToNormalize{iF}));
         for iF2 = 1:length(fields) 
             % Les mettre sur 100%
             dataOut.(fieldToNormalize{iF}).(fields{iF2}) = interp1(frames, data.(fieldToNormalize{iF}).(fields{iF2})(frames,:), newFrames); 
+        end
+    end
+    
+    % Frames et leur conversion pour les deux cycles de marche à 51 éléments
+    newFrames = linspace(frames(1),frames(end), 51);
+    for iF = 1:length(fieldToNormalize)
+        fields = fieldnames(data.(fieldToNormalize{iF}));
+        for iF2 = 1:length(fields) 
+            dataOut.([fieldToNormalize{iF} '_50']).(fields{iF2}) = interp1(frames, data.(fieldToNormalize{iF}).(fields{iF2})(frames,:), newFrames); 
         end
     end
 

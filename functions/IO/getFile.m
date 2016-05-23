@@ -1,23 +1,23 @@
 function [ c ] = getFile( c )
 %GETFILE Summary of this function goes here
 %   Detailed explanation goes here
-    c = getFileGUI(c);
-%     c.info.name = 'Benjamin';
-%     c.info.height = 1756;
-%     c.info.mass = 50.1;
-%     c.info.age = 11.5;
-%     c.info.sexe = 0;
-%     c.info.aide = 2;
-%     c.info.aideStr = 'Canne (2)';
-%     c.info.note = 'Yo!';
-%     c.file.path = 'data/Bogue/';
-%     c.file.names = {'DMC_BD_11_marche10.c3d' };% 'DMC_BD_09_marche05.c3d' 'DMC_BD_09_marche08.c3d'  'DMC_BD_09_marche14.c3d'};
-%     c.file.savepath = 'result/coucou.csv';
-%     c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
-%     c.staticfile.path = []; %'data/Annie/';
-%     c.eei.fc_repos = 80.4;
-%     c.eei.fc_marche = 172.52;
-%     c.eei.v_marche = 37.58;
+     c = getFileGUI(c);
+%    c.info.name = 'Benjamin';
+%    c.info.height = 1756;
+%    c.info.mass = 50.1;
+%    c.info.age = 11.5;
+%    c.info.sexe = 0;
+%    c.info.aide = 2;
+%    c.info.aideStr = 'Canne (2)';
+%    c.info.note = 'Yo!';
+%    c.file.path = 'data/Bogue/';
+%    c.file.names = {'DMC_BD_11_marche10.c3d' };% 'DMC_BD_09_marche05.c3d' 'DMC_BD_09_marche08.c3d'  'DMC_BD_09_marche14.c3d'};
+%    c.file.savepath = 'result/coucou.csv';
+%    c.staticfile.names = {'DMC_BD_53_Statique.c3d'};
+%    c.staticfile.path = 'data/Bogue/';
+%    c.eei.fc_repos = 80.4;
+%    c.eei.fc_marche = 172.52;
+%    c.eei.v_marche = 37.58;
     
     % S'assurer qu'on veut analyser quelque chose
     if isempty(c)
@@ -64,6 +64,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
         if ~isempty(dataKinAll)
             % Faire le moyennage des données
             angle_fnames = fieldnames(dataAll.(s)(1).angle);
+            angle_fnames_50 = fieldnames(dataAll.(s)(1).angle_50);
             marker_fnames = fieldnames(dataAll.(s)(1).markers);
             moment_fnames = fieldnames(dataAll.(s)(1).moment);
             power_fnames = fieldnames(dataAll.(s)(1).power);
@@ -76,6 +77,14 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                 end
                 kin_angleStd.(angle_fnames{j}) = std(kin_angle.(angle_fnames{j}),[],3);
                 kin_angle.(angle_fnames{j}) = mean(kin_angle.(angle_fnames{j}),3);
+            end
+            kin_angle_50 = [];
+            for j = 1:length(angle_fnames_50)
+                for i = 1:length(dataKinAll)
+                    kin_angle_50.(angle_fnames_50{j})(:,:,i) = dataKinAll(i).angle_50.(angle_fnames_50{j});
+                end
+                kin_angleStd_50.(angle_fnames_50{j}) = std(kin_angle_50.(angle_fnames_50{j}),[],3);
+                kin_angle_50.(angle_fnames_50{j}) = mean(kin_angle_50.(angle_fnames_50{j}),3);
             end
 
             kin_markers = [];
@@ -191,7 +200,9 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
             dataFinalTp.info = info; % Prendre les infos demandé à l'ouverture
             dataFinalTp.angleInfos = dataAll.Left(1).angleInfos; 
             dataFinalTp.angle = kin_angle;
+            dataFinalTp.angle_50 = kin_angle_50;
             dataFinalTp.angleStd = kin_angleStd;
+            dataFinalTp.angleStd_50 = kin_angleStd_50;
             dataFinalTp.markers = kin_markers;
             dataFinalTp.markersStd = kin_markersStd;
             dataFinalTp.CentreOfMass = com_info;
@@ -216,6 +227,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
             dataFinalTp.info = [];
             dataFinalTp.angleInfos = [];
             dataFinalTp.angle = [];
+            dataFinalTp.angle_50 = [];
             dataFinalTp.markers = [];
             dataFinalTp.CentreOfMass = [];
             dataFinalTp.moment = [];
