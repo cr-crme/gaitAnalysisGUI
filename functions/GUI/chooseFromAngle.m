@@ -98,6 +98,9 @@ function closeWindow(h,~)
 end
 
 function boldPlot(h,~, check, hplot)
+%     if verLessThan('matlab', '9')
+        groot = 0;
+%     end
     %Grandeur de l'écran
     screensize = get( groot, 'Screensize' );
     % Position de la fenêtre
@@ -128,13 +131,19 @@ function boldPlot(h,~, check, hplot)
     if hitCheckIdx == 0
         for i = 1:size(hplot,1)
             set( hplot(i,1), 'linewidth', .5 )
+            set( hplot(i,2), 'linewidth', .5 )
+            set( hplot(i,3), 'linewidth', .5 )
         end
     else
         for i = 1:size(hplot,1)
             if i == hitCheckIdx
                 set( hplot(i,1), 'linewidth', 3 )
+                set( hplot(i,2), 'linewidth', 3 )
+                set( hplot(i,3), 'linewidth', 3 )
             else
                 set( hplot(i,1), 'linewidth', .5 )
+                set( hplot(i,2), 'linewidth', .5 )
+                set( hplot(i,3), 'linewidth', .5 )
             end
         end
     end

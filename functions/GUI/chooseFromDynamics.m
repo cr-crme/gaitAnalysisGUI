@@ -1,4 +1,5 @@
 function idx = chooseFromDynamics(dataToShow, dataToShowName, trialWithPlateForme)
+    
     % Figure pour afficher les essais en terme d'angle afin d'élaguer les essais non pertinents
     h = figure( 'name', 'Choix des essais', ...
                 'units', 'normalize', ...
@@ -101,6 +102,9 @@ function closeWindow(h,~)
 end
 
 function boldPlot(h,~, check, hplot)
+%     if verLessThan('matlab', '9')
+        groot = 0;
+%     end
     %Grandeur de l'écran
     screensize = get( groot, 'Screensize' );
     % Position de la fenêtre

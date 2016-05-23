@@ -1,23 +1,23 @@
 function [ c ] = getFile( c )
 %GETFILE Summary of this function goes here
 %   Detailed explanation goes here
-%     c = getFileGUI(c);
-    c.info.name = 'Bogue';
-    c.info.height = 1756;
-    c.info.mass = 50.1;
-    c.info.age = 11.5;
-    c.info.sexe = 0;
-    c.info.aide = 2;
-    c.info.aideStr = 'Canne (2)';
-    c.info.note = 'Yo!';
-    c.file.path = 'data/Bogue/';
-    c.file.names = {'DMC_BD_11_marche10.c3d' 'DMC_BD_09_marche05.c3d' 'DMC_BD_09_marche02.c3d'};
-    c.file.savepath = 'result/coucou.csv';
-    c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
-    c.staticfile.path = []; %'data/Annie/';
-    c.eei.fc_repos = 80.4;
-    c.eei.fc_marche = 172.52;
-    c.eei.v_marche = 37.58;
+    c = getFileGUI(c);
+%     c.info.name = 'Benjamin';
+%     c.info.height = 1756;
+%     c.info.mass = 50.1;
+%     c.info.age = 11.5;
+%     c.info.sexe = 0;
+%     c.info.aide = 2;
+%     c.info.aideStr = 'Canne (2)';
+%     c.info.note = 'Yo!';
+%     c.file.path = 'data/Bogue/';
+%     c.file.names = {'DMC_BD_11_marche10.c3d' };% 'DMC_BD_09_marche05.c3d' 'DMC_BD_09_marche08.c3d'  'DMC_BD_09_marche14.c3d'};
+%     c.file.savepath = 'result/coucou.csv';
+%     c.staticfile.names = []; %{'CTL-enf-008_marche_09.c3d'};
+%     c.staticfile.path = []; %'data/Annie/';
+%     c.eei.fc_repos = 80.4;
+%     c.eei.fc_marche = 172.52;
+%     c.eei.v_marche = 37.58;
     
     % S'assurer qu'on veut analyser quelque chose
     if isempty(c)
@@ -80,6 +80,9 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
 
             kin_markers = [];
             for j = 1:length(marker_fnames)
+                if length(marker_fnames{j}) > 2 && strcmp(marker_fnames{j}(1:2), 'C_')
+                    continue;
+                end
                 for i = 1:length(dataKinAll)
                     if strcmp(s, 'Left')
                         zeroPosition = dataKinAll(i).markers.LHEE;
@@ -115,20 +118,32 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
 
             kin_moment = [];
             for j = 1:length(moment_fnames)
-                for i = 1:length(dataKinAll)
-                    kin_moment.(moment_fnames{j})(:,:,i) = dataKinAll(i).moment.(moment_fnames{j});
+                kin_moment.(moment_fnames{j}) = [];
+                for i = 1:length(dataDynAll)
+                    kin_moment.(moment_fnames{j})(:,:,i) = dataDynAll(i).moment.(moment_fnames{j});
                 end
-                kin_momentStd.(moment_fnames{j}) = std(kin_moment.(moment_fnames{j}), [], 3);
-                kin_moment.(moment_fnames{j}) = mean(kin_moment.(moment_fnames{j}), 3);
+                if ~isempty(kin_moment.(moment_fnames{j}))
+                    kin_momentStd.(moment_fnames{j}) = std(kin_moment.(moment_fnames{j}), [], 3);
+                    kin_moment.(moment_fnames{j}) = mean(kin_moment.(moment_fnames{j}), 3);
+                else
+                    kin_momentStd.(moment_fnames{j}) = [];
+                    kin_moment.(moment_fnames{j}) = [];
+                end
             end
 
             kin_power = [];
             for j = 1:length(power_fnames)
-                for i = 1:length(dataKinAll)
-                    kin_power.(power_fnames{j})(:,:,i) = dataKinAll(i).power.(power_fnames{j});
+                kin_power.(power_fnames{j}) = [];
+                for i = 1:length(dataDynAll)
+                    kin_power.(power_fnames{j})(:,:,i) = dataDynAll(i).power.(power_fnames{j});
                 end
-                kin_powerStd.(power_fnames{j}) = std(kin_power.(power_fnames{j}),[],3);
-                kin_power.(power_fnames{j}) = mean(kin_power.(power_fnames{j}),3);
+                if ~isempty(kin_power.(power_fnames{j}))
+                    kin_powerStd.(power_fnames{j}) = std(kin_power.(power_fnames{j}),[],3);
+                    kin_power.(power_fnames{j}) = mean(kin_power.(power_fnames{j}),3);
+                else
+                    kin_powerStd.(power_fnames{j}) = [];
+                    kin_power.(power_fnames{j}) = [];
+                end
             end
 
             dyn_forceplate = [];
