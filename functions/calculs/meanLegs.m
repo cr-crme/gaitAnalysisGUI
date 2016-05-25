@@ -24,16 +24,20 @@ function rMean = meanLegs(rLeft, rRight)
                 rMean.(fields{iF}) = nmean(val, 4);
             end
         elseif iscell(rLeft.(fields{iF}))
-            for i = 1:length(rLeft.(fields{iF}))
-                if size(rLeft.(fields{iF}){i},1) == 1 || size(rLeft.(fields{iF}){i},1) == 100
-                    val = [];
-                    val(:,:,:,1) = rLeft.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
-                    val(:,:,:,2) = rRight.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
-                    % Ne pas moyenner si c'est un truc au cours du temps,
-                    % ça n'est pas une valeur de sortie de toute façon
-                    rMean.(fields{iF}){i} = nmean(val,4);
-                else
-                    rMean.(fields{iF}){i} = [];
+            if isempty(rLeft.(fields{iF}))
+                rMean.(fields{iF}) = rLeft.(fields{iF});
+            else
+                for i = 1:length(rLeft.(fields{iF}))
+                    if size(rLeft.(fields{iF}){i},1) == 1 || size(rLeft.(fields{iF}){i},1) == 100
+                        val = [];
+                        val(:,:,:,1) = rLeft.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
+                        val(:,:,:,2) = rRight.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
+                        % Ne pas moyenner si c'est un truc au cours du temps,
+                        % ça n'est pas une valeur de sortie de toute façon
+                        rMean.(fields{iF}){i} = nmean(val,4);
+                    else
+                        rMean.(fields{iF}){i} = [];
+                    end
                 end
             end
         elseif isstruct(rLeft.(fields{iF}))
