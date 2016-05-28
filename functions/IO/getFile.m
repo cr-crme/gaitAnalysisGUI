@@ -33,8 +33,8 @@ function [ c ] = getFile( c )
     [dataStatic, c.staticfile, c3dStatic] = openAndParseC3Ds(c.staticfile);
     kinToKeep.Left = 1:length(dataStatic.Left);
     kinToKeep.Right = 1:length(dataStatic.Right);
-    dynToKeep.Left = [];
-    dynToKeep.Right = [];
+    dynToKeep.Left = 1;
+    dynToKeep.Right = 1;
     c.staticfile.data = meanAllResults(dataStatic, kinToKeep, dynToKeep, c.info);
     c.staticfile.c3d = c3dStatic;
     
