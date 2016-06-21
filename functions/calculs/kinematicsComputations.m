@@ -41,12 +41,14 @@ function results = kinematicsComputations(data, results)
         results.Left.comHeight = data.Left.markers.CentreOfMass(:,3) / data.Left.info.height *100;
         % Amplitude (en %) de la hauteur du COM 
         results.Left.comRangeHeight = max(results.Left.comHeight) - min(results.Left.comHeight);
+        % Amplitude (en %) de la hauteur du COM 
+        results.Left.comMeanHeight = mean(results.Left.comHeight);
         % Amplitude (en mm) de mÃ©diolatÃ©ral
         results.Left.comRangeML = data.Left.CentreOfMass.ml;
       
         % Hauteur COM min et max normalisÃ© sur la taille
         results.Left.comMinHeight = min(results.Left.comHeight);
-        results.Left.comMaxHeight = min(results.Left.comHeight);
+        results.Left.comMaxHeight = max(results.Left.comHeight);
      
 
         % ParamÃ¨tres cinÃ©matiques
@@ -111,12 +113,14 @@ function results = kinematicsComputations(data, results)
         results.Right.comHeight = data.Right.markers.CentreOfMass(:,3) / data.Right.info.height *100;
         % Amplitude (en %) de la hauteur du COM 
         results.Right.comRangeHeight = max(results.Right.comHeight) - min(results.Right.comHeight);
+        % Amplitude (en %) de la hauteur du COM 
+        results.Right.comMeanHeight = mean(results.Right.comHeight);
         % Amplitude (en mm) de mÃ©diolatÃ©ral
         results.Right.comRangeML = data.Right.CentreOfMass.ml;
 
         % Hauteur COM min et max normalisÃ© sur la taille
         results.Right.comMinHeight = min(results.Right.comHeight);
-        results.Right.comMaxHeight = min(results.Right.comHeight);
+        results.Right.comMaxHeight = max(results.Right.comHeight);
 
 
         % ParamÃ¨tres cinÃ©matiques

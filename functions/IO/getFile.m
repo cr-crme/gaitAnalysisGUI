@@ -35,8 +35,10 @@ function [ c ] = getFile( c )
     kinToKeep.Right = 1:length(dataStatic.Right);
     dynToKeep.Left = 1;
     dynToKeep.Right = 1;
-    c.staticfile.data = meanAllResults(dataStatic, kinToKeep, dynToKeep, c.info);
-    c.staticfile.c3d = c3dStatic;
+    if ~isempty(c3dStatic)
+        c.staticfile.data = meanAllResults(dataStatic, kinToKeep, dynToKeep, c.info);
+        c.staticfile.c3d = c3dStatic;
+    end
     
     % Faire choisir à l'utilisateur les essais à conserver
     [kinToKeep, dynToKeep] = selectFilesToUse(dataAll);

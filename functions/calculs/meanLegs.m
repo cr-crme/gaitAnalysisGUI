@@ -30,11 +30,21 @@ function rMean = meanLegs(rLeft, rRight)
                 for i = 1:length(rLeft.(fields{iF}))
                     if size(rLeft.(fields{iF}){i},1) == 1 || size(rLeft.(fields{iF}){i},1) == 100
                         val = [];
-                        val(:,:,:,1) = rLeft.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
-                        val(:,:,:,2) = rRight.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
-                        % Ne pas moyenner si c'est un truc au cours du temps,
-                        % ça n'est pas une valeur de sortie de toute façon
-                        rMean.(fields{iF}){i} = nmean(val,4);
+                        if strcmp( fields{iF}(1), 'L')  
+                            val(:,:,:,1) = rLeft.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
+                            val(:,:,:,2) = rRight.(['R' fields{iF}(2:end)]){i}; % Le mettre sur la 4e car rien n'est sur 4
+                            % Ne pas moyenner si c'est un truc au cours du temps,
+                            % ça n'est pas une valeur de sortie de toute façon
+                            rMean.(fields{iF}(2:end)){i} = nmean(val,4);
+                        else
+                            val(:,:,:,1) = rLeft.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
+                            val(:,:,:,2) = rRight.(fields{iF}){i}; % Le mettre sur la 4e car rien n'est sur 4
+                            % Ne pas moyenner si c'est un truc au cours du temps,
+                            % ça n'est pas une valeur de sortie de toute façon
+                            rMean.(fields{iF}){i} = nmean(val,4);
+                        end
+                        
+                        
                     else
                         rMean.(fields{iF}){i} = [];
                     end
