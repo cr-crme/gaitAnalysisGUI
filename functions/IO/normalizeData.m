@@ -31,7 +31,7 @@ function dataOut = normalizeData(data)
         end
     end
 
-    % Conserver les angles de 0 à 100% pour le pied gauche
+    % Conserver les angles de 0 à 100% pour le pied droit
     if isempty(numPFDroit) && isempty(idxPlateFormePiedDroit)
         dataOut.Right(1) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(1)},...
             intersect(idxPiedDroit(1),idxPiedDroit(1)), 1, fieldToNormalize, analFieldToNormalize); 
@@ -51,6 +51,35 @@ function dataOut = normalizeData(data)
         end
     end
 
+    % Normaliser le centre de masse en fonction de la base de support
+    if isfield(dataOut, 'Left')
+        for i = 1:length(dataOut.Left)
+            % Trouver le système d'axes 
+            Y = diff(dataOut.Left(i).markers.LHEE([1 end],:))'; % Vers l'avant à partir de talon jusqu'à talon
+            Z = [0 0 1]'; % Axe vers le haut
+            X = cross(Y,Z);
+            Y = cross(Z,X);
+            X = X/norm(X); Y = Y/norm(Y); Z = Z/norm(Z);
+            R = [X Y Z]; % Matrice de rotation
+            
+            % Tourner le CoM
+            dataOut.Left(i).markers.CentreOfMassInRef = (R'*dataOut.Left(i).markers.CentreOfMass')';
+        end
+    end
+    if isfield(dataOut, 'Right')
+        for i = 1:length(dataOut.Right)
+            % Trouver le système d'axes 
+            Y = diff(dataOut.Right(i).markers.RHEE([1 end],:))'; % Vers l'avant à partir de talon jusqu'à talon
+            Z = [0 0 1]'; % Axe vers le haut
+            X = cross(Y,Z);
+            Y = cross(Z,X);
+            X = X/norm(X); Y = Y/norm(Y); Z = Z/norm(Z);
+            R = [X Y Z]; % Matrice de rotation
+            
+            % Tourner le CoM
+            dataOut.Right(i).markers.CentreOfMassInRef = (R'*dataOut.Right(i).markers.CentreOfMass')';
+        end
+    end
 end
 
 function idx = findNewStampsFor(name, fullCycleStamps)

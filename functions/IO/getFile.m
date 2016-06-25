@@ -10,8 +10,8 @@ function [ c ] = getFile( c )
 %    c.info.aide = 2;
 %    c.info.aideStr = 'Canne (2)';
 %    c.info.note = 'Yo!';
-%    c.file.path = 'data/Bogue/';
-%    c.file.names = {'DMC_BD_11_marche10.c3d' };% 'DMC_BD_09_marche05.c3d' 'DMC_BD_09_marche08.c3d'  'DMC_BD_09_marche14.c3d'};
+%    c.file.path = 'data/DMC_Essai_POST2/';
+%    c.file.names = {'DMC-essai_post2ans_marche 02.c3d' 'DMC-essai_post2ans_marche 07.c3d'};% 'DMC_BD_09_marche05.c3d' 'DMC_BD_09_marche08.c3d'  'DMC_BD_09_marche14.c3d'};
 %    c.file.savepath = 'result/coucou.csv';
 %    c.staticfile.names = {'DMC_BD_53_Statique.c3d'};
 %    c.staticfile.path = 'data/Bogue/';
@@ -274,7 +274,7 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
         for j = 1:length(data.norm.Left)
             data.norm.Left(j).filename = sprintf('%s_CôtéGauche_%d', file.names{i}, j);
             % Calcul spécial pour le centre de masse, calculer tout de suite le médiolatéral 
-            data.norm.Left(j).CentreOfMass.ml = abs(max(data.norm.Left(j).markers.CentreOfMass(:,1)) - min(data.norm.Left(j).markers.CentreOfMass(:,1)));
+            data.norm.Left(j).CentreOfMass.ml = abs(max(data.norm.Left(j).markers.CentreOfMassInRef(:,1)) - min(data.norm.Left(j).markers.CentreOfMassInRef(:,1)));
 
             dataAll.Left(cmpLeft) = data.norm.Left(j); 
             cmpLeft = cmpLeft+1;
@@ -282,7 +282,7 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
         for j = 1:length(data.norm.Right)
             data.norm.Right(j).filename = sprintf('%s_CôtéDroit_%d', file.names{i}, j);
             % Calcul spécial pour le centre de masse, calculer tout de suite le médiolatéral 
-            data.norm.Right(j).CentreOfMass.ml = abs(max(data.norm.Right(j).markers.CentreOfMass(:,1)) - min(data.norm.Right(j).markers.CentreOfMass(:,1)));
+            data.norm.Right(j).CentreOfMass.ml = abs(max(data.norm.Right(j).markers.CentreOfMassInRef(:,1)) - min(data.norm.Right(j).markers.CentreOfMassInRef(:,1)));
             dataAll.Right(cmpRight) = data.norm.Right(j); 
             
             cmpRight = cmpRight+1;
