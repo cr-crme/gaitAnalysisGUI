@@ -678,74 +678,77 @@ function writeExcel(c)
                     'Cinématique', 'Foot progress moyenne appui transverse (°)' 'G'
                     
                     % Vitesse de certaines articulations en sagittal 
-                    'Vitesse',      'Extension max hanche de 20% à 80% sagittal (°/s)'   'DG'
-                    'Vitesse',      'Extension max hanche de 20% à 80% sagittal (°/s)'   'D'
-                    'Vitesse',      'Extension max hanche de 20% à 80% sagittal (°/s)'   'G'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% sagittal (°/s)'     'DG'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% sagittal (°/s)'     'D'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% sagittal (°/s)'     'G'
-                    'Vitesse',      'Extension max genou de poussée à 100% sagittal (°/s)'   'DG'
-                    'Vitesse',      'Extension max genou de poussée à 100% sagittal (°/s)'   'D'
-                    'Vitesse',      'Extension max genou de poussée à 100% sagittal (°/s)'   'G'
-                    'Vitesse',      'Flexion max genou de poussée à 100% sagittal (°/s)'     'DG'
-                    'Vitesse',      'Flexion max genou de poussée à 100% sagittal (°/s)'     'D'
-                    'Vitesse',      'Flexion max genou de poussée à 100% sagittal (°/s)'     'G'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% sagittal (°/s)'   'DG'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% sagittal (°/s)'   'D'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% sagittal (°/s)'   'G'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% sagittal (°/s)'     'DG'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% sagittal (°/s)'     'D'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% sagittal (°/s)'     'G'
+                    'Vitesse',      'Flexion max hanche de 20% à 80% sagittal (°/s)'   'DG'
+                    'Vitesse',      'Flexion max hanche de 20% à 80% sagittal (°/s)'   'D'
+                    'Vitesse',      'Flexion max hanche de 20% à 80% sagittal (°/s)'   'G'
+                    'Vitesse',      'Extension max hanche de 20% à 80% sagittal (°/s)'     'DG'
+                    'Vitesse',      'Extension max hanche de 20% à 80% sagittal (°/s)'     'D'
+                    'Vitesse',      'Extension max hanche de 20% à 80% sagittal (°/s)'     'G'
+                    'Vitesse',      'Flexion max genou de poussée à 100% sagittal (°/s)'   'DG'
+                    'Vitesse',      'Flexion max genou de poussée à 100% sagittal (°/s)'   'D'
+                    'Vitesse',      'Flexion max genou de poussée à 100% sagittal (°/s)'   'G'
+                    'Vitesse',      'Extension max genou de poussée à 100% sagittal (°/s)'     'DG'
+                    'Vitesse',      'Extension max genou de poussée à 100% sagittal (°/s)'     'D'
+                    'Vitesse',      'Extension max genou de poussée à 100% sagittal (°/s)'     'G'
+                    'Vitesse',      'Flexion max cheville de oppContact à 100% sagittal (°/s)'   'DG'
+                    'Vitesse',      'Flexion max cheville de oppContact à 100% sagittal (°/s)'   'D'
+                    'Vitesse',      'Flexion max cheville de oppContact à 100% sagittal (°/s)'   'G'
+                    'Vitesse',      'Extension max cheville de oppContact à 100% sagittal (°/s)'     'DG'
+                    'Vitesse',      'Extension max cheville de oppContact à 100% sagittal (°/s)'     'D'
+                    'Vitesse',      'Extension max cheville de oppContact à 100% sagittal (°/s)'     'G'
                     % Vitesse de certaines articulations en frontal 
-                    'Vitesse',      'Extension max hanche de 20% à 80% frontal (°/s)'   'DG'
-                    'Vitesse',      'Extension max hanche de 20% à 80% frontal (°/s)'   'D'
-                    'Vitesse',      'Extension max hanche de 20% à 80% frontal (°/s)'   'G'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% frontal (°/s)'     'DG'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% frontal (°/s)'     'D'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% frontal (°/s)'     'G'
-                    'Vitesse',      'Extension max genou de poussée à 100% frontal (°/s)'   'DG'
-                    'Vitesse',      'Extension max genou de poussée à 100% frontal (°/s)'   'D'
-                    'Vitesse',      'Extension max genou de poussée à 100% frontal (°/s)'   'G'
-                    'Vitesse',      'Flexion max genou de poussée à 100% frontal (°/s)'     'DG'
-                    'Vitesse',      'Flexion max genou de poussée à 100% frontal (°/s)'     'D'
-                    'Vitesse',      'Flexion max genou de poussée à 100% frontal (°/s)'     'G'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% frontal (°/s)'   'DG'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% frontal (°/s)'   'D'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% frontal (°/s)'   'G'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% frontal (°/s)'     'DG'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% frontal (°/s)'     'D'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% frontal (°/s)'     'G'
+                    'Vitesse',      'Adduction max hanche de 20% à 80% frontal (°/s)'   'DG'
+                    'Vitesse',      'Adduction max hanche de 20% à 80% frontal (°/s)'   'D'
+                    'Vitesse',      'Adduction max hanche de 20% à 80% frontal (°/s)'   'G'
+                    'Vitesse',      'Abduction max hanche de 20% à 80% frontal (°/s)'     'DG'
+                    'Vitesse',      'Abduction max hanche de 20% à 80% frontal (°/s)'     'D'
+                    'Vitesse',      'Abduction max hanche de 20% à 80% frontal (°/s)'     'G'
+                    'Vitesse',      'Varus max genou de poussée à 100% frontal (°/s)'   'DG'
+                    'Vitesse',      'Varus max genou de poussée à 100% frontal (°/s)'   'D'
+                    'Vitesse',      'Varus max genou de poussée à 100% frontal (°/s)'   'G'
+                    'Vitesse',      'Valgus max genou de poussée à 100% frontal (°/s)'     'DG'
+                    'Vitesse',      'Valgus max genou de poussée à 100% frontal (°/s)'     'D'
+                    'Vitesse',      'Valgus max genou de poussée à 100% frontal (°/s)'     'G'
+                    'Vitesse',      'Adduction max cheville de oppContact à 100% frontal (°/s)'   'DG'
+                    'Vitesse',      'Adduction max cheville de oppContact à 100% frontal (°/s)'   'D'
+                    'Vitesse',      'Adduction max cheville de oppContact à 100% frontal (°/s)'   'G'
+                    'Vitesse',      'Abduction max cheville de oppContact à 100% frontal (°/s)'     'DG'
+                    'Vitesse',      'Abduction max cheville de oppContact à 100% frontal (°/s)'     'D'
+                    'Vitesse',      'Abduction max cheville de oppContact à 100% frontal (°/s)'     'G'
                     % Vitesse de certaines articulations en transverse 
-                    'Vitesse',      'Extension max hanche de 20% à 80% transverse (°/s)'   'DG'
-                    'Vitesse',      'Extension max hanche de 20% à 80% transverse (°/s)'   'D'
-                    'Vitesse',      'Extension max hanche de 20% à 80% transverse (°/s)'   'G'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% transverse (°/s)'     'DG'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% transverse (°/s)'     'D'
-                    'Vitesse',      'Flexion max hanche de 20% à 80% transverse (°/s)'     'G'
-                    'Vitesse',      'Extension max genou de poussée à 100% transverse (°/s)'   'DG'
-                    'Vitesse',      'Extension max genou de poussée à 100% transverse (°/s)'   'D'
-                    'Vitesse',      'Extension max genou de poussée à 100% transverse (°/s)'   'G'
-                    'Vitesse',      'Flexion max genou de poussée à 100% transverse (°/s)'     'DG'
-                    'Vitesse',      'Flexion max genou de poussée à 100% transverse (°/s)'     'D'
-                    'Vitesse',      'Flexion max genou de poussée à 100% transverse (°/s)'     'G'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% transverse (°/s)'   'DG'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% transverse (°/s)'   'D'
-                    'Vitesse',      'Extension max cheville de oppContact à 100% transverse (°/s)'   'G'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% transverse (°/s)'     'DG'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% transverse (°/s)'     'D'
-                    'Vitesse',      'Flexion max cheville de oppContact à 100% transverse (°/s)'     'G'
+                    'Vitesse',      'Rot interne max hanche de 20% à 80% transverse (°/s)'   'DG'
+                    'Vitesse',      'Rot interne max hanche de 20% à 80% transverse (°/s)'   'D'
+                    'Vitesse',      'Rot interne max hanche de 20% à 80% transverse (°/s)'   'G'
+                    'Vitesse',      'Rot externe max hanche de 20% à 80% transverse (°/s)'     'DG'
+                    'Vitesse',      'Rot externe max hanche de 20% à 80% transverse (°/s)'     'D'
+                    'Vitesse',      'Rot externe max hanche de 20% à 80% transverse (°/s)'     'G'
+                    'Vitesse',      'Rot interne max genou de poussée à 100% transverse (°/s)'   'DG'
+                    'Vitesse',      'Rot interne max genou de poussée à 100% transverse (°/s)'   'D'
+                    'Vitesse',      'Rot interne max genou de poussée à 100% transverse (°/s)'   'G'
+                    'Vitesse',      'Rot externe max genou de poussée à 100% transverse (°/s)'     'DG'
+                    'Vitesse',      'Rot externe max genou de poussée à 100% transverse (°/s)'     'D'
+                    'Vitesse',      'Rot externe max genou de poussée à 100% transverse (°/s)'     'G'
+                    'Vitesse',      'Rot interne max cheville de oppContact à 100% transverse (°/s)'   'DG'
+                    'Vitesse',      'Rot interne max cheville de oppContact à 100% transverse (°/s)'   'D'
+                    'Vitesse',      'Rot interne max cheville de oppContact à 100% transverse (°/s)'   'G'
+                    'Vitesse',      'Rot externe max cheville de oppContact à 100% transverse (°/s)'     'DG'
+                    'Vitesse',      'Rot externe max cheville de oppContact à 100% transverse (°/s)'     'D'
+                    'Vitesse',      'Rot externe max cheville de oppContact à 100% transverse (°/s)'     'G'
                     
                     
                     % Cinématique du CoM
+                    'Cinématique', 'Moyenne CoM Hauteur (% taille)'         'DG'
+                    'Cinématique', 'Moyenne CoM Hauteur (% taille)'         'D'
+                    'Cinématique', 'Moyenne CoM Hauteur (% taille)'         'G'
+                    'Cinématique', 'CoM min Hauteur (% taille)'   'DG'
+                    'Cinématique', 'CoM min Hauteur (% taille)'   'D'
+                    'Cinématique', 'CoM min Hauteur (% taille)'   'G'
+                    'Cinématique', 'CoM max Hauteur (% taille)'   'DG'
+                    'Cinématique', 'CoM max Hauteur (% taille)'   'D'
+                    'Cinématique', 'CoM max Hauteur (% taille)'   'G'
                     'Cinématique', 'Amplitude CoM Hauteur (% taille)'       'DG'
                     'Cinématique', 'Amplitude CoM Hauteur (% taille)'       'D'
                     'Cinématique', 'Amplitude CoM Hauteur (% taille)'       'G'
-                    'Cinématique', 'Amplitude CoM min Hauteur (% taille)'   'DG'
-                    'Cinématique', 'Amplitude CoM min Hauteur (% taille)'   'D'
-                    'Cinématique', 'Amplitude CoM min Hauteur (% taille)'   'G'
-                    'Cinématique', 'Amplitude CoM max Hauteur (% taille)'   'DG'
-                    'Cinématique', 'Amplitude CoM max Hauteur (% taille)'   'D'
-                    'Cinématique', 'Amplitude CoM max Hauteur (% taille)'   'G'
                     'Cinématique', 'Amplitude CoM Medio Latéral (mm)'       'DG'
                     'Cinématique', 'Amplitude CoM Medio Latéral (mm)'       'D'
                     'Cinématique', 'Amplitude CoM Medio Latéral (mm)'       'G'
@@ -760,11 +763,11 @@ function writeExcel(c)
                     'Cinématique', 'Vitesse min CoM axe médiolatéral (mm/s)'       'DG'
                     'Cinématique', 'Vitesse min CoM axe médiolatéral (mm/s)'       'D'
                     'Cinématique', 'Vitesse min CoM axe médiolatéral (mm/s)'       'G'
-                    % Vitesse min du CoM en frontal
-                    'Cinématique', 'Vitesse min CoM axe transverse (mm/s)'         'DG'
-                    'Cinématique', 'Vitesse min CoM axe transverse (mm/s)'         'D'
-                    'Cinématique', 'Vitesse min CoM axe transverse (mm/s)'         'G'
-                    % Vitesse min du CoM en transverse
+                    % Vitesse min du CoM en anteroposterieur
+                    'Cinématique', 'Vitesse min CoM axe anteroposterieur (mm/s)'         'DG'
+                    'Cinématique', 'Vitesse min CoM axe anteroposterieur (mm/s)'         'D'
+                    'Cinématique', 'Vitesse min CoM axe anteroposterieur (mm/s)'         'G'
+                    % Vitesse min du CoM en vertical
                     'Cinématique', 'Vitesse min CoM axe vertical (mm/s)'           'DG'
                     'Cinématique', 'Vitesse min CoM axe vertical (mm/s)'           'D'
                     'Cinématique', 'Vitesse min CoM axe vertical (mm/s)'           'G'
@@ -772,11 +775,11 @@ function writeExcel(c)
                     'Cinématique', 'Vitesse max CoM axe médiolatéral (mm/s)'       'DG'
                     'Cinématique', 'Vitesse max CoM axe médiolatéral (mm/s)'       'D'
                     'Cinématique', 'Vitesse max CoM axe médiolatéral (mm/s)'       'G'
-                    % Vitesse max du CoM en frontal
-                    'Cinématique', 'Vitesse max CoM axe transverse (mm/s)'         'DG'
-                    'Cinématique', 'Vitesse max CoM axe transverse (mm/s)'         'D'
-                    'Cinématique', 'Vitesse max CoM axe transverse (mm/s)'         'G'
-                    % Vitesse max du CoM en transverse
+                    % Vitesse max du CoM en anteroposterieur
+                    'Cinématique', 'Vitesse max CoM axe anteroposterieur (mm/s)'         'DG'
+                    'Cinématique', 'Vitesse max CoM axe anteroposterieur (mm/s)'         'D'
+                    'Cinématique', 'Vitesse max CoM axe anteroposterieur (mm/s)'         'G'
+                    % Vitesse max du CoM en vertical
                     'Cinématique', 'Vitesse max CoM axe vertical (mm/s)'           'DG'
                     'Cinématique', 'Vitesse max CoM axe vertical (mm/s)'           'D'
                     'Cinématique', 'Vitesse max CoM axe vertical (mm/s)'           'G'
@@ -785,11 +788,11 @@ function writeExcel(c)
                     'Cinématique', 'Accélération min CoM axe médiolatéral (mm/s²)'       'DG'
                     'Cinématique', 'Accélération min CoM axe médiolatéral (mm/s²)'       'D'
                     'Cinématique', 'Accélération min CoM axe médiolatéral (mm/s²)'       'G'
-                    % Accélération min du CoM en frontal
-                    'Cinématique', 'Accélération min CoM axe transverse (mm/s²)'         'DG'
-                    'Cinématique', 'Accélération min CoM axe transverse (mm/s²)'         'D'
-                    'Cinématique', 'Accélération min CoM axe transverse (mm/s²)'         'G'
-                    % Accélération min du CoM en transverse
+                    % Accélération min du CoM en anteroposterieur
+                    'Cinématique', 'Accélération min CoM axe anteroposterieur (mm/s²)'         'DG'
+                    'Cinématique', 'Accélération min CoM axe anteroposterieur (mm/s²)'         'D'
+                    'Cinématique', 'Accélération min CoM axe anteroposterieur (mm/s²)'         'G'
+                    % Accélération min du CoM en vertical
                     'Cinématique', 'Accélération min CoM axe vertical (mm/s²)'           'DG'
                     'Cinématique', 'Accélération min CoM axe vertical (mm/s²)'           'D'
                     'Cinématique', 'Accélération min CoM axe vertical (mm/s²)'           'G'
@@ -797,11 +800,11 @@ function writeExcel(c)
                     'Cinématique', 'Accélération max CoM axe médiolatéral (mm/s²)'       'DG'
                     'Cinématique', 'Accélération max CoM axe médiolatéral (mm/s²)'       'D'
                     'Cinématique', 'Accélération max CoM axe médiolatéral (mm/s²)'       'G'
-                    % Accélération max du CoM en frontal
-                    'Cinématique', 'Accélération max CoM axe transverse (mm/s²)'         'DG'
-                    'Cinématique', 'Accélération max CoM axe transverse (mm/s²)'         'D'
-                    'Cinématique', 'Accélération max CoM axe transverse (mm/s²)'         'G'
-                    % Accélération max du CoM en transverse
+                    % Accélération max du CoM en anteroposterieur
+                    'Cinématique', 'Accélération max CoM axe anteroposterieur (mm/s²)'         'DG'
+                    'Cinématique', 'Accélération max CoM axe anteroposterieur (mm/s²)'         'D'
+                    'Cinématique', 'Accélération max CoM axe anteroposterieur (mm/s²)'         'G'
+                    % Accélération max du CoM en vertical
                     'Cinématique', 'Accélération max CoM axe vertical (mm/s²)'           'DG'
                     'Cinématique', 'Accélération max CoM axe vertical (mm/s²)'           'D'
                     'Cinématique', 'Accélération max CoM axe vertical (mm/s²)'           'G'
@@ -810,11 +813,11 @@ function writeExcel(c)
                     'Cinématique', 'Secousse min CoM axe médiolatéral (mm/s³)'       'DG'
                     'Cinématique', 'Secousse min CoM axe médiolatéral (mm/s³)'       'D'
                     'Cinématique', 'Secousse min CoM axe médiolatéral (mm/s³)'       'G'
-                    % Secousse min du CoM en frontal
-                    'Cinématique', 'Secousse min CoM axe transverse (mm/s³)'         'DG'
-                    'Cinématique', 'Secousse min CoM axe transverse (mm/s³)'         'D'
-                    'Cinématique', 'Secousse min CoM axe transverse (mm/s³)'         'G'
-                    % Secousse min du CoM en transverse
+                    % Secousse min du CoM en anteroposterieur
+                    'Cinématique', 'Secousse min CoM axe anteroposterieur (mm/s³)'         'DG'
+                    'Cinématique', 'Secousse min CoM axe anteroposterieur (mm/s³)'         'D'
+                    'Cinématique', 'Secousse min CoM axe anteroposterieur (mm/s³)'         'G'
+                    % Secousse min du CoM en vertical
                     'Cinématique', 'Secousse min CoM axe vertical (mm/s³)'           'DG'
                     'Cinématique', 'Secousse min CoM axe vertical (mm/s³)'           'D'
                     'Cinématique', 'Secousse min CoM axe vertical (mm/s³)'           'G'
@@ -822,11 +825,11 @@ function writeExcel(c)
                     'Cinématique', 'Secousse max CoM axe médiolatéral (mm/s³)'       'DG'
                     'Cinématique', 'Secousse max CoM axe médiolatéral (mm/s³)'       'D'
                     'Cinématique', 'Secousse max CoM axe médiolatéral (mm/s³)'       'G'
-                    % Secousse max du CoM en frontal
-                    'Cinématique', 'Secousse max CoM axe transverse (mm/s³)'         'DG'
-                    'Cinématique', 'Secousse max CoM axe transverse (mm/s³)'         'D'
-                    'Cinématique', 'Secousse max CoM axe transverse (mm/s³)'         'G'
-                    % Secousse max du CoM en transverse
+                    % Secousse max du CoM en anteroposterieur
+                    'Cinématique', 'Secousse max CoM axe anteroposterieur (mm/s³)'         'DG'
+                    'Cinématique', 'Secousse max CoM axe anteroposterieur (mm/s³)'         'D'
+                    'Cinématique', 'Secousse max CoM axe anteroposterieur (mm/s³)'         'G'
+                    % Secousse max du CoM en vertical
                     'Cinématique', 'Secousse max CoM axe vertical (mm/s³)'           'DG'
                     'Cinématique', 'Secousse max CoM axe vertical (mm/s³)'           'D'
                     'Cinématique', 'Secousse max CoM axe vertical (mm/s³)'           'G'
@@ -1825,15 +1828,18 @@ function writeExcel(c)
                 '%1.2f'     c.results.Left.angVelMin_PushOff_100.LAnkle(3)
                 
                 % Cinématique du CoM
-                '%1.1f'     c.results.MeanLeg.comRangeHeight
-                '%1.1f'     c.results.Right.comRangeHeight
-                '%1.1f'     c.results.Left.comRangeHeight
+                '%1.1f'     c.results.MeanLeg.comMeanHeight
+                '%1.1f'     c.results.Right.comMeanHeight
+                '%1.1f'     c.results.Left.comMeanHeight
                 '%1.1f'     c.results.MeanLeg.comMinHeight
                 '%1.1f'     c.results.Right.comMinHeight
                 '%1.1f'     c.results.Left.comMinHeight
                 '%1.1f'     c.results.MeanLeg.comMaxHeight
                 '%1.1f'     c.results.Right.comMaxHeight
                 '%1.1f'     c.results.Left.comMaxHeight
+                '%1.1f'     c.results.MeanLeg.comRangeHeight
+                '%1.1f'     c.results.Right.comRangeHeight
+                '%1.1f'     c.results.Left.comRangeHeight
                 '%1.2f'     c.results.MeanLeg.comRangeML
                 '%1.2f'     c.results.Right.comRangeML
                 '%1.2f'     c.results.Left.comRangeML
@@ -1848,11 +1854,11 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.comVitesseMin(1)
                 '%1.2f'     c.results.Right.comVitesseMin(1)
                 '%1.2f'     c.results.Left.comVitesseMin(1)
-                % Vitesse min du CoM en frontal
+                % Vitesse min du CoM en anteroposterieur
                 '%1.2f'     c.results.MeanLeg.comVitesseMin(2)
                 '%1.2f'     c.results.Right.comVitesseMin(2)
                 '%1.2f'     c.results.Left.comVitesseMin(2)
-                % Vitesse min du CoM en transverse
+                % Vitesse min du CoM en vertical
                 '%1.2f'     c.results.MeanLeg.comVitesseMin(3)
                 '%1.2f'     c.results.Right.comVitesseMin(3)
                 '%1.2f'     c.results.Left.comVitesseMin(3)
@@ -1860,11 +1866,11 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.comVitesseMax(1)
                 '%1.2f'     c.results.Right.comVitesseMax(1)
                 '%1.2f'     c.results.Left.comVitesseMax(1)
-                % Vitesse max du CoM en frontal
+                % Vitesse max du CoM en anteroposterieur
                 '%1.2f'     c.results.MeanLeg.comVitesseMax(2)
                 '%1.2f'     c.results.Right.comVitesseMax(2)
                 '%1.2f'     c.results.Left.comVitesseMax(2)
-                % Vitesse max du CoM en transverse
+                % Vitesse max du CoM en vertical
                 '%1.2f'     c.results.MeanLeg.comVitesseMax(3)
                 '%1.2f'     c.results.Right.comVitesseMax(3)
                 '%1.2f'     c.results.Left.comVitesseMax(3)
@@ -1873,11 +1879,11 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.comAccelerationMin(1)
                 '%1.2f'     c.results.Right.comAccelerationMin(1)
                 '%1.2f'     c.results.Left.comAccelerationMin(1)
-                % Accélération min du CoM en frontal
+                % Accélération min du CoM en anteroposterieur
                 '%1.2f'     c.results.MeanLeg.comAccelerationMin(2)
                 '%1.2f'     c.results.Right.comAccelerationMin(2)
                 '%1.2f'     c.results.Left.comAccelerationMin(2)
-                % Accélération min du CoM en transverse
+                % Accélération min du CoM en vertical
                 '%1.2f'     c.results.MeanLeg.comAccelerationMin(3)
                 '%1.2f'     c.results.Right.comAccelerationMin(3)
                 '%1.2f'     c.results.Left.comAccelerationMin(3)
@@ -1885,11 +1891,11 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.comAccelerationMax(1)
                 '%1.2f'     c.results.Right.comAccelerationMax(1)
                 '%1.2f'     c.results.Left.comAccelerationMax(1)
-                % Accélération max du CoM en frontal
+                % Accélération max du CoM en anteroposterieur
                 '%1.2f'     c.results.MeanLeg.comAccelerationMax(2)
                 '%1.2f'     c.results.Right.comAccelerationMax(2)
                 '%1.2f'     c.results.Left.comAccelerationMax(2)
-                % Accélération max du CoM en transverse
+                % Accélération max du CoM en vertical
                 '%1.2f'     c.results.MeanLeg.comAccelerationMax(3)
                 '%1.2f'     c.results.Right.comAccelerationMax(3)
                 '%1.2f'     c.results.Left.comAccelerationMax(3)
@@ -1898,11 +1904,11 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.comSecousseMin(1)
                 '%1.2f'     c.results.Right.comSecousseMin(1)
                 '%1.2f'     c.results.Left.comSecousseMin(1)
-                % Secousse min du CoM en frontal
+                % Secousse min du CoM en anteroposterieur
                 '%1.2f'     c.results.MeanLeg.comSecousseMin(2)
                 '%1.2f'     c.results.Right.comSecousseMin(2)
                 '%1.2f'     c.results.Left.comSecousseMin(2)
-                % Secousse min du CoM en transverse
+                % Secousse min du CoM en vertical
                 '%1.2f'     c.results.MeanLeg.comSecousseMin(3)
                 '%1.2f'     c.results.Right.comSecousseMin(3)
                 '%1.2f'     c.results.Left.comSecousseMin(3)
@@ -1910,11 +1916,11 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.comSecousseMax(1)
                 '%1.2f'     c.results.Right.comSecousseMax(1)
                 '%1.2f'     c.results.Left.comSecousseMax(1)
-                % Secousse max du CoM en frontal
+                % Secousse max du CoM en anteroposterieur
                 '%1.2f'     c.results.MeanLeg.comSecousseMax(2)
                 '%1.2f'     c.results.Right.comSecousseMax(2)
                 '%1.2f'     c.results.Left.comSecousseMax(2)
-                % Secousse max du CoM en transverse
+                % Secousse max du CoM en vertical
                 '%1.2f'     c.results.MeanLeg.comSecousseMax(3)
                 '%1.2f'     c.results.Right.comSecousseMax(3)
                 '%1.2f'     c.results.Left.comSecousseMax(3)
