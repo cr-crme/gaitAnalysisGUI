@@ -64,6 +64,8 @@ function dataOut = normalizeData(data)
             
             % Tourner le CoM
             dataOut.Left(i).markers.CentreOfMassInRef = (R'*dataOut.Left(i).markers.CentreOfMass')';
+            dataOut.Left(i).markers.LTOEInRef = (R'*dataOut.Left(i).markers.LTOE')';
+            dataOut.Left(i).markers.RTOEInRef = (R'*dataOut.Left(i).markers.RTOE')';
         end
     end
     if isfield(dataOut, 'Right')
@@ -78,6 +80,8 @@ function dataOut = normalizeData(data)
             
             % Tourner le CoM
             dataOut.Right(i).markers.CentreOfMassInRef = (R'*dataOut.Right(i).markers.CentreOfMass')';
+            dataOut.Right(i).markers.LTOEInRef = (R'*dataOut.Right(i).markers.LTOE')';
+            dataOut.Right(i).markers.RTOEInRef = (R'*dataOut.Right(i).markers.RTOE')';
         end
     end
 end

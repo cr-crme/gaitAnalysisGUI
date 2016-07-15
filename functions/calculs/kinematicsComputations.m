@@ -78,6 +78,18 @@ function results = kinematicsComputations(data, results)
         results.Left.angVelMin_20_100 = computeCustomCalculation(results.Left.angVel_20_100, @min);
         results.Left.angVelMin_PushOff_100 = computeCustomCalculation(results.Left.angVel_PushOff_100, @min);
         results.Left.angVelMin_OppFoot_100 = computeCustomCalculation(results.Left.angVel_OppFoot_100, @min);
+        
+        % Base de sustentation 
+        BS_Left_Foot_0_OppPushOff = abs(data.Left.markers.LTOEInRef(data.Left.stamps.Left_Foot_0_OppPushOff.frameStamps{:},1) - data.Left.markers.RTOEInRef(data.Left.stamps.Left_Foot_0_OppPushOff.frameStamps{:},1));
+        results.Left.baseSustentation.maxPostMoyenne = max(BS_Left_Foot_0_OppPushOff);
+        results.Left.baseSustentation.minPostMoyenne = min(BS_Left_Foot_0_OppPushOff);
+        results.Left.baseSustentation.maxPreMoyenne = data.Left.baseSustentation.maxPreMoyenne;
+        results.Left.baseSustentation.minPreMoyenne = data.Left.baseSustentation.minPreMoyenne;
+        
+        % Centre de masse
+        results.Left.CentreOfMass.mlPostMoyenne = abs(max(data.Left.markers.CentreOfMassInRef(:,1)) - min(data.Left.markers.CentreOfMassInRef(:,1)));
+        results.Left.CentreOfMass.mlPreMoyenne = data.Left.CentreOfMass.ml;
+        
     end
     
     if ~isempty(data.Right.stamps)
@@ -150,5 +162,17 @@ function results = kinematicsComputations(data, results)
         results.Right.angVelMin_20_100 = computeCustomCalculation(results.Right.angVel_20_100, @min);
         results.Right.angVelMin_PushOff_100 = computeCustomCalculation(results.Right.angVel_PushOff_100, @min);
         results.Right.angVelMin_OppFoot_100 = computeCustomCalculation(results.Right.angVel_OppFoot_100, @min);
+        
+        % Base de sustentation
+        BS_Right_Foot_0_OppPushOff = abs(data.Right.markers.RTOEInRef(data.Right.stamps.Right_Foot_0_OppPushOff.frameStamps{:},1) - data.Right.markers.LTOEInRef(data.Right.stamps.Right_Foot_0_OppPushOff.frameStamps{:},1));
+        results.Right.baseSustentation.maxPostMoyenne = max(BS_Right_Foot_0_OppPushOff);
+        results.Right.baseSustentation.minPostMoyenne = min(BS_Right_Foot_0_OppPushOff);
+        results.Right.baseSustentation.maxPreMoyenne = data.Right.baseSustentation.maxPreMoyenne;
+        results.Right.baseSustentation.minPreMoyenne = data.Right.baseSustentation.minPreMoyenne;
+        
+        % Centre de masse
+        results.Right.CentreOfMass.mlPostMoyenne = abs(max(data.Right.markers.CentreOfMassInRef(:,1)) - min(data.Right.markers.CentreOfMassInRef(:,1)));
+        results.Right.CentreOfMass.mlPreMoyenne = data.Right.CentreOfMass.ml;
+        
     end
 end

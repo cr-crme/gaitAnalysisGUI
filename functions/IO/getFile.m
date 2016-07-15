@@ -11,10 +11,10 @@ function [ c ] = getFile( c )
 %    c.info.aideStr = 'Canne (2)';
 %    c.info.note = 'Yo!';
 %    c.file.path = 'data/DMC_Essai_POST2/';
-%    c.file.names = {'DMC-essai_post2ans_marche 02.c3d' 'DMC-essai_post2ans_marche 07.c3d'};% 'DMC_BD_09_marche05.c3d' 'DMC_BD_09_marche08.c3d'  'DMC_BD_09_marche14.c3d'};
+%    c.file.names = {'CTL-enf-002_marche04.c3d' 'CTL-enf-002_marche08.c3d'};
 %    c.file.savepath = 'result/coucou.csv';
-%    c.staticfile.names = {'DMC_BD_53_Statique.c3d'};
-%    c.staticfile.path = 'data/Bogue/';
+%    c.staticfile.names = {'CTL-enf-002_marche08.c3d'};
+%    c.staticfile.path = 'data/DMC_Essai_POST2/';
 %    c.eei.fc_repos = 80.4;
 %    c.eei.fc_marche = 172.52;
 %    c.eei.v_marche = 37.58;
@@ -71,6 +71,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
             moment_fnames = fieldnames(dataAll.(s)(1).moment);
             power_fnames = fieldnames(dataAll.(s)(1).power);
             CentreOfMass = fieldnames(dataAll.(s)(1).CentreOfMass);
+            baseSustentation = fieldnames(dataAll.(s)(1).baseSustentation);
 
             kin_angle = [];
             for j = 1:length(angle_fnames)
@@ -96,9 +97,17 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                 end
                 for i = 1:length(dataKinAll)
                     if strcmp(s, 'Left')
-                        zeroPosition = dataKinAll(i).markers.LHEE;
+                        if ~strfind(marker_fnames{j}, 'InRef')
+                            zeroPosition = dataKinAll(i).markers.LHEE;
+                        else
+                            zeroPosition = zeros(size(dataKinAll(i).markers.LHEE));
+                        end
                     elseif strcmp(s, 'Right')
-                        zeroPosition = dataKinAll(i).markers.RHEE;
+                        if ~strfind(marker_fnames{j}, 'InRef')
+                            zeroPosition = dataKinAll(i).markers.RHEE;
+                        else
+                            zeroPosition = zeros(size(dataKinAll(i).markers.LHEE));
+                        end
                     else
                         error('Côté erronné')
                     end
@@ -125,6 +134,14 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                     com_info.(CentreOfMass{j})(:,:,i) = dataKinAll(i).CentreOfMass.(CentreOfMass{j});
                 end
                 com_info.(CentreOfMass{j}) = mean(com_info.(CentreOfMass{j}),3);
+            end
+            
+            base_info = [];
+            for j = 1:length(baseSustentation)
+                for i = 1:length(dataKinAll)
+                    base_info.(baseSustentation{j})(:,:,i) = dataKinAll(i).baseSustentation.(baseSustentation{j});
+                end
+                base_info.(baseSustentation{j}) = mean(base_info.(baseSustentation{j}),3);
             end
 
             kin_moment = [];
@@ -208,6 +225,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
             dataFinalTp.markers = kin_markers;
             dataFinalTp.markersStd = kin_markersStd;
             dataFinalTp.CentreOfMass = com_info;
+            dataFinalTp.baseSustentation = base_info;
             dataFinalTp.moment = kin_moment;
             dataFinalTp.momentStd = kin_momentStd;
             dataFinalTp.power = kin_power;
@@ -276,6 +294,10 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
             % Calcul spécial pour le centre de masse, calculer tout de suite le médiolatéral 
             data.norm.Left(j).CentreOfMass.ml = abs(max(data.norm.Left(j).markers.CentreOfMassInRef(:,1)) - min(data.norm.Left(j).markers.CentreOfMassInRef(:,1)));
 
+            BS_Left_Foot_0_OppPushOff = abs(data.norm.Left(j).markers.LTOEInRef(data.norm.Left(j).stamps.Left_Foot_0_OppPushOff.frameStamps{:},1) - data.norm.Left(j).markers.RTOEInRef(data.norm.Left(j).stamps.Left_Foot_0_OppPushOff.frameStamps{:},1));
+            data.norm.Left(j).baseSustentation.maxPreMoyenne = max(BS_Left_Foot_0_OppPushOff);
+            data.norm.Left(j).baseSustentation.minPreMoyenne = min(BS_Left_Foot_0_OppPushOff);
+            
             dataAll.Left(cmpLeft) = data.norm.Left(j); 
             cmpLeft = cmpLeft+1;
         end
@@ -283,8 +305,12 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
             data.norm.Right(j).filename = sprintf('%s_CôtéDroit_%d', file.names{i}, j);
             % Calcul spécial pour le centre de masse, calculer tout de suite le médiolatéral 
             data.norm.Right(j).CentreOfMass.ml = abs(max(data.norm.Right(j).markers.CentreOfMassInRef(:,1)) - min(data.norm.Right(j).markers.CentreOfMassInRef(:,1)));
-            dataAll.Right(cmpRight) = data.norm.Right(j); 
             
+            BS_Right_Foot_0_OppPushOff = abs(data.norm.Right(j).markers.RTOEInRef(data.norm.Right(j).stamps.Right_Foot_0_OppPushOff.frameStamps{:},1) - data.norm.Right(j).markers.LTOEInRef(data.norm.Right(j).stamps.Right_Foot_0_OppPushOff.frameStamps{:},1));
+            data.norm.Right(j).baseSustentation.maxPreMoyenne = max(BS_Right_Foot_0_OppPushOff);
+            data.norm.Right(j).baseSustentation.minPreMoyenne = min(BS_Right_Foot_0_OppPushOff);
+            
+            dataAll.Right(cmpRight) = data.norm.Right(j); 
             cmpRight = cmpRight+1;
         end
     end
