@@ -97,6 +97,9 @@ function writeExcel(c)
                     'Param spatio-temporel' 'Vitesse cycle (m/s)' 'DG'
                     'Param spatio-temporel' 'Vitesse cycle (m/s)' 'D'
                     'Param spatio-temporel' 'Vitesse cycle (m/s)' 'G'
+                    'Param spatio-temporel' 'Ratio marche (mm/pas/min)' 'DG'
+                    'Param spatio-temporel' 'Ratio marche (mm/pas/min)' 'D'
+                    'Param spatio-temporel' 'Ratio marche (mm/pas/min)' 'G'
                     % Cinématique au contact initial en sagittal
                     'Cinématique', 'Tronc contact init sagittal (°)' 'DG'
                     'Cinématique', 'Tronc contact init sagittal (°)' 'D'
@@ -752,9 +755,15 @@ function writeExcel(c)
                     'Cinématique', 'Amplitude CoM Medio Latéral (mm)'       'DG'
                     'Cinématique', 'Amplitude CoM Medio Latéral (mm)'       'D'
                     'Cinématique', 'Amplitude CoM Medio Latéral (mm)'       'G'
-                    'Cinématique', 'Amplitude CoM Base support (mm)'        'DG'
-                    'Cinématique', 'Amplitude CoM Base support (mm)'        'D'
-                    'Cinématique', 'Amplitude CoM Base support (mm)'        'G'
+                    'Cinématique', 'Largeur max Base support (mm)'         'DG'
+                    'Cinématique', 'Largeur max Base support (mm)'         'D'
+                    'Cinématique', 'Largeur max Base support (mm)'         'G'
+                    'Cinématique', 'Largeur min Base support (mm)'         'DG'
+                    'Cinématique', 'Largeur min Base support (mm)'         'D'
+                    'Cinématique', 'Largeur min Base support (mm)'         'G'
+                    'Cinématique', 'Difference Base support CoM (mm)'        'DG'
+                    'Cinématique', 'Difference Base support CoM (mm)'        'D'
+                    'Cinématique', 'Difference Base support CoM (mm)'        'G'
                     'Cinématique', 'Amplitude CoM Base support (%)'         'DG'
                     'Cinématique', 'Amplitude CoM Base support (%)'         'D'
                     'Cinématique', 'Amplitude CoM Base support (%)'         'G'
@@ -1188,6 +1197,9 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.vitFoulee
                 '%1.2f'     c.results.Right.vitFoulee
                 '%1.2f'     c.results.Left.vitFoulee
+                '%1.2f'     c.results.MeanLeg.distPas/c.results.MeanLeg.vitCadencePasParMinute
+                '%1.2f'     c.results.Right.distPas/c.results.Right.vitCadencePasParMinute
+                '%1.2f'     c.results.Left.distPas/c.results.Left.vitCadencePasParMinute
                 % Cinématique
                 % Angle à l'attaque en sagittal
                 '%1.2f'     c.results.MeanLeg.angAtFoot_Strike.Thorax(1,1) 
@@ -1843,12 +1855,18 @@ function writeExcel(c)
                 '%1.2f'     c.results.MeanLeg.comRangeML
                 '%1.2f'     c.results.Right.comRangeML
                 '%1.2f'     c.results.Left.comRangeML
-                '%s'        ''
-                '%s'        ''
-                '%s'        ''
-                '%s'        ''
-                '%s'        ''
-                '%s'        ''
+                '%1.2f'     c.results.MeanLeg.baseSustentation.maxPreMoyenne
+                '%1.2f'     c.results.Right.baseSustentation.maxPreMoyenne
+                '%1.2f'     c.results.Left.baseSustentation.maxPreMoyenne
+                '%1.2f'     c.results.MeanLeg.baseSustentation.minPreMoyenne
+                '%1.2f'     c.results.Right.baseSustentation.minPreMoyenne
+                '%1.2f'     c.results.Left.baseSustentation.minPreMoyenne
+                '%1.2f'     c.results.MeanLeg.baseSustentation.maxPreMoyenne-c.results.MeanLeg.CentreOfMass.mlPreMoyenne 
+                '%1.2f'     c.results.Right.baseSustentation.maxPreMoyenne-c.results.Right.CentreOfMass.mlPreMoyenne
+                '%1.2f'     c.results.Left.baseSustentation.maxPreMoyenne-c.results.Left.CentreOfMass.mlPreMoyenne
+                '%1.2f'     c.results.MeanLeg.CentreOfMass.mlPreMoyenne/c.results.MeanLeg.baseSustentation.maxPreMoyenne*100
+                '%1.2f'     c.results.Right.CentreOfMass.mlPreMoyenne/c.results.Right.baseSustentation.maxPreMoyenne*100
+                '%1.2f'     c.results.Left.CentreOfMass.mlPreMoyenne/c.results.Left.baseSustentation.maxPreMoyenne*100
                 
                 % Vitesse min du CoM en médiolatéral
                 '%1.2f'     c.results.MeanLeg.comVitesseMin(1)

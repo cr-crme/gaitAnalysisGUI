@@ -65,7 +65,6 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
 %%%%%% EXPORTER LES DONNÉES %%%%%%
 % Enregistrer les données
 save(['result/matfiles/' c.info.name], 'c');
