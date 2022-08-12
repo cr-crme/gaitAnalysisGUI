@@ -278,7 +278,7 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
         file.fullpath{i} = [file.path file.names{i} file.ext{i}];
         
         % Ouvrir un fichier BTK
-        c3d(i) = btkReadAcquisition(file.fullpath{i}); %#ok<AGROW>
+        c3d(i) = c3dRead(file.fullpath{i}); %#ok<AGROW>
         
         try
             data = extractDataFromC3D(c3d(i));

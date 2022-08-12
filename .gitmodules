@@ -1,0 +1,3 @@
+[submodule "Libs/ezc3d"]
+	path = Libs/ezc3d
+	url = https://github.com/pyomeca/ezc3d

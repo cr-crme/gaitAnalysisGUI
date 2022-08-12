@@ -1,15 +1,15 @@
 function data = extractDataFromC3D(c3d)
     % Recevoir les métadonnées
-    data.metadata = btkGetMetaData(c3d); % On peut le faire sur un seul fichier, car tous le même sujet
+    data.metadata = c3dParameters(c3d); % On peut le faire sur un seul fichier, car tous le même sujet
 
     % Récupérer les angles au cours du temps
-    [data.angle, data.angleInfos] = btkGetAngles(c3d);
+    [data.angle, data.angleInfos] = c3dAngles(c3d);
 
     % Récupérer les marqueurs au cours du temps
-    data.markers = btkGetMarkers(c3d);
+    data.markers = c3dMarkers(c3d);
 
     % Récupérer la cinétique
-    data.moment = btkGetMoments(c3d);
+    data.moment = c3dMoments(c3d);
     if isempty(fieldnames(data.moment))
         error('Les moments de forces ne furent trouv�s');
     else
@@ -22,11 +22,11 @@ function data = extractDataFromC3D(c3d)
             data.moment.RGroundReactionMoment = nan(size(data.moment.(f{1})));
         end
     end
-    data.power = btkGetPowers(c3d);
+    data.power = c3dPowers(c3d);
 
 
     % Extraire les plateformes de force
-    [data.forceplate, data.forceplatinfo] = btkGetForcePlatforms(c3d);
+    [data.forceplate, data.forceplatinfo] = c3dForcePlatforms(c3d);
     data.ratioFrequence = data.forceplatinfo(1).frequency / data.angleInfos.frequency;
     
      % Extraire les événements
