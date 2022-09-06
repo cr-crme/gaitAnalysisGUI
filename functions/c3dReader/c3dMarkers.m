@@ -1,7 +1,7 @@
 function out = c3dMarkers(c3d)
 
     if isfield(c3d, 'ezc3d')
-        names = c3d.ezc3d.parameters.POINT.LABELS.DATA;
+        names = c3d.ezc3d.c3d.parameters.POINT.LABELS.DATA;
         out = struct();
         for i = 1:length(names)
             if (length(names{i}) < length('Angles') || ~strcmp(names{i}(end-5:end), 'Angles')) ... 
@@ -15,7 +15,7 @@ function out = c3dMarkers(c3d)
                     name = names{i}(1:end);
                 end
             
-                out.(name) = squeeze(c3d.ezc3d.data.points(:, i, :))';
+                out.(name) = squeeze(c3d.ezc3d.c3d.data.points(:, i, :))';
             end
         end
     elseif isfield(c3d, 'btk')

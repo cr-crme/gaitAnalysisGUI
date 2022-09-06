@@ -1,7 +1,7 @@
 function out = c3dLastFrame(c3d)
 
     if isfield(c3d, 'ezc3d')
-        out = c3d.ezc3d.header.points.lastFrame;
+        out = c3d.ezc3d.c3d.header.points.lastFrame;
     elseif isfield(c3d, 'btk')
         out = btkGetLastFrame(c3d.btk);
     else
