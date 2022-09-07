@@ -13,7 +13,7 @@ feature('DefaultCharacterSet','UTF8');
 %%%%%% PRÉPARATION %%%%%%
 % Load de la librairie pour la lecture des c3d
 % loadBtk();
-addpath('Libs/ezc3d_matlab');
+loadEzc3d();
 c.debug = true;
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
