@@ -46,6 +46,41 @@ end
     c.results.MeanLeg = meanLegs(c.results.Left, c.results.Right);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%% Différents calculs par essai %%%%%%
+    sides = fieldnames(c.dataAll);
+    for iS = 1:length(sides)
+        s = sides{iS};
+        types = fieldnames(c.dataAll.(s));
+        for iT = 1:length(types)
+            t = types{iT};
+
+            for i = 1:length(c.dataAll.(s).(t))
+                % Évéments spatio-temporels
+                resultTP = spatiotempComputations(c.dataAll.(s).(t)(i));
+
+                % Classage et calculs de paramètres cinématiques
+                resultTP = kinematicsComputations(c.dataAll.(s).(t)(i), resultTP);
+
+                % Extraction et calculs sur la cinétique
+                resultTP = kineticsComputations(c.dataAll.(s).(t)(i), resultTP);
+
+                % Copy struct si un côté est inexistant
+                resultTP = createEmptyIfNecessary(resultTP);
+
+                % Faire la moyenne gauche et droite sur toutes les valeurs
+                resultTP.MeanLeg = meanLegs(resultTP.Left, resultTP.Right);
+                
+                % Exporter le résultat
+                c.resultsAll.(s).(t)(i) = resultTP;
+                clear resultTP
+            end
+        end
+    end
+
+       clear sides s iS types t iT i    
+   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
 %%%%%% Différents calculs pour l'essai statique %%%%%%
     % Évéments spatio-temporels
     if ~isempty(c.staticfile)
@@ -63,9 +98,12 @@ end
         % Faire la moyenne gauche et droite sur toutes les valeurs
         c.staticfile.results.MeanLeg = meanLegs(c.staticfile.results.Left, c.staticfile.results.Right);
     end
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %%EMG%%
+%c.EMG = extractmultipleEMG(c.c3d);
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% EXPORTER LES DONNÉES %%%%%%
 % Enregistrer les données
 save(['result/matfiles/' c.info.name], 'c');

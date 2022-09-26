@@ -1,4 +1,4 @@
-function data = extractDataFromC3D(c3d)
+function data = extractDataFromC3D(c3d, selectAllCycles)
     % Recevoir les métadonnées
     data.metadata = c3dParameters(c3d); % On peut le faire sur un seul fichier, car tous le même sujet
 
@@ -11,7 +11,7 @@ function data = extractDataFromC3D(c3d)
     % Récupérer la cinétique
     data.moment = c3dMoments(c3d);
     if isempty(fieldnames(data.moment))
-        error('Les moments de forces ne furent trouv�s');
+        error('Les moments de forces ne furent trouv�s');
     else
         if ~isfield(data.moment, 'LGroundReactionMoment')
             f = fieldnames(data.moment);
@@ -33,7 +33,7 @@ function data = extractDataFromC3D(c3d)
     data = extractEvents(c3d, data);
     
     % Normaliser les données
-    data.norm = normalizeData(data);
+    data.norm = normalizeData(data, selectAllCycles);
     
     % mapping du cycle de marche pour les frame stamp (ex. le fram 35 représente quel % de marche)
     data = computePourcentCycleMarche(data);

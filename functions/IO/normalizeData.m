@@ -1,4 +1,4 @@
-function dataOut = normalizeData(data)
+function dataOut = normalizeData(data, selectAllCycles)
 
     % Nom des champs à normaliser
     fieldToNormalize = {'angle', 'markers', 'moment', 'power'};
@@ -8,23 +8,25 @@ function dataOut = normalizeData(data)
     stamps = extractStamps(data.stamps, data.angleInfos.frequency);
     
     % Trouver les deux cycles de cet essai (où on met le pied sur la plateforme +1)
-    [idxPiedGauche,idxPiedDroit,onPlateFormeLeft,idxPlateFormePiedDroit, numPFGauche, numPFDroit] = findFootIdx(data, stamps);
+    [idxPiedGauche,idxPiedDroit,onPlateFormeLeft,idxPlateFormePiedDroit, numPFGauche, numPFDroit] = findFootIdx(data, stamps, selectAllCycles);
 
     
     % Conserver les angles de 0 à 100% pour le pied gauche
     if isempty(numPFGauche) && isempty(onPlateFormeLeft)
-        dataOut.Left(1) = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(1)},...
-            intersect(idxPiedGauche(1),idxPiedGauche(1)), 1, fieldToNormalize, analFieldToNormalize); 
-        dataOut.Left(1).IsFootOnPF = false;
-        dataOut.Left(1).idxPlateForme = [];
-        dataOut.Left(1).forceplate.channels.Fx1 = [];
-        dataOut.Left(1).forceplate.channels.Fy1 = [];
-        dataOut.Left(1).forceplate.channels.Fz1 = [];
-        dataOut.Left(1).forceplate.channels.Mx1 = [];
-        dataOut.Left(1).forceplate.channels.My1 = [];
-        dataOut.Left(1).forceplate.channels.Mz1 = [];
+        for i=1:size(idxPiedGauche,2)
+            dataOut.Left(i) = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(1,i)},...
+                intersect(idxPiedGauche(1,i),idxPiedGauche(1,i)), 1, fieldToNormalize, analFieldToNormalize); 
+            dataOut.Left(i).IsFootOnPF = false;
+            dataOut.Left(i).idxPlateForme = [];
+            dataOut.Left(i).forceplate.channels.Fx1 = [];
+            dataOut.Left(i).forceplate.channels.Fy1 = [];
+            dataOut.Left(i).forceplate.channels.Fz1 = [];
+            dataOut.Left(i).forceplate.channels.Mx1 = [];
+            dataOut.Left(i).forceplate.channels.My1 = [];
+            dataOut.Left(i).forceplate.channels.Mz1 = [];
+        end
     else
-        for j=1:length(idxPiedGauche)
+        for j=1:size(idxPiedGauche,2)
             % Trouver les nouveaux stamps
             dataOut.Left(j) = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(j)},...
                 intersect(idxPiedGauche(j),onPlateFormeLeft), numPFGauche, fieldToNormalize, analFieldToNormalize); 
@@ -33,18 +35,20 @@ function dataOut = normalizeData(data)
 
     % Conserver les angles de 0 à 100% pour le pied droit
     if isempty(numPFDroit) && isempty(idxPlateFormePiedDroit)
-        dataOut.Right(1) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(1)},...
-            intersect(idxPiedDroit(1),idxPiedDroit(1)), 1, fieldToNormalize, analFieldToNormalize); 
-        dataOut.Right(1).IsFootOnPF = false;
-        dataOut.Right(1).idxPlateForme = [];
-        dataOut.Right(1).forceplate.channels.Fx1 = [];
-        dataOut.Right(1).forceplate.channels.Fy1 = [];
-        dataOut.Right(1).forceplate.channels.Fz1 = [];
-        dataOut.Right(1).forceplate.channels.Mx1 = [];
-        dataOut.Right(1).forceplate.channels.My1 = [];
-        dataOut.Right(1).forceplate.channels.Mz1 = [];
+        for i=1:size(idxPiedDroit,2)
+            dataOut.Right(i) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(1,i)},...
+                intersect(idxPiedDroit(1,i),idxPiedDroit(1,i)), 1, fieldToNormalize, analFieldToNormalize); 
+            dataOut.Right(i).IsFootOnPF = false;
+            dataOut.Right(i).idxPlateForme = [];
+            dataOut.Right(i).forceplate.channels.Fx1 = [];
+            dataOut.Right(i).forceplate.channels.Fy1 = [];
+            dataOut.Right(i).forceplate.channels.Fz1 = [];
+            dataOut.Right(i).forceplate.channels.Mx1 = [];
+            dataOut.Right(i).forceplate.channels.My1 = [];
+            dataOut.Right(i).forceplate.channels.Mz1 = [];
+        end
     else
-        for j=1:length(idxPiedDroit)
+        for j=1:size(idxPiedDroit,2)
             % Trouver les nouveaux stamps
             dataOut.Right(j) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(j)},...
                 intersect(idxPiedDroit(j),idxPlateFormePiedDroit), numPFDroit, fieldToNormalize, analFieldToNormalize);
@@ -99,7 +103,7 @@ function idx = findNewStampsFor(name, fullCycleStamps)
     end
 end
 
-function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePiedDroit, numPFGauche, numPFDroit] = findFootIdx(data, stamps)
+function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePiedDroit, numPFGauche, numPFDroit] = findFootIdx(data, stamps, selectAllCycles)
    
     isLeftFootFound = false;
     isRightFootFound = false;
@@ -159,13 +163,21 @@ function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePie
 
     % Si on n'a pas trouvé de plateforme, prendre les cycles du milieu
     if ~isLeftFootFound
-        idxPiedGauche = floor(length(stamps.Left_Foot_FullCycle.frameStamps)/2);
-        idxPiedGauche(2) = idxPiedGauche+1;
+        if selectAllCycles
+            idxPiedGauche(1,:) = 1:length(stamps.Left_Foot_FullCycle.frameStamps);
+        else
+            idxPiedGauche = floor(length(stamps.Left_Foot_FullCycle.frameStamps)/2);
+        end
+        idxPiedGauche(2,:) = idxPiedGauche+1;
     end
     % Si on n'a pas trouvé de plateforme, prendre les cycles du milieu
     if ~isRightFootFound
-        idxPiedDroit = floor(length(stamps.Right_Foot_FullCycle.frameStamps)/2);
-        idxPiedDroit(2) = idxPiedDroit+1;
+        if selectAllCycles
+            idxPiedDroit(1,:) = 1:length(stamps.Right_Foot_FullCycle.frameStamps);
+        else
+            idxPiedDroit = floor(length(stamps.Right_Foot_FullCycle.frameStamps)/2);
+        end
+        idxPiedDroit(2,:) = idxPiedDroit+1;
     end
     
     % Si on a trouvé deux fois la même plateforme, c'est que la stratégie

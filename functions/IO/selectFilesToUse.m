@@ -24,7 +24,7 @@ function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data)
     idxRight = [];
     for iSide = 1:2 % Tous les fichiers ouverts (gauche - droit)
         sides = fieldnames(data);
-        for i = 1:length(data.(sides{iSide}));
+        for i = 1:length(data.(sides{iSide}))
             cmp = cmp+1;
             if strcmp(sides{iSide}, 'Left')
                 idxLeft(end+1) = cmp; %#ok<AGROW>

@@ -10,14 +10,15 @@ function [ c ] = getFile( c )
 %    c.info.aide = 2;
 %    c.info.aideStr = 'Canne (2)';
 %    c.info.note = 'Yo!';
-%    c.file.path = 'data/DMC_Essai_POST2/';
-%    c.file.names = {'CTL-enf-002_marche04.c3d' 'CTL-enf-002_marche08.c3d'};
+%    c.file.path = 'data/';
+%    c.file.names = {'DMC_BD_011_6mwe_min01.c3d' 'DMC_BD_011_6mwe_min06.c3d'};
 %    c.file.savepath = 'result/coucou.csv';
-%    c.staticfile.names = {'CTL-enf-002_marche08.c3d'};
-%    c.staticfile.path = 'data/DMC_Essai_POST2/';
+%    c.staticfile.names = [];
+%    c.staticfile.path = '';
 %    c.eei.fc_repos = 80.4;
 %    c.eei.fc_marche = 172.52;
 %    c.eei.v_marche = 37.58;
+%    c.selectAllCycle = 1;
     
     % S'assurer qu'on veut analyser quelque chose
     if isempty(c)
@@ -29,30 +30,73 @@ function [ c ] = getFile( c )
     end
     
     % Ouvrir et découper les données
-    [dataAll, c.file, c.c3d] = openAndParseC3Ds(c.file);
-    [dataStatic, c.staticfile, c3dStatic] = openAndParseC3Ds(c.staticfile);
-    kinToKeep.Left = 1:length(dataStatic.Left);
-    kinToKeep.Right = 1:length(dataStatic.Right);
-    dynToKeep.Left = 1;
-    dynToKeep.Right = 1;
+    [dataAll, c.file, c.c3d] = openAndParseC3Ds(c.file, c.selectAllCycle);
+    [dataStatic, c.staticfile, c3dStatic] = openAndParseC3Ds(c.staticfile, false);
+    ToKeep.kinToKeep.Left = 1:length(dataStatic.Left);
+    ToKeep.kinToKeep.Right = 1:length(dataStatic.Right);
+    ToKeep.dynToKeep.Left = 1;
+    ToKeep.dynToKeep.Right = 1;
     if ~isempty(c3dStatic)
-        c.staticfile.data = meanAllResults(dataStatic, kinToKeep, dynToKeep, c.info);
+        c.staticfile.data = meanAllResults(dataStatic, ToKeep.kinToKeep, ToKeep.dynToKeep, c.info);
         c.staticfile.c3d = c3dStatic;
     end
     
     % Faire choisir à l'utilisateur les essais à conserver
-    [kinToKeep, dynToKeep] = selectFilesToUse(dataAll);
-%     kinToKeep.Left = [1 2 7 8];
-%     kinToKeep.Right = [1];
-%     dynToKeep.Left = [1 7];
-%     dynToKeep.Right = [1 ]; %#ok<NBRAK>
+    [ToKeep.kinToKeep, ToKeep.dynToKeep] = selectFilesToUse(dataAll);
+%     ToKeep.kinToKeep.Left = [1 2 7 8];
+%     ToKeep.kinToKeep.Right = [1];
+%     ToKeep.dynToKeep.Left = [1 7];
+%     ToKeep.dynToKeep.Right = [1 ]; %#ok<NBRAK>
     
     
     % Élager les données selon ce qui a été choisi
-    dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, c.info);
+    dataFinal = meanAllResults(dataAll, ToKeep.kinToKeep, ToKeep.dynToKeep, c.info);
     
     % Mettre les données dans la variable de sortie
     c.data = dataFinal;
+    
+    % Sauvegarder toutes les données pour stats
+    types = fieldnames(ToKeep);
+    for iT = 1:length(types)
+        sides = fieldnames(ToKeep.(types{iT}));
+        for iS = 1:length(sides)
+            emptyStruct.(types{iT}).(sides{iS}) = [];
+        end
+    end
+    
+    names = {'kin', 'dyn'};
+%     c.dataAll.Left.kin = []; createEmptyStructFromStruct(dataFinal);
+%     c.dataAll.Right.kin = createEmptyStructFromStruct(dataFinal);
+%     c.dataAll.Left.dyn = createEmptyStructFromStruct(dataFinal);
+%     c.dataAll.Right.dyn = createEmptyStructFromStruct(dataFinal);
+    for iT = 1:length(types)
+        for iS = 1:length(sides)
+            first = true;
+            for j = 1:length(ToKeep.(types{iT}).(sides{iS}))
+                tpStruct = emptyStruct; % Mettre les deux structures à vide
+                tpStruct.(types{iT}).(sides{iS}) = ToKeep.(types{iT}).(sides{iS})(j);
+                if first
+                    c.dataAll.(sides{iS}).(names{iT}) = meanAllResults(dataAll, tpStruct.kinToKeep, tpStruct.dynToKeep, c.info);
+                    first = false;
+                else
+                    c.dataAll.(sides{iS}).(names{iT})(end+1) = meanAllResults(dataAll, tpStruct.kinToKeep, tpStruct.dynToKeep, c.info);
+                end
+            end
+        end
+    end
+
+end
+
+function newStruct = createEmptyStructFromStruct(originStruct)
+    fields = fieldnames(originStruct);
+    for i = 1:length(fields)
+        field = fields{i};
+        if isstruct(originStruct(1).(field))
+            newStruct.(field) = createEmptyStructFromStruct(originStruct(1).(field));
+        else
+            newStruct.(field) = [];
+        end
+    end
 end
 
 function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
@@ -261,7 +305,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
     end
 end
 
-function [dataAll, file, c3d] = openAndParseC3Ds(file)
+function [dataAll, file, c3d] = openAndParseC3Ds(file, selectAllCycle)
     if isempty(file.names)
         dataAll.Left = [];
         dataAll.Right = [];
@@ -269,6 +313,7 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
         c3d = [];
         return;
     end
+    
 
 % Parse and open
     cmpLeft = 1;
@@ -281,7 +326,7 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file)
         c3d(i) = c3dRead(file.fullpath{i}); %#ok<AGROW>
         
         try
-            data = extractDataFromC3D(c3d(i));
+            data = extractDataFromC3D(c3d(i), selectAllCycle);
         catch me
             uiwait(errordlg(sprintf('Le fichier %s a retourné l''erreur suivante : \n %s', file.names{i}, me.message)));
             error('Le fichier %s a retourné l''erreur suivante : \n %s', file.names{i}, me.message);       
