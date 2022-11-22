@@ -159,7 +159,12 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                         zeroPosition(:,[1 2]) = -zeroPosition(:,[1 2]);
                     end
                     zeroPosition = [repmat([min(zeroPosition(:,1)), zeroPosition(1,2)], [size(zeroPosition,1), 1]), zeros(size(zeroPosition(:,3)))];
-                    d = dataKinAll(i).markers.(marker_fnames{j});
+                    if isfield(marker_fnames{j}, dataKinAll(i).markers)
+                        d = dataKinAll(i).markers.(marker_fnames{j});
+                    else
+                        d = zeroPosition;
+                    end
+                    
                     % S'assurer que la marche est vers l'avant (tourne autour de z)
                     if d(end,2) - d(1,2) < 0
                         d(:,[1 2]) = -d(:,[1 2]);
