@@ -29,14 +29,23 @@ Hd = design(d);
 %Application du passe-bande sur les données brutes
 %MOYEN FESSIER
 Right_Gluteus = filter(Hd,EMG.Analogs.Right_Gluteus_me);
-Left_Gluteus = filter(Hd,EMG.Analogs.Left_Gluteus_med);
+if isfield('Left_Gluteus_med', EMG.Analogs)
+    Left_Gluteus = filter(Hd,EMG.Analogs.Left_Gluteus_med);
+else
+    Left_Gluteus = filter(Hd,EMG.Analogs.Left_Gluteus_me_);
+end
+    
 
 %DROIT FEMORAL
 Right_Rectus = filter(Hd,EMG.Analogs.Right_Rectus_fem);
 Left_Rectus = filter(Hd,EMG.Analogs.Left_Rectus_femo);
 %SEMITENDINEUX
 Right_Semitendin = filter(Hd,EMG.Analogs.Right_Semitendin);
-Left_Semitendin = filter(Hd,EMG.Analogs.Left_Semitendino);
+if isfield('Left_Semitendino', EMG.Analogs)
+    Left_Semitendin = filter(Hd,EMG.Analogs.Left_Semitendino);
+else
+    Left_Semitendin = filter(Hd,EMG.Analogs.Left_Semitendi_I);
+end
 
 %VASTE LATERAL
 Right_Lateral = filter(Hd,EMG.Analogs.Right_Vastus_lat);

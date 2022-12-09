@@ -101,7 +101,7 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%EMG%%
-%c.EMG = extractmultipleEMG(c.c3d);
+c.EMG = extractmultipleEMG(c.c3d);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% EXPORTER LES DONNÉES %%%%%%
