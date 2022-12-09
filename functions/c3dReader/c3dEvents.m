@@ -3,6 +3,10 @@ function out = c3dEvents(c3d)
     if isfield(c3d, 'ezc3d')
         out = struct();
         for i = 1:c3d.ezc3d.c3d.parameters.EVENT.USED.DATA
+            if ~strcmp(c3d.ezc3d.c3d.parameters.EVENT.LABELS.DATA{i}, 'Foot Strike') && ~strcmp(c3d.ezc3d.c3d.parameters.EVENT.LABELS.DATA{i}, 'Foot Off')
+                continue
+            end
+            
             name = strrep(sprintf('%s_%s', ...
                 c3d.ezc3d.c3d.parameters.EVENT.CONTEXTS.DATA{i}, ...
                 c3d.ezc3d.c3d.parameters.EVENT.LABELS.DATA{i}), ' ', '_');

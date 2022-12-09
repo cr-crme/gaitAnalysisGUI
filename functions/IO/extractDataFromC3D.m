@@ -32,6 +32,9 @@ function data = extractDataFromC3D(c3d, selectAllCycles)
      % Extraire les événements
     data = extractEvents(c3d, data);
     
+    % Compléter les fields qui manquent pour que l'analyse ne crash pas
+    data = fillMissingData(data);
+    
     % Normaliser les données
     data.norm = normalizeData(data, selectAllCycles);
     
