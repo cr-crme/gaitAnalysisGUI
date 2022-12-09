@@ -58,7 +58,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                         zeroPosition(:,[1 2]) = -zeroPosition(:,[1 2]);
                     end
                     zeroPosition = [repmat([min(zeroPosition(:,1)), zeroPosition(1,2)], [size(zeroPosition,1), 1]), zeros(size(zeroPosition(:,3)))];
-                    if isfield(marker_fnames{j}, dataKinAll(i).markers)
+                    if isfield(dataKinAll(i).markers, marker_fnames{j})
                         d = dataKinAll(i).markers.(marker_fnames{j});
                     else
                         d = zeroPosition;
