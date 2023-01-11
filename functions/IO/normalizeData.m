@@ -184,6 +184,8 @@ function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePie
     % initiale n'a pas fonctionnée, il faut essayer avec la cinématique
     % (peut-être cette stratégie est plus robuste en tout temps? pour
     % l'instant il est design pour l'essai statique)
+    
+    % Does not work very well for static trials! workaround written in main
     if isLeftFootFound && isRightFootFound && numPFGauche == numPFDroit
         % Prendre la maléole du pied gauche et droit et déterminer dans
         % quelle plateforme ils sont situé

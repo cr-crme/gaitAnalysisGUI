@@ -53,23 +53,23 @@ a=a+12;
 end
 
 a=1;
-EMG.results.meanpct.Right_Gluteus = mean(Right_Gluteuspct);
-EMG.results.meanpct.Left_Gluteus = mean(Left_Gluteuspct);
+EMG.results.meanpct.Right_Gluteus = mean(Right_Gluteuspct,1);
+EMG.results.meanpct.Left_Gluteus = mean(Left_Gluteuspct,1);
 
-EMG.results.meanpct.Right_Rectus = mean(Right_Rectuspct);
-EMG.results.meanpct.Left_Rectus = mean(Left_Rectuspct);
+EMG.results.meanpct.Right_Rectus = mean(Right_Rectuspct,1);
+EMG.results.meanpct.Left_Rectus = mean(Left_Rectuspct,1);
 
-EMG.results.meanpct.Right_Semitendin = mean(Right_Semitendinpct);
-EMG.results.meanpct.Left_Semitendin= mean(Left_Semitendinpct);
+EMG.results.meanpct.Right_Semitendin = mean(Right_Semitendinpct,1);
+EMG.results.meanpct.Left_Semitendin= mean(Left_Semitendinpct,1);
 
-EMG.results.meanpct.Right_Lateral = mean(Right_Lateralpct);
-EMG.results.meanpct.Left_Lateral = mean(Left_Lateralpct);
+EMG.results.meanpct.Right_Lateral = mean(Right_Lateralpct,1);
+EMG.results.meanpct.Left_Lateral = mean(Left_Lateralpct,1);
 
-EMG.results.meanpct.Right_Gastrocnem = mean(Right_Gastrocnempct);
-EMG.results.meanpct.Left_Gastrocnem = mean(Left_Gastrocnempct);
+EMG.results.meanpct.Right_Gastrocnem = mean(Right_Gastrocnempct,1);
+EMG.results.meanpct.Left_Gastrocnem = mean(Left_Gastrocnempct,1);
 
-EMG.results.meanpct.Right_Tibialis = mean(Right_Tibialispct);
-EMG.results.meanpct.Left_Tibialis = mean(Left_Tibialispct);
+EMG.results.meanpct.Right_Tibialis = mean(Right_Tibialispct,1);
+EMG.results.meanpct.Left_Tibialis = mean(Left_Tibialispct,1);
 
 
  nb_cycles = size(Muscles,1)/12;
