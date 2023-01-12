@@ -9,6 +9,10 @@ addpath('Libs');
 addpath(genpath('functions'));
 feature('DefaultCharacterSet','UTF8');
 
+%%%%%% OPTIONS %%%%%
+useEMG = true; % false;
+%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%% PRÉPARATION %%%%%%
 % Load de la librairie pour la lecture des c3d
@@ -101,7 +105,9 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%EMG%%
-c.EMG = extractmultipleEMG(c.c3d);
+if useEMG
+    c.EMG = extractmultipleEMG(c.c3d);
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%% EXPORTER LES DONNÉES %%%%%%

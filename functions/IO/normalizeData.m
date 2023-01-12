@@ -168,7 +168,11 @@ function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePie
         else
             idxPiedGauche = floor(length(stamps.Left_Foot_FullCycle.frameStamps)/2);
         end
-        idxPiedGauche(2,:) = idxPiedGauche+1;
+        if idxPiedGauche == 0
+            idxPiedGauche = 1; % Un seul cycle a été trouvé
+        else
+            idxPiedGauche(2,:) = idxPiedGauche+1;
+        end
     end
     % Si on n'a pas trouvé de plateforme, prendre les cycles du milieu
     if ~isRightFootFound
@@ -177,7 +181,11 @@ function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePie
         else
             idxPiedDroit = floor(length(stamps.Right_Foot_FullCycle.frameStamps)/2);
         end
-        idxPiedDroit(2,:) = idxPiedDroit+1;
+        if idxPiedDroit == 0
+            idxPiedDroit = 1; % Un seul cycle a été trouvé
+        else
+            idxPiedDroit(2,:) = idxPiedDroit+1;
+        end
     end
     
     % Si on a trouvé deux fois la même plateforme, c'est que la stratégie

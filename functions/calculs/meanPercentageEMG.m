@@ -1,7 +1,5 @@
-function results = meanPercentageEMG(EMG,c3d)
-% Récupérer les EMG utilisés (TODO this function should be in main)
-    emgLabels = selectEMG();
-    
+function results = meanPercentageEMG(EMG,c3d, possibleEmgLabels)
+
 %Extract data du c3d
     data = extractDataFromC3D(c3d, false);
 
@@ -15,7 +13,7 @@ function results = meanPercentageEMG(EMG,c3d)
     stamps = extractStamps(data.stamps, data.angleInfos.frequency);
     
 % Trouver les deux cycles de cet essai (ou on met le pied sur la plateforme +1)
-[idxPiedGauche,idxPiedDroit,onPlateFormeLeft,idxPlateFormePiedDroit, numPFGauche, numPFDroit] = findFootIdx(data, stamps);
+[idxPiedGauche,idxPiedDroit,~,~, ~, ~] = findFootIdx(data, stamps);
 
 
 %TRAITEMENT DES DONNÉES EMG 
@@ -28,31 +26,31 @@ Hd = design(d);
 
 %Application du passe-bande sur les données brutes
 %MOYEN FESSIER
-Right_Gluteus = filter(Hd,selectEMG(EMG, 'Gluteus droit', {'Right_Gluteus_me', 'Voltage_Right_Gluteus_me'}));
-Left_Gluteus = filter(Hd,selectEMG(EMG, 'Gluteus gauche', {'Left_Gluteus_med', 'Left_Gluteus_me_', 'Voltage_Left_Gluteus_med'}));
+Right_Gluteus = filter(Hd,selectEMG(EMG, possibleEmgLabels.RightGluteus));
+Left_Gluteus = filter(Hd,selectEMG(EMG, possibleEmgLabels.LeftGluteus));
 
 %DROIT FEMORAL
-Right_Rectus = filter(Hd,selectEMG(EMG, 'Femoral droit', {'Right_Rectus_fem', 'Voltage_Right_Rectus_fem'}));
-Left_Rectus = filter(Hd,selectEMG(EMG, 'Femoral gauche', {'Left_Rectus_femo', 'Voltage_Left_Rectus_femo'}));
+Right_Rectus = filter(Hd,selectEMG(EMG, possibleEmgLabels.RightRectus));
+Left_Rectus = filter(Hd,selectEMG(EMG, possibleEmgLabels.LeftRectus));
 %SEMITENDINEUX
-Right_Semitendin = filter(Hd,selectEMG(EMG, 'Semitendineux droit', {'Right_Rectus_fem', 'Voltage_Right_Semitendin'}));
-Left_Semitendin = filter(Hd,selectEMG(EMG, 'Semitendineux gauche', {'Left_Rectus_femo', 'Voltage_Left_Semitendino'}));
+Right_Semitendin = filter(Hd,selectEMG(EMG, possibleEmgLabels.RightSemitendin));
+Left_Semitendin = filter(Hd,selectEMG(EMG, possibleEmgLabels.LeftSemitendin));
 
 %VASTE LATERAL
-Right_Lateral = filter(Hd,selectEMG(EMG, 'Vaste latéral droit', {'Right_Vastus_lat', 'Voltage_Right_Vastus_lat'}));
-Left_Lateral = filter(Hd,selectEMG(EMG, 'Vaste latéral gauche', {'Left_Vastus_late', 'Voltage_Left_Vastus_late'}));
+Right_Lateral = filter(Hd,selectEMG(EMG, possibleEmgLabels.RightVastusLat));
+Left_Lateral = filter(Hd,selectEMG(EMG, possibleEmgLabels.LeftVastusLat));
 
 %GASTROCNEMIEN
-Right_Gastrocnem = filter(Hd,selectEMG(EMG, 'Gastrocnémien droit', {'Right_Gastrocnem', 'Voltage_Right_Gastrocnem'}));
-Left_Gastrocnem = filter(Hd,selectEMG(EMG, 'Gastrocnémien gauche', {'Left_Gastrocnemi', 'Voltage_Left_Gastrocnemi'}));
+Right_Gastrocnem = filter(Hd,selectEMG(EMG, possibleEmgLabels.RightGastroc));
+Left_Gastrocnem = filter(Hd,selectEMG(EMG, possibleEmgLabels.LeftGastroc));
 
 %TIBIAL ANTERIEUR
-Right_Tibialis = filter(Hd,selectEMG(EMG, 'Tibial antérieur droit', {'Right_Tibialis_a', 'Voltage_Right_Tibialis_a'}));
-Left_Tibialis = filter(Hd,selectEMG(EMG, 'Tibial antérieur gauche', {'Left_Tibialis_an', 'Voltage_Left_Tibialis_an'}));
+Right_Tibialis = filter(Hd,selectEMG(EMG, possibleEmgLabels.RightTibialis));
+Left_Tibialis = filter(Hd,selectEMG(EMG, possibleEmgLabels.LeftTibialis));
 
 %PERONEAL
-Right_Peroneal = filter(Hd,selectEMG(EMG, 'Péronné droit', {'Voltage_Right_Peroneus_l'}));
-Left_Peroneal = filter(Hd,selectEMG(EMG, 'Péronné gauche', {'Voltage_Left_Peroneus_lo'}));
+Right_Peroneal = filter(Hd,selectEMG(EMG, possibleEmgLabels.RightPeroneal));
+Left_Peroneal = filter(Hd,selectEMG(EMG, possibleEmgLabels.LeftPeroneal));
 
 
 
@@ -75,7 +73,7 @@ Left_Gastrocnem = abs(Left_Gastrocnem-mean(Left_Gastrocnem));
 Right_Tibialis = abs(Right_Tibialis - mean(Right_Tibialis));
 Left_Tibialis = abs(Left_Tibialis - mean(Left_Tibialis));
 
-Right_Peroneal=abs(Right_Peroneal - mean(Right_Peroneal));
+Right_Peroneal = abs(Right_Peroneal - mean(Right_Peroneal));
 Left_Peroneal= abs(Left_Peroneal - mean(Left_Peroneal));
 
 %%%%POUR L'ACTIVATION%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,8 +109,9 @@ results.Left_Peroneal = filtfilt(b,a,Left_Peroneal);
 
 
 %Création matrices des numéros de frames
-Frames_Numbers.Right = floor((((EMG.Events.Right_Foot_Strike)*100 -(EMG.Events.Right_Foot_Strike(1)*100-1))+(EMG.Events.Right_Foot_Strike(1)*100-EMG.First_frame))*10);
-Frames_Numbers.Left = floor((( (EMG.Events.Left_Foot_Strike)*100 - (EMG.Events.Left_Foot_Strike(1)*100-1) )+(EMG.Events.Left_Foot_Strike(1)*100-EMG.First_frame))*10);
+Frames_Numbers.Right = sort(floor((((EMG.Events.Right_Foot_Strike)*100 -(EMG.Events.Right_Foot_Strike(1)*100-1))+(EMG.Events.Right_Foot_Strike(1)*100-EMG.First_frame))*10));
+Frames_Numbers.Left = sort(floor((( (EMG.Events.Left_Foot_Strike)*100 - (EMG.Events.Left_Foot_Strike(1)*100-1) )+(EMG.Events.Left_Foot_Strike(1)*100-EMG.First_frame))*10));
+
 
 index = Frames_Numbers.Right>0;
 Frames_Numbers.Right = Frames_Numbers.Right(index);
@@ -132,22 +131,14 @@ end
 
 
 for j = 1:(long_Right-1)
-New_Frames.Right(j,:)=linspace(Frames_Numbers.Right(j),(Frames_Numbers.Right(j+1)-1),100);
-
-vq.Right_Gluteus(j,:)= interp1([Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1)],Right_Gluteus(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
-
-vq.Right_Rectus(j,:)= interp1([Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1)],Right_Rectus(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
-
-vq.Right_Semitendin(j,:)= interp1([Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1)],Right_Semitendin(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
-
-vq.Right_Lateral(j,:)= interp1([Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1)],Right_Lateral(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
-
-vq.Right_Gastrocnem(j,:)= interp1([Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1)],Right_Gastrocnem(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
-
-vq.Right_Tibialis(j,:)= interp1([Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1)],Right_Tibialis(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
-
-vq.Right_Peroneal(j,:)= interp1([Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1)],Right_Peroneal(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
-
+    New_Frames.Right(j,:)=linspace(Frames_Numbers.Right(j),(Frames_Numbers.Right(j+1)-1),100);
+    vq.Right_Gluteus(j,:)= interp1(Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1),Right_Gluteus(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
+    vq.Right_Rectus(j,:)= interp1(Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1),Right_Rectus(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
+    vq.Right_Semitendin(j,:)= interp1(Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1),Right_Semitendin(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
+    vq.Right_Lateral(j,:)= interp1(Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1),Right_Lateral(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
+    vq.Right_Gastrocnem(j,:)= interp1(Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1),Right_Gastrocnem(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
+    vq.Right_Tibialis(j,:)= interp1(Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1),Right_Tibialis(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
+    vq.Right_Peroneal(j,:)= interp1(Frames_Numbers.Right(j):1:(Frames_Numbers.Right(j+1)-1),Right_Peroneal(Frames_Numbers.Right(j):(Frames_Numbers.Right(j+1)-1)),New_Frames.Right(j,:));
 end
 long_Left = 0;
 for a = 1:length(Frames_Numbers.Left)
@@ -156,58 +147,58 @@ for a = 1:length(Frames_Numbers.Left)
     end
 end
 
+
 for j = 1:(long_Left-1)
-New_Frames.Left(j,:) = linspace(Frames_Numbers.Left(j),(Frames_Numbers.Left(j+1)-1),100);
-vq.Left_Gluteus(j,:)= interp1([Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1)],Left_Gluteus(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
-vq.Left_Rectus(j,:)= interp1([Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1)],Left_Rectus(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
-vq.Left_Semitendin(j,:)= interp1([Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1)],Left_Semitendin(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
-vq.Left_Lateral(j,:)= interp1([Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1)],Left_Lateral(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
-vq.Left_Gastrocnem(j,:)= interp1([Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1)],Left_Gastrocnem(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
-vq.Left_Tibialis(j,:)= interp1([Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1)],Left_Tibialis(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
-vq.Left_Peroneal(j,:)= interp1([Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1)],Left_Peroneal(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
-
+    New_Frames.Left(j,:) = linspace(Frames_Numbers.Left(j),(Frames_Numbers.Left(j+1)-1),100);
+    vq.Left_Gluteus(j,:)= interp1(Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1),Left_Gluteus(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
+    vq.Left_Rectus(j,:)= interp1(Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1),Left_Rectus(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
+    vq.Left_Semitendin(j,:)= interp1(Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1),Left_Semitendin(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
+    vq.Left_Lateral(j,:)= interp1(Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1),Left_Lateral(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
+    vq.Left_Gastrocnem(j,:)= interp1(Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1),Left_Gastrocnem(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
+    vq.Left_Tibialis(j,:)= interp1(Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1),Left_Tibialis(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
+    vq.Left_Peroneal(j,:)= interp1(Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1),Left_Peroneal(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
 end
+
 %Chercher seulement les 2 cycles
-u=1;
+u = 1;
 for i = 1:size(idxPiedDroit,2)
-    index_Droite(i) = idxPiedDroit(i);
+    index_Droite(i) = idxPiedDroit(i); %#ok<AGROW> 
 end
-
 for a = index_Droite
-vq.Right_Gluteus_cycles(u,:) = vq.Right_Gluteus(a,:);
-vq.Right_Rectus_cycles(u,:) = vq.Right_Rectus(a,:);
-vq.Right_Semitendin_cycles(u,:) = vq.Right_Semitendin(a,:);
-vq.Right_Lateral_cycles(u,:) = vq.Right_Lateral(a,:);
-vq.Right_Gastrocnem_cycles(u,:) = vq.Right_Gastrocnem(a,:);
-vq.Right_Tibialis_cycles(u,:) = vq.Right_Tibialis(a,:);
-vq.Right_Peroneal_cycles(u,:) = vq.Right_Peroneal(a,:);
-u=u+1;
+    vq.Right_Gluteus_cycles(u,:) = vq.Right_Gluteus(a,:);
+    vq.Right_Rectus_cycles(u,:) = vq.Right_Rectus(a,:);
+    vq.Right_Semitendin_cycles(u,:) = vq.Right_Semitendin(a,:);
+    vq.Right_Lateral_cycles(u,:) = vq.Right_Lateral(a,:);
+    vq.Right_Gastrocnem_cycles(u,:) = vq.Right_Gastrocnem(a,:);
+    vq.Right_Tibialis_cycles(u,:) = vq.Right_Tibialis(a,:);
+    vq.Right_Peroneal_cycles(u,:) = vq.Right_Peroneal(a,:);
+    u=u+1;  
 end
 
+u = 1;
 for i = 1:size(idxPiedGauche,2)
-    index_Gauche(i) = idxPiedGauche(i);
+    index_Gauche(i) = idxPiedGauche(i); %#ok<AGROW> 
 end
 for a =index_Gauche
-vq.Left_Gluteus_cycles(u,:) = vq.Left_Gluteus(a,:);
-vq.Left_Rectus_cycles(u,:) = vq.Left_Rectus(a,:);
-vq.Left_Semitendin_cycles(u,:) = vq.Left_Semitendin(a,:);
-vq.Left_Lateral_cycles(u,:) = vq.Left_Lateral(a,:);
-vq.Left_Gastrocnem_cycles(u,:) = vq.Left_Gastrocnem(a,:);
-vq.Left_Tibialis_cycles(u,:) = vq.Left_Tibialis(a,:);
-vq.Left_Peroneal_cycles(u,:) = vq.Left_Peroneal(a,:);
-u=u+1;
+    vq.Left_Gluteus_cycles(u,:) = vq.Left_Gluteus(a,:);
+    vq.Left_Rectus_cycles(u,:) = vq.Left_Rectus(a,:);
+    vq.Left_Semitendin_cycles(u,:) = vq.Left_Semitendin(a,:);
+    vq.Left_Lateral_cycles(u,:) = vq.Left_Lateral(a,:);
+    vq.Left_Gastrocnem_cycles(u,:) = vq.Left_Gastrocnem(a,:);
+    vq.Left_Tibialis_cycles(u,:) = vq.Left_Tibialis(a,:);
+    vq.Left_Peroneal_cycles(u,:) = vq.Left_Peroneal(a,:);
+    u=u+1;
 end
 
 %Calcul de la moyenne des 2 cycles
 if size(vq.Right_Gluteus_cycles,1) > 1
-mean_Gluteus_Right = mean(vq.Right_Gluteus_cycles);
-mean_Rectus_Right = mean(vq.Right_Rectus_cycles);
-mean_Semitendin_Right = mean(vq.Right_Semitendin_cycles);
-mean_Lateral_Right = mean(vq.Right_Lateral_cycles);
-mean_Gastrocnem_Right = mean(vq.Right_Gastrocnem_cycles);
-mean_Tibialis_Right = mean(vq.Right_Tibialis_cycles);
-mean_Peroneal_Right = mean(vq.Right_Peroneal_cycles);
-
+    mean_Gluteus_Right = mean(vq.Right_Gluteus_cycles);
+    mean_Rectus_Right = mean(vq.Right_Rectus_cycles);
+    mean_Semitendin_Right = mean(vq.Right_Semitendin_cycles);
+    mean_Lateral_Right = mean(vq.Right_Lateral_cycles);
+    mean_Gastrocnem_Right = mean(vq.Right_Gastrocnem_cycles);
+    mean_Tibialis_Right = mean(vq.Right_Tibialis_cycles);
+    mean_Peroneal_Right = mean(vq.Right_Peroneal_cycles);
 else
     mean_Gluteus_Right =vq.Right_Gluteus_cycles;
     mean_Rectus_Right = vq.Right_Rectus_cycles;
@@ -219,33 +210,22 @@ else
 end
 
 if size(vq.Left_Gluteus_cycles,1) > 1
-mean_Gluteus_Left= mean(vq.Left_Gluteus_cycles);
-mean_Rectus_Left = mean(vq.Left_Rectus_cycles);
-mean_Semitendin_Left = mean(vq.Left_Semitendin_cycles);
-mean_Lateral_Left = mean(vq.Left_Lateral_cycles);
-mean_Gastrocnem_Left = mean(vq.Left_Gastrocnem_cycles);
-mean_Tibialis_Left = mean(vq.Left_Tibialis_cycles);
-mean_Peroneal_Left = mean(vq.Left_Peroneal_cycles);
-
+    mean_Gluteus_Left= mean(vq.Left_Gluteus_cycles);
+    mean_Rectus_Left = mean(vq.Left_Rectus_cycles);
+    mean_Semitendin_Left = mean(vq.Left_Semitendin_cycles);
+    mean_Lateral_Left = mean(vq.Left_Lateral_cycles);
+    mean_Gastrocnem_Left = mean(vq.Left_Gastrocnem_cycles);
+    mean_Tibialis_Left = mean(vq.Left_Tibialis_cycles);
+    mean_Peroneal_Left = mean(vq.Left_Peroneal_cycles);
 else
     mean_Gluteus_Left= vq.Left_Gluteus_cycles;
-mean_Rectus_Left = vq.Left_Rectus_cycles;
-mean_Semitendin_Left = vq.Left_Semitendin_cycles;
-mean_Lateral_Left = vq.Left_Lateral_cycles;
-mean_Gastrocnem_Left = vq.Left_Gastrocnem_cycles;
-mean_Tibialis_Left = vq.Left_Tibialis_cycles;
-mean_Peroneal_Left = vq.Left_Peroneal_cycles;
-    
+    mean_Rectus_Left = vq.Left_Rectus_cycles;
+    mean_Semitendin_Left = vq.Left_Semitendin_cycles;
+    mean_Lateral_Left = vq.Left_Lateral_cycles;
+    mean_Gastrocnem_Left = vq.Left_Gastrocnem_cycles;
+    mean_Tibialis_Left = vq.Left_Tibialis_cycles;
+    mean_Peroneal_Left = vq.Left_Peroneal_cycles;
 end
-
-mean_Gluteus = (mean_Gluteus_Right + mean_Gluteus_Left)/2;
-mean_Rectus= (mean_Rectus_Right + mean_Rectus_Left)/2;
-mean_Semitendin = (mean_Semitendin_Right + mean_Semitendin_Left)/2;
-mean_Lateral = (mean_Lateral_Right + mean_Lateral_Left)/2;
-mean_Gastrocnem = (mean_Gastrocnem_Right + mean_Gastrocnem_Left)/2;
-mean_Tibialis =(mean_Tibialis_Right + mean_Tibialis_Left)/2;
-mean_Peroneal =(mean_Peroneal_Right + mean_Peroneal_Left)/2;
-
 
 
 

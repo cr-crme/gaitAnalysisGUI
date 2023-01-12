@@ -1,10 +1,12 @@
-function out = selectEMG(EMG, name, possibleLabels)
+function out = selectEMG(EMG, possibleLabels)
 
-for label = possibleLabels
-    if isfield(EMG.Analogs, label)
-        out = EMG.Analogs.(labels);
+for i = 1:length(possibleLabels)
+    if isfield(EMG.Analogs, possibleLabels{i})
+        out = EMG.Analogs.(possibleLabels{i});
         return;
     end
 end
 
-errordlg([name ' non trouvé']);
+% Fall back to default
+allAnalogLabels = fieldnames(EMG.Analogs);
+out = zeros(size(EMG.Analogs.(allAnalogLabels{1})));
