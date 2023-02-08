@@ -37,8 +37,12 @@ function results = kinematicsComputations(data, results)
         results.Left.angRangeMotionAtUnipodal = computeRangeOfMotion(results.Left.angMaxAtUnipodal, results.Left.angMinAtUnipodal);
         results.Left.angRangeMotionAtFullStance = computeRangeOfMotion(results.Left.angMaxAtFullStance, results.Left.angMinAtFullStance);
        
-        % Hauteur COM normalisÃ© sur la taille
-        results.Left.comHeight = data.Left.markers.CentreOfMass(:,3) / data.Left.info.height *100;
+        if isfield('CentreOfMass', data.Left.markers)
+            % Hauteur COM normalisÃ© sur la taille
+            results.Left.comHeight = data.Left.markers.CentreOfMass(:,3) / data.Left.info.height *100;
+        else
+            results.Left.comHeight = data.Left.markers.LTOE(:,3) * nan;
+        end
         % Amplitude (en %) de la hauteur du COM 
         results.Left.comRangeHeight = max(results.Left.comHeight) - min(results.Left.comHeight);
         % Moyenne (en %) de la hauteur du COM 
@@ -121,8 +125,12 @@ function results = kinematicsComputations(data, results)
         results.Right.angRangeMotionAtUnipodal = computeRangeOfMotion(results.Right.angMaxAtUnipodal, results.Right.angMinAtUnipodal);
         results.Right.angRangeMotionAtFullStance = computeRangeOfMotion(results.Right.angMaxAtFullStance, results.Right.angMinAtFullStance);
 
-        % Hauteur COM normalisÃ© sur la taille
-        results.Right.comHeight = data.Right.markers.CentreOfMass(:,3) / data.Right.info.height *100;
+        if isfield('CentreOfMass', data.Right.markers)
+            % Hauteur COM normalisÃ© sur la taille
+            results.Right.comHeight = data.Right.markers.CentreOfMass(:,3) / data.Right.info.height *100;
+        else
+            results.Right.comHeight = data.Right.markers.RTOE(:,3) * nan;
+        end
         % Amplitude (en %) de la hauteur du COM 
         results.Right.comRangeHeight = max(results.Right.comHeight) - min(results.Right.comHeight);
         % Moyenne (en %) de la hauteur du COM 

@@ -107,7 +107,6 @@ EMG.results.meanpct.Left_Tibialis = mean(Left_Tibialispct,1);
 EMG.results.meanpct.Right_Peroneal = mean(Right_Peronealpct,1);
 EMG.results.meanpct.Left_Peroneal = mean(Left_Peronealpct,1);
 
-
  nb_cycles = size(Muscles,1)/nMuscles;
     for a = 1:nMuscles
         d=a;

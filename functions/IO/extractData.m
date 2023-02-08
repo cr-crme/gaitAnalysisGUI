@@ -3,8 +3,13 @@ function ang = extractData(data, fieldOrFrameStamps, typeData, typeKin)
     if ischar(fieldOrFrameStamps)
         field = fieldOrFrameStamps;
         % Au tronc
-        ang.LThorax = data.(typeData).(['LThorax' typeKin])(data.stamps.(field).frameStamp,:);
-        ang.RThorax = data.(typeData).(['RThorax' typeKin])(data.stamps.(field).frameStamp,:);
+        if isfield(['LThorax' typeKin], data.(typeData))
+            ang.LThorax = data.(typeData).(['LThorax' typeKin])(data.stamps.(field).frameStamp,:);
+            ang.RThorax = data.(typeData).(['RThorax' typeKin])(data.stamps.(field).frameStamp,:);
+        else
+            ang.LThorax = data.(typeData).(['LPelvis' typeKin]) * nan;
+            ang.RThorax = data.(typeData).(['RPelvis' typeKin]) * nan;
+        end
 
         % Au bassin
         ang.LPelvis = data.(typeData).(['LPelvis' typeKin])(data.stamps.(field).frameStamp,:);
@@ -45,11 +50,17 @@ function ang = extractData(data, fieldOrFrameStamps, typeData, typeKin)
             if isfield( data.(typeData), ['LThorax' typeKin])
                 ang.LThorax{i} = data.(typeData).(['LThorax' typeKin])(f{i},:);
                 ang.RThorax{i} = data.(typeData).(['RThorax' typeKin])(f{i},:);
+            else
+                ang.LThorax{i} = fillvalue([], f{i}, 3);
+                ang.RThorax{i} = fillvalue([], f{i}, 3);
             end
             
             if isfield( data.(typeData), ['LPelvis' typeKin])
                 ang.LPelvis{i} = data.(typeData).(['LPelvis' typeKin])(f{i},:);
                 ang.RPelvis{i} = data.(typeData).(['RPelvis' typeKin])(f{i},:);
+            else
+                ang.LPelvis{i} = fillvalue([], f{i}, 3);
+                ang.RPelvis{i} = fillvalue([], f{i}, 3);
             end
             
             ang.LHip{i} = fillvalue(data.(typeData).(['LHip' typeKin]), f{i},3);
