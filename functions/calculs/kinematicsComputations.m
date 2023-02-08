@@ -45,11 +45,11 @@ function results = kinematicsComputations(data, results)
         results.Left.comMeanHeight = mean(results.Left.comHeight);
         % Amplitude (en mm) de mÃ©diolatÃ©ral
         results.Left.comRangeML = data.Left.CentreOfMass.ml;
-      
+  
         % Hauteur COM min et max normalisÃ© sur la taille
         results.Left.comMinHeight = min(results.Left.comHeight);
         results.Left.comMaxHeight = max(results.Left.comHeight);
-     
+ 
 
         % ParamÃ¨tres cinÃ©matiques
         results.Left = kinParamOfCOM(results.Left, data.Left);
@@ -59,7 +59,7 @@ function results = kinematicsComputations(data, results)
         results.Left.comAccelerationMax = max(results.Left.comAcceleration);
         results.Left.comSecousseMin = min(results.Left.comSecousse);
         results.Left.comSecousseMax = max(results.Left.comSecousse);
-      
+          
         % Calcul des vitesse articulaires
         data.Left = computeAngularVelocityAndAcceleration(results.Left, data.Left);
      

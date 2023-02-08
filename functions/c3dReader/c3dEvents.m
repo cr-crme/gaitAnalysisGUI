@@ -10,6 +10,7 @@ function out = c3dEvents(c3d)
             name = strrep(sprintf('%s_%s', ...
                 c3d.ezc3d.c3d.parameters.EVENT.CONTEXTS.DATA{i}, ...
                 c3d.ezc3d.c3d.parameters.EVENT.LABELS.DATA{i}), ' ', '_');
+
             if ~isfield(out, name)
                 out.(name) = [];
             end
