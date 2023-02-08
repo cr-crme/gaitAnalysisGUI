@@ -30,11 +30,11 @@ end
 
 
 for k = 1:12
-        Activation(k,1:100) = 0;
+        Activation(k,1:1000) = 0;
     %Temps d'activation
-    for b =1:76
-        if Mean_raw_EMG(k,b:b+24)>=Tm(k) ==1
-           Activation(k,b:b+24) = 1;
+    for b =1:760
+        if Mean_raw_EMG(k,b:b+240)>=Tm(k) ==1
+           Activation(k,b:b+240) = 1;
 
         end
     end

@@ -117,7 +117,7 @@ EMG.results.meanpct.Left_Peroneal = mean(Left_Peronealpct,1);
         
 
        Muscles_total(a,1:size(Muscles,2)) = mean(Each_muscle); %#ok<AGROW> 
-       Mean_raw_EMG_total(a,1:100) = mean(Mean_raw_EMG); %#ok<AGROW> 
+       Mean_raw_EMG_total(a,1:1000) = mean(Mean_raw_EMG); %#ok<AGROW>
       
     end
 
