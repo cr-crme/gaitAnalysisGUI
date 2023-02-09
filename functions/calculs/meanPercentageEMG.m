@@ -1,16 +1,16 @@
 function results = meanPercentageEMG(EMG,c3d, possibleEmgLabels)
 
 %Extract data du c3d
-    data = extractDataFromC3D(c3d, false);
+data = extractDataFromC3D(c3d, false);
 
 % Extraire les évènements
-    data = extractEvents(c3d, data);
+data = extractEvents(c3d, data);
     
- % Normaliser les données
-    data.norm = normalizeData(data, false); 
+% Normaliser les données
+data.norm = normalizeData(data, false); 
 
 % Aller chercher les stamps pour savoir ou couper
-    stamps = extractStamps(data.stamps, data.angleInfos.frequency);
+stamps = extractStamps(data.stamps, data.angleInfos.frequency);
     
 % Trouver les deux cycles de cet essai (ou on met le pied sur la plateforme +1)
 [idxPiedGauche,idxPiedDroit,~,~, ~, ~] = findFootIdx(data, stamps);
