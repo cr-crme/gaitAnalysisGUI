@@ -3,13 +3,8 @@ function ang = extractData(data, fieldOrFrameStamps, typeData, typeKin)
     if ischar(fieldOrFrameStamps)
         field = fieldOrFrameStamps;
         % Au tronc
-        if isfield(['LThorax' typeKin], data.(typeData))
-            ang.LThorax = data.(typeData).(['LThorax' typeKin])(data.stamps.(field).frameStamp,:);
-            ang.RThorax = data.(typeData).(['RThorax' typeKin])(data.stamps.(field).frameStamp,:);
-        else
-            ang.LThorax = data.(typeData).(['LPelvis' typeKin]) * nan;
-            ang.RThorax = data.(typeData).(['RPelvis' typeKin]) * nan;
-        end
+        ang.LThorax = data.(typeData).(['LThorax' typeKin])(data.stamps.(field).frameStamp,:);
+        ang.RThorax = data.(typeData).(['RThorax' typeKin])(data.stamps.(field).frameStamp,:);
 
         % Au bassin
         ang.LPelvis = data.(typeData).(['LPelvis' typeKin])(data.stamps.(field).frameStamp,:);

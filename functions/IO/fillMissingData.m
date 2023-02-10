@@ -4,9 +4,15 @@ function data = fillMissingData(data)
     if ~isfield(data.markers, 'CentreOfMass')
         data.markers.CentreOfMass = nan(nFrames, 3);
     end
-
-    if ~isfield(data.angle, 'LThoraxAngles')
-        data.angle.LThoraxAngles = nan(nFrames, 3);
+    
+    if ~isfield(data.angle, 'LThorax')
+        data.angle.LThorax = nan(nFrames, 3);
+        data.moment.LThorax = nan(nFrames, 3);
+    end
+    
+    if ~isfield(data.angle, 'RThorax')
+        data.angle.RThorax = nan(nFrames, 3);
+        data.moment.RThorax = nan(nFrames, 3);
     end
     
     if ~isfield(data.angle, 'LThoraxAngles')

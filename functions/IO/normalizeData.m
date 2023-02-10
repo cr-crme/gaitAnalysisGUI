@@ -67,11 +67,7 @@ function dataOut = normalizeData(data, selectAllCycles)
             R = [X Y Z]; % Matrice de rotation
             
             % Tourner le CoM
-            if ~isfield('CentreOfMass', dataOut.Left(i).markers)
-                dataOut.Left(i).markers.CentreOfMassInRef = (R'*(dataOut.Left(i).markers.LTOE' * nan))';
-            else
-                dataOut.Left(i).markers.CentreOfMassInRef = (R'*dataOut.Left(i).markers.CentreOfMass')';
-            end
+            dataOut.Left(i).markers.CentreOfMassInRef = (R'*dataOut.Left(i).markers.CentreOfMass')';
             dataOut.Left(i).markers.LTOEInRef = (R'*dataOut.Left(i).markers.LTOE')';
             dataOut.Left(i).markers.RTOEInRef = (R'*dataOut.Left(i).markers.RTOE')';
         end
@@ -87,11 +83,7 @@ function dataOut = normalizeData(data, selectAllCycles)
             R = [X Y Z]; % Matrice de rotation
             
             % Tourner le CoM
-            if ~isfield('CentreOfMass', dataOut.Right(i).markers)
-                dataOut.Right(i).markers.CentreOfMassInRef = (R'*(dataOut.Right(i).markers.LTOE' * nan))';
-            else
-                dataOut.Right(i).markers.CentreOfMassInRef = (R'*dataOut.Right(i).markers.CentreOfMass')';
-            end
+            dataOut.Right(i).markers.CentreOfMassInRef = (R'*dataOut.Right(i).markers.CentreOfMass')';
             dataOut.Right(i).markers.LTOEInRef = (R'*dataOut.Right(i).markers.LTOE')';
             dataOut.Right(i).markers.RTOEInRef = (R'*dataOut.Right(i).markers.RTOE')';
         end
