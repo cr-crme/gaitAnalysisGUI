@@ -12,46 +12,68 @@ function dataOut = normalizeData(data, selectAllCycles)
 
     
     % Conserver les angles de 0 à 100% pour le pied gauche
+    idx = 0;
     if isempty(numPFGauche) && isempty(onPlateFormeLeft)
         for i=1:size(idxPiedGauche,2)
-            dataOut.Left(i) = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(1,i)},...
+            newData = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(1,i)},...
                 intersect(idxPiedGauche(1,i),idxPiedGauche(1,i)), 1, fieldToNormalize, analFieldToNormalize); 
-            dataOut.Left(i).IsFootOnPF = false;
-            dataOut.Left(i).idxPlateForme = [];
-            dataOut.Left(i).forceplate.channels.Fx1 = [];
-            dataOut.Left(i).forceplate.channels.Fy1 = [];
-            dataOut.Left(i).forceplate.channels.Fz1 = [];
-            dataOut.Left(i).forceplate.channels.Mx1 = [];
-            dataOut.Left(i).forceplate.channels.My1 = [];
-            dataOut.Left(i).forceplate.channels.Mz1 = [];
+            if isempty(newData)
+                continue
+            end
+            idx = idx + 1;
+            dataOut.Left(idx) = newData;
+            dataOut.Left(idx).IsFootOnPF = false;
+            dataOut.Left(idx).idxPlateForme = [];
+            dataOut.Left(idx).forceplate.channels.Fx1 = [];
+            dataOut.Left(idx).forceplate.channels.Fy1 = [];
+            dataOut.Left(idx).forceplate.channels.Fz1 = [];
+            dataOut.Left(idx).forceplate.channels.Mx1 = [];
+            dataOut.Left(idx).forceplate.channels.My1 = [];
+            dataOut.Left(idx).forceplate.channels.Mz1 = [];
         end
     else
         for j=1:size(idxPiedGauche,2)
             % Trouver les nouveaux stamps
-            dataOut.Left(j) = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(j)},...
+            newData = resampleData(data, stamps, stamps.Left_Foot_FullCycle.frameStamps{idxPiedGauche(j)},...
                 intersect(idxPiedGauche(j),onPlateFormeLeft), numPFGauche, fieldToNormalize, analFieldToNormalize); 
+            if isempty(newData)
+                continue;
+            end
+            idx = idx + 1;
+            dataOut.Left(idx) = newData;
         end
     end
 
     % Conserver les angles de 0 à 100% pour le pied droit
+    idx = 0;
     if isempty(numPFDroit) && isempty(idxPlateFormePiedDroit)
         for i=1:size(idxPiedDroit,2)
-            dataOut.Right(i) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(1,i)},...
+            newData = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(1,i)},...
                 intersect(idxPiedDroit(1,i),idxPiedDroit(1,i)), 1, fieldToNormalize, analFieldToNormalize); 
-            dataOut.Right(i).IsFootOnPF = false;
-            dataOut.Right(i).idxPlateForme = [];
-            dataOut.Right(i).forceplate.channels.Fx1 = [];
-            dataOut.Right(i).forceplate.channels.Fy1 = [];
-            dataOut.Right(i).forceplate.channels.Fz1 = [];
-            dataOut.Right(i).forceplate.channels.Mx1 = [];
-            dataOut.Right(i).forceplate.channels.My1 = [];
-            dataOut.Right(i).forceplate.channels.Mz1 = [];
+            if isempty(newData) 
+                continue
+            end
+            idx = idx + 1;
+            dataOut.Right(idx) = newData;
+            dataOut.Right(idx).IsFootOnPF = false;
+            dataOut.Right(idx).idxPlateForme = [];
+            dataOut.Right(idx).forceplate.channels.Fx1 = [];
+            dataOut.Right(idx).forceplate.channels.Fy1 = [];
+            dataOut.Right(idx).forceplate.channels.Fz1 = [];
+            dataOut.Right(idx).forceplate.channels.Mx1 = [];
+            dataOut.Right(idx).forceplate.channels.My1 = [];
+            dataOut.Right(idx).forceplate.channels.Mz1 = [];
         end
     else
         for j=1:size(idxPiedDroit,2)
             % Trouver les nouveaux stamps
-            dataOut.Right(j) = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(j)},...
+            newData = resampleData(data, stamps, stamps.Right_Foot_FullCycle.frameStamps{idxPiedDroit(j)},...
                 intersect(idxPiedDroit(j),idxPlateFormePiedDroit), numPFDroit, fieldToNormalize, analFieldToNormalize);
+            if isempty(newData) 
+                continue
+            end
+            idx = idx + 1;
+            dataOut.Right(idx) = newData;
         end
     end
 
@@ -91,6 +113,7 @@ function dataOut = normalizeData(data, selectAllCycles)
 end
 
 function idx = findNewStampsFor(name, fullCycleStamps)
+    idx = -1;
     f = name.frameStamp;
     for i = 1:length(f)
         if f(i) >= fullCycleStamps(1) && f(i) < fullCycleStamps(end)
@@ -269,9 +292,19 @@ function dataOut = resampleData(data, stamps, frames, isFootOnPlateForme, numPF,
     end
     
     % Extraire les nouveaux stamps (les heel strikes et toe off)
-    dataOut.stamps.Left_Foot_Strike.frameStamp = findNewStampsFor(stamps.Left_Foot_Strike, frames);
-    dataOut.stamps.Left_Foot_Off.frameStamp = findNewStampsFor(stamps.Left_Foot_Off, frames);
-    dataOut.stamps.Right_Foot_Strike.frameStamp = findNewStampsFor(stamps.Right_Foot_Strike, frames);
-    dataOut.stamps.Right_Foot_Off.frameStamp = findNewStampsFor(stamps.Right_Foot_Off, frames);
+    Left_Foot_Strike_frameStamp = findNewStampsFor(stamps.Left_Foot_Strike, frames);
+    Left_Foot_Off_frameStamp = findNewStampsFor(stamps.Left_Foot_Off, frames);
+    Right_Foot_Strike_frameStamp = findNewStampsFor(stamps.Right_Foot_Strike, frames);
+    Right_Foot_Off_frameStamp = findNewStampsFor(stamps.Right_Foot_Off, frames);
+
+    if (Left_Foot_Strike_frameStamp < 0 || Left_Foot_Off_frameStamp < 0 || Right_Foot_Strike_frameStamp < 0 || Right_Foot_Off_frameStamp < 0)
+        dataOut = [];
+        return
+    end
+
+    dataOut.stamps.Left_Foot_Strike.frameStamp = Left_Foot_Strike_frameStamp;
+    dataOut.stamps.Left_Foot_Off.frameStamp = Left_Foot_Off_frameStamp ;
+    dataOut.stamps.Right_Foot_Strike.frameStamp = Right_Foot_Strike_frameStamp ;
+    dataOut.stamps.Right_Foot_Off.frameStamp = Right_Foot_Off_frameStamp ;
 
 end

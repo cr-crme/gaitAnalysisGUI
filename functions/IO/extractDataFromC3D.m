@@ -41,14 +41,16 @@ function data = extractDataFromC3D(c3d, selectAllCycles)
     % mapping du cycle de marche pour les frame stamp (ex. le fram 35 représente quel % de marche)
     data = computePourcentCycleMarche(data);
 
-    for i = 1:length(data.norm.Left)
-        % Déterminer les frames unipodaux
-        data.norm.Left(i).stamps.Left_Foot_Strike.frameStamp = [1 100];
-        data.norm.Left(i).stamps = extractStamps(data.norm.Left(i).stamps, data.angleInfos.frequency);
-    end
-    for i = 1:length(data.norm.Right)
-        % Déterminer les frames unipodaux
-        data.norm.Right(i).stamps.Right_Foot_Strike.frameStamp = [1 100];
-        data.norm.Right(i).stamps = extractStamps(data.norm.Right(i).stamps, data.angleInfos.frequency);
+    if isfield(data.norm, 'Left') && isfield(data.norm, 'Right')
+        for i = 1:length(data.norm.Left)
+            % Déterminer les frames unipodaux
+            data.norm.Left(i).stamps.Left_Foot_Strike.frameStamp = [1 100];
+            data.norm.Left(i).stamps = extractStamps(data.norm.Left(i).stamps, data.angleInfos.frequency);
+        end
+        for i = 1:length(data.norm.Right)
+            % Déterminer les frames unipodaux
+            data.norm.Right(i).stamps.Right_Foot_Strike.frameStamp = [1 100];
+            data.norm.Right(i).stamps = extractStamps(data.norm.Right(i).stamps, data.angleInfos.frequency);
+        end
     end
 end

@@ -17,7 +17,7 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file, selectAllCycle)
          [~,file.names{i},file.ext{i}] = fileparts(file.names{i});
          file.fullpath{i} = [file.path file.names{i} file.ext{i}];
          
-         % Ouvrir un fichier BTK
+         % Ouvrir un fichier C3D
          c3d(i) = c3dRead(file.fullpath{i}); %#ok<AGROW>
          
          try
@@ -50,7 +50,8 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file, selectAllCycle)
              data.norm.Right(j).baseSustentation.maxPreMoyenne = max(BS_Right_Foot_0_OppPushOff);
              data.norm.Right(j).baseSustentation.minPreMoyenne = min(BS_Right_Foot_0_OppPushOff);
              
-             dataAll.Right(cmpRight) = data.norm.Right(j);cmpRight = cmpRight+1;
+             dataAll.Right(cmpRight) = data.norm.Right(j);
+             cmpRight = cmpRight+1;
          end
      end
      % Prendre les infos du derniers (ils sont sensés être tous les mêmes)

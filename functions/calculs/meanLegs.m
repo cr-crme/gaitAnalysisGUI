@@ -13,7 +13,7 @@ function rMean = meanLegs(rLeft, rRight)
         if isnumeric(rLeft.(fields{iF})) || islogical(rLeft.(fields{iF})) 
             val = [];
             if strcmp( fields{iF}(1), 'L')  
-                 % Si la première lettre est R, c'est que c'est quelque chose du
+                 % Si la première lettre est L, c'est que c'est quelque chose du
                 % type 'Larticulation'
                 val(:,:,:,1) = rLeft.(fields{iF}); % Le mettre sur la 4e car rien n'est sur 4
                 val(:,:,:,2) = rRight.(['R' fields{iF}(2:end)]); % Le mettre sur la 4e car rien n'est sur 4

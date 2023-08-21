@@ -10,13 +10,12 @@ addpath(genpath('functions'));
 feature('DefaultCharacterSet','UTF8');
 
 %%%%%% OPTIONS %%%%%
-useEMG = true; % false;
+useEMG = false; % true; % 
 %%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%% PRÉPARATION %%%%%%
 % Load de la librairie pour la lecture des c3d
-% loadBtk();
 loadEzc3d();
 c.debug = true;
 %%%%%%%%%%%%%%%%%%%%%%%%%
