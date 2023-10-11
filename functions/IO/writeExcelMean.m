@@ -1,4 +1,4 @@
-function writeExcel(c)
+function writeExcelMean(c)
 
     % Informations générique sur le fichier à produire
     filepath = c.file.savepath;
@@ -1079,7 +1079,7 @@ function writeExcel(c)
                     'Puissance'     'Pic Abs cheville à la poussée sagittal (W/kg)'   'D'
                     'Puissance'     'Pic Abs cheville à la poussée sagittal (W/kg)'   'G'
                     };
-        fid = fopen(c.file.savepath, 'w+');
+        fid = fopen(filepath, 'w+');
         fprintf(fid, sprintf('%%s%s',sep), header{:,1});
         fprintf(fid, '\n');
         fprintf(fid, sprintf('%%s%s',sep), header{:,2});

@@ -8,60 +8,44 @@ function results = spatiotempComputations(data, results)
         return;
     end
 
-    if ~isempty(data.Left.stamps)
+    for sideTp = {'Left', 'Right'}
+        side = sideTp{1};
+        if strcmp(side, 'Left')
+            oppositeSide = 'Right';
+        else
+            oppositeSide = 'Left';
+        end
+        s = side(1);
+        os = oppositeSide(1);
+
+        if ~isfield(data.(side), 'stamps') || isempty(data.(side).stamps)
+            continue
+        end
+
         % Moment (en %) du toe off
-        results.Left.pctToeOff = data.Left.stamps.CycleMarcheLeft(data.Left.stamps.Left_Foot_Off.frameStamp);
+        results.(side).pctToeOff = data.(side).stamps.(['CycleMarche' side])(data.(side).stamps.([side '_Foot_Off']).frameStamp);
         
         % Moment (en %) du toe off opposÃ©
-        results.Left.pctToeOffOppose = data.Left.stamps.CycleMarcheLeft(data.Left.stamps.Right_Foot_Off.frameStamp);
+        results.(side).pctToeOffOppose = data.(side).stamps.(['CycleMarche' side])(data.(side).stamps.([oppositeSide '_Foot_Off']).frameStamp);
         
         % Moment (en %) du contact talon opposÃ©
-        results.Left.pctContactTalOppose = data.Left.stamps.CycleMarcheLeft(data.Left.stamps.Right_Foot_Strike.frameStamp);
+        results.(side).pctContactTalOppose = data.(side).stamps.(['CycleMarche' side])(data.(side).stamps.([oppositeSide '_Foot_Strike']).frameStamp);
         
         % Temps (en %) du simple appuie
-        results.Left.pctSimpleAppuie = results.Left.pctContactTalOppose - results.Left.pctToeOffOppose;
+        results.(side).pctSimpleAppuie = results.(side).pctContactTalOppose - results.(side).pctToeOffOppose;
         
         % Grandeur (en m) d'un pas et d'une foulÃ©e
-        results.Left.distPas = abs(data.Left.markers.LHEE(data.Left.stamps.Left_Foot_Strike.frameStamp(1),2) -  ... 
-                         data.Left.markers.RHEE(data.Left.stamps.Right_Foot_Strike.frameStamp,2))/1000;
-        results.Left.distFoulee = abs(diff(data.Left.markers.LHEE(data.Left.stamps.Left_Foot_Strike.frameStamp,2)))/1000;
+        results.(side).distPas = abs(data.(side).markers.([s 'HEE'])(data.(side).stamps.([side '_Foot_Strike']).frameStamp(1),2) -  ... 
+                         data.(side).markers.([os 'HEE'])(data.(side).stamps.([oppositeSide '_Foot_Strike']).frameStamp,2))/1000;
+        results.(side).distFoulee = abs(diff(data.(side).markers.([s 'HEE'])(data.(side).stamps.([side '_Foot_Strike']).frameStamp,2)))/1000;
         
         % Temps (en s) d'une foulÃ©e
-        results.Left.tempsFoulee = data.Left.tempsCycle;
+        results.(side).tempsFoulee = data.(side).tempsCycle;
         
         % Vitesse (en m/s) d'une foulÃ©e
-        results.Left.vitFoulee = results.Left.distFoulee' ./ results.Left.tempsFoulee;
+        results.(side).vitFoulee = results.(side).distFoulee' ./ results.(side).tempsFoulee;
         
         % Calcul de la cadence (pas/minute) de marche
-        results.Left.vitCadencePasParMinute = 1./results.Left.tempsFoulee * 60; % Convertir en "pas/minutes"
-        
-    end
-    
-    if isfield(data.Right, 'stamps') && ~isempty(data.Right.stamps)
-        % Moment (en %) du toe off
-        results.Right.pctToeOff = data.Right.stamps.CycleMarcheRight(data.Right.stamps.Right_Foot_Off.frameStamp);
-
-        % Moment (en %) du toe off opposÃ©
-        results.Right.pctToeOffOppose = data.Right.stamps.CycleMarcheRight(data.Right.stamps.Left_Foot_Off.frameStamp);
-
-        % Moment (en %) du contact talon opposÃ©
-        results.Right.pctContactTalOppose = data.Right.stamps.CycleMarcheRight(data.Right.stamps.Left_Foot_Strike.frameStamp);
-
-        % Temps (en %) du simple appuie
-        results.Right.pctSimpleAppuie = results.Right.pctContactTalOppose - results.Right.pctToeOffOppose;
-
-        % Grandeur (en m) d'un pas et d'une foulÃ©e
-        results.Right.distPas = abs(data.Right.markers.RHEE(data.Right.stamps.Right_Foot_Strike.frameStamp(1),2) -  ... 
-                         data.Right.markers.LHEE(data.Right.stamps.Left_Foot_Strike.frameStamp,2))/1000;
-        results.Right.distFoulee = abs(diff(data.Right.markers.RHEE(data.Right.stamps.Right_Foot_Strike.frameStamp,2)))/1000;
-
-        % Temps (en s) d'une foulÃ©e
-        results.Right.tempsFoulee = data.Right.tempsCycle;
-
-        % Vitesse (en m/s) d'une foulÃ©e
-        results.Right.vitFoulee = results.Right.distFoulee' ./ results.Right.tempsFoulee;
-
-        % Calcul de la cadence (pas/minute) de marche
-        results.Right.vitCadencePasParMinute = 1./results.Right.tempsFoulee * 60; % Convertir en "pas/minutes"
+        results.(side).vitCadencePasParMinute = 1./results.(side).tempsFoulee * 60; % Convertir en "pas/minutes" 
     end
 end

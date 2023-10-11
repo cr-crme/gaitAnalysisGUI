@@ -59,28 +59,24 @@ end
 
             for i = 1:length(c.dataAll.(s).(t))
                 % Évéments spatio-temporels
-                resultTP = spatiotempComputations(c.dataAll.(s).(t)(i));
+                resultTP.(s) = spatiotempComputations(c.dataAll.(s).(t)(i)).(s);
 
                 % Classage et calculs de paramètres cinématiques
-                resultTP = kinematicsComputations(c.dataAll.(s).(t)(i), resultTP);
+                resultTP.(s) = kinematicsComputations(c.dataAll.(s).(t)(i), resultTP).(s);
 
                 % Extraction et calculs sur la cinétique
-                resultTP = kineticsComputations(c.dataAll.(s).(t)(i), resultTP);
+                resultTP.(s) = kineticsComputations(c.dataAll.(s).(t)(i), resultTP).(s);
 
                 % Copy struct si un côté est inexistant
-                resultTP = createEmptyIfNecessary(resultTP);
+                resultTP.(s) = createEmptyIfNecessary(resultTP).(s);
 
-                % Faire la moyenne gauche et droite sur toutes les valeurs
-                resultTP.MeanLeg = meanLegs(resultTP.Left, resultTP.Right);
-                
                 % Exporter le résultat
-                c.resultsAll.(s).(t)(i) = resultTP;
+                c.resultsAll.(t).(s)(i) = resultTP.(s);
                 clear resultTP
             end
         end
     end
-
-       clear sides s iS types t iT i    
+    clear sides s iS types t iT i    
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
@@ -113,7 +109,8 @@ end
 % Enregistrer les données
 save(['result/matfiles/' c.info.name], 'c');
 % Écrire dans le fichier excel ce qui a été fait
-writeExcel(c);
+writeExcelMean(c);
+writeExcelEachTrial(c);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
