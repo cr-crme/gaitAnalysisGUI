@@ -10,7 +10,9 @@ function [out, outInfo] = c3dAngles(c3d)
             end
         end
         outInfo.frequency = c3d.ezc3d.c3d.parameters.POINT.RATE.DATA;
-        outInfo.units.ALLANGLES = c3d.ezc3d.c3d.parameters.POINT.ANGLE_UNITS.DATA{1};
+        if isfield(c3d.ezc3d.c3d.parameters.POINT, 'ANGLE_UNITS')
+            outInfo.units.ALLANGLES = c3d.ezc3d.c3d.parameters.POINT.ANGLE_UNITS.DATA{1};
+        end
     elseif isfield(c3d, 'btk')
         [out, outInfo] = btkGetAngles(c3d.btk);
     else

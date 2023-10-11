@@ -10,9 +10,7 @@ function data = extractDataFromC3D(c3d, selectAllCycles)
 
     % Récupérer la cinétique
     data.moment = c3dMoments(c3d);
-    if isempty(fieldnames(data.moment))
-        error('Les moments de forces ne furent trouv�s');
-    else
+    if ~isempty(fieldnames(data.moment))
         if ~isfield(data.moment, 'LGroundReactionMoment')
             f = fieldnames(data.moment);
             data.moment.LGroundReactionMoment = nan(size(data.moment.(f{1})));

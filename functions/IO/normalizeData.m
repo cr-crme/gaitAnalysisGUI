@@ -241,10 +241,15 @@ function [idxPiedGauche, idxPiedDroit, idxPlateFormePiedGauche, idxPlateFormePie
 end
 
 function dataOut = resampleData(data, stamps, frames, isFootOnPlateForme, numPF, fieldToNormalize, analFieldToNormalize)
+    % Declare the structure
+    for iF = 1:length(fieldToNormalize)
+        dataOut.(fieldToNormalize{iF}) = struct;
+    end
     
     % Frames et leur conversion pour les deux cycles de marche
     newFrames = linspace(frames(1), frames(end), 100);
     dataOut.tempsCycle = (frames(end) - frames(1)) / 100; % ms => s
+
     for iF = 1:length(fieldToNormalize)
         fields = fieldnames(data.(fieldToNormalize{iF}));
         for iF2 = 1:length(fields) 

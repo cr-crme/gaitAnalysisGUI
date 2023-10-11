@@ -108,6 +108,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
              end
  
              kin_power = [];
+             kin_powerStd = [];
              for j = 1:length(power_fnames)
                  kin_power.(power_fnames{j}) = [];
                  for i = 1:length(dataDynAll)

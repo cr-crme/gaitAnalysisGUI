@@ -24,7 +24,7 @@ function [dataAll, file, c3d] = openAndParseC3Ds(file, selectAllCycle)
              data = extractDataFromC3D(c3d(i), selectAllCycle);
          catch me
              uiwait(errordlg(sprintf('Le fichier %s a retourné l''erreur suivante : \n %s', file.names{i}, me.message)));
-             error('Le fichier %s a retourné l''erreur suivante : \n %s', file.names{i}, me.message);       
+             rethrow(me);    
          end
              
              

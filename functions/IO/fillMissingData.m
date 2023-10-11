@@ -5,22 +5,30 @@ function data = fillMissingData(data)
         data.markers.CentreOfMass = nan(nFrames, 3);
     end
     
-    if ~isfield(data.angle, 'LThorax')
-        data.angle.LThorax = nan(nFrames, 3);
-        data.moment.LThorax = nan(nFrames, 3);
-    end
-    
-    if ~isfield(data.angle, 'RThorax')
-        data.angle.RThorax = nan(nFrames, 3);
-        data.moment.RThorax = nan(nFrames, 3);
-    end
-    
-    if ~isfield(data.angle, 'LThoraxAngles')
-        data.angle.LThoraxAngles = nan(nFrames, 3);
-    end
-    
-    if ~isfield(data.angle, 'RThoraxAngles')
-        data.angle.RThoraxAngles = nan(nFrames, 3);
+    structuresToCheck = {
+        'Thorax', 'Pelvis', 'Hip', 'Knee', 'Ankle', 'FootProgress'
+    };
+
+    for name = structuresToCheck
+        data = checkAndFillAngleBasedStructure(data, name{1}, nFrames);
     end
 end
 
+function data = checkAndFillAngleBasedStructure(data, fieldToCheck, nFrames)
+    for side = ['L', 'R']
+        if ~isfield(data.angle, [side fieldToCheck])
+            data.angle.([side fieldToCheck]) = nan(nFrames, 3);
+        end
+        if ~isfield(data.angle, [side fieldToCheck 'Angles'])
+            data.angle.([side fieldToCheck 'Angles']) = nan(nFrames, 3);
+        end
+    
+    
+        if ~isfield(data.moment, [side fieldToCheck])
+            data.moment.([side fieldToCheck]) = nan(nFrames, 3);
+        end
+        if ~isfield(data.angle, [side fieldToCheck 'Moment'])
+            data.moment.([side fieldToCheck 'Moment']) = nan(nFrames, 3);
+        end
+    end
+end

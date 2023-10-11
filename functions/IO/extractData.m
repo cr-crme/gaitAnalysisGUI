@@ -42,34 +42,19 @@ function ang = extractData(data, fieldOrFrameStamps, typeData, typeKin)
             doFootProgress = false;
         end
         for i = 1:length(f)
-            if isfield( data.(typeData), ['LThorax' typeKin])
-                ang.LThorax{i} = data.(typeData).(['LThorax' typeKin])(f{i},:);
-                ang.RThorax{i} = data.(typeData).(['RThorax' typeKin])(f{i},:);
-            else
-                ang.LThorax{i} = fillvalue([], f{i}, 3);
-                ang.RThorax{i} = fillvalue([], f{i}, 3);
-            end
-            
-            if isfield( data.(typeData), ['LPelvis' typeKin])
-                ang.LPelvis{i} = data.(typeData).(['LPelvis' typeKin])(f{i},:);
-                ang.RPelvis{i} = data.(typeData).(['RPelvis' typeKin])(f{i},:);
-            else
-                ang.LPelvis{i} = fillvalue([], f{i}, 3);
-                ang.RPelvis{i} = fillvalue([], f{i}, 3);
-            end
-            
-            ang.LHip{i} = fillvalue(data.(typeData).(['LHip' typeKin]), f{i},3);
-            ang.RHip{i} = fillvalue(data.(typeData).(['RHip' typeKin]), f{i},3);
-            
-            ang.LKnee{i} = fillvalue(data.(typeData).(['LKnee' typeKin]), f{i},3);
-            ang.RKnee{i} = fillvalue(data.(typeData).(['RKnee' typeKin]), f{i},3);
-            
-            ang.LAnkle{i} = fillvalue(data.(typeData).(['LAnkle' typeKin]), f{i},3);
-            ang.RAnkle{i} = fillvalue(data.(typeData).(['RAnkle' typeKin]), f{i},3);
-            
-            if doFootProgress
-                ang.LFootProgress{i} = data.(typeData).(['LFootProgress' typeKin])(f{i},:);
-                ang.RFootProgress{i} = data.(typeData).(['RFootProgress' typeKin])(f{i},:);
+            for name = {'Thorax', 'Pelvis', 'Hip', 'Knee', 'Ankle', 'FootProgress'}
+                for side = {'L', 'R'}
+                    if strcmp(name{1}, 'FootProgress') && ~doFootProgress
+                        continue
+                    end
+
+                    fullName = [side{1} name{1} typeKin];
+                    if isfield(data.(typeData), fullName) && ~isempty(data.(typeData).(fullName))
+                        ang.([side{1} name{1}]){i} = data.(typeData).(fullName)(f{i},:);
+                    else
+                        ang.([side{1} name{1}]){i} = fillvalue([], f{i}, 3);
+                    end     
+                end
             end
         end
     end
