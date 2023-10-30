@@ -74,10 +74,12 @@ function n = getNbData(kin)
 end
 
 function data = get(kin, side, field)
+    n = getNbData(kin);
+    data = nan(1, n);
+
     if ~isfield(kin, side) || ~isfield(kin.(side), field)
-        n = getNbData(kin);
-        data = nan(1, n);
         return
     end
-    data = [kin.(side).(field)];
+    dataTp = [kin.(side).(field)];
+    data(1:length(dataTp)) = dataTp;
 end
