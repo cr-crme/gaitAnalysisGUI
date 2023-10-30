@@ -36,28 +36,48 @@ function writeExcelEachTrial(c)
     outdata = array2table([
         oldData;
         [
-            [c.resultsAll.kin.Right.pctToeOff];
-            [c.resultsAll.kin.Left.pctToeOff];
-            [c.resultsAll.kin.Right.pctContactTalOppose];
-            [c.resultsAll.kin.Left.pctContactTalOppose];
-            [c.resultsAll.kin.Right.pctToeOffOppose];
-            [c.resultsAll.kin.Left.pctToeOffOppose];
-            [c.resultsAll.kin.Right.pctSimpleAppuie];
-            [c.resultsAll.kin.Left.pctSimpleAppuie];
-            [c.resultsAll.kin.Right.distPas];
-            [c.resultsAll.kin.Left.distPas];
-            [c.resultsAll.kin.Right.distFoulee];
-            [c.resultsAll.kin.Left.distFoulee];
-            [c.resultsAll.kin.Right.tempsFoulee];
-            [c.resultsAll.kin.Left.tempsFoulee];
-            [c.resultsAll.kin.Right.vitFoulee];
-            [c.resultsAll.kin.Left.vitFoulee];
-            [c.resultsAll.kin.Right.distPas]./[c.resultsAll.kin.Right.vitCadencePasParMinute];
-            [c.resultsAll.kin.Left.distPas]./[c.resultsAll.kin.Left.vitCadencePasParMinute];
+            get(c.resultsAll.kin, 'Right', 'pctToeOff');
+            get(c.resultsAll.kin, 'Left', 'pctToeOff');
+            get(c.resultsAll.kin, 'Right', 'pctContactTalOppose');
+            get(c.resultsAll.kin, 'Left', 'pctContactTalOppose');
+            get(c.resultsAll.kin, 'Right', 'pctToeOffOppose');
+            get(c.resultsAll.kin, 'Left', 'pctToeOffOppose');
+            get(c.resultsAll.kin, 'Right', 'pctSimpleAppuie');
+            get(c.resultsAll.kin, 'Left', 'pctSimpleAppuie');
+            get(c.resultsAll.kin, 'Right', 'distPas');
+            get(c.resultsAll.kin, 'Left', 'distPas');
+            get(c.resultsAll.kin, 'Right', 'distFoulee');
+            get(c.resultsAll.kin, 'Left', 'distFoulee');
+            get(c.resultsAll.kin, 'Right', 'tempsFoulee');
+            get(c.resultsAll.kin, 'Left', 'tempsFoulee');
+            get(c.resultsAll.kin, 'Right', 'vitFoulee');
+            get(c.resultsAll.kin, 'Left', 'vitFoulee');
+            get(c.resultsAll.kin, 'Right', 'distPas')./get(c.resultsAll.kin, 'Right', 'vitCadencePasParMinute');
+            get(c.resultsAll.kin, 'Left', 'distPas')./get(c.resultsAll.kin, 'Left', 'vitCadencePasParMinute');
         ]';
     ]);
     
     outdata.Properties.VariableNames = header;
     writetable(outdata, filepath, 'Delimiter', sep);
 
+end
+
+function n = getNbData(kin)
+    n = [-inf, -inf];
+    if isfield(kin, 'Right')
+        n(1) = length([kin.Right.pctToeOff]);
+    end
+    if isfield(kin, 'Left')
+        n(2) = length([kin.Left.pctToeOff]);
+    end
+    n = max(n);
+end
+
+function data = get(kin, side, field)
+    if ~isfield(kin, side) || ~isfield(kin.(side), field)
+        n = getNbData(kin);
+        data = nan(1, n);
+        return
+    end
+    data = [kin.(side).(field)];
 end
