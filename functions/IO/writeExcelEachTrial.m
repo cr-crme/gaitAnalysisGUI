@@ -7,24 +7,15 @@ function writeExcelEachTrial(c)
     
     header = {  
         % Param spatio-tempo
-        '% de cycle Décollement (%) D'
-        '% de cycle Décollement (%) G'
-        '% de cycle Contact talon pied opposé (%) D'
-        '% de cycle Contact talon pied opposé (%) G'
-        '% de cycle Décollement pied opposé (%) D'
-        '% de cycle Décollement pied opposé (%) G'
-        '% de cycle Temps simple appuie (%) D'
-        '% de cycle Temps simple appuie (%) G'
-        'Param spatio-temporel Longueur pas (m) D'
-        'Param spatio-temporel Longueur pas (m) G'
-        'Param spatio-temporel Longueur cycle (m) D'
-        'Param spatio-temporel Longueur cycle (m) G'
-        'Param spatio-temporel Durée cycle (s) D'
-        'Param spatio-temporel Durée cycle (s) G'
-        'Param spatio-temporel Vitesse cycle (m/s) D'
-        'Param spatio-temporel Vitesse cycle (m/s) G'
-        'Param spatio-temporel Ratio marche (mm/pas/min) D'
-        'Param spatio-temporel Ratio marche (mm/pas/min) G'
+        '% de cycle Décollement (%)'
+        '% de cycle Contact talon pied opposé (%)'
+        '% de cycle Décollement pied opposé (%)'
+        '% de cycle Temps simple appuie (%)'
+        'Param spatio-temporel Longueur pas (m)'
+        'Param spatio-temporel Longueur cycle (m)'
+        'Param spatio-temporel Durée cycle (s)'
+        'Param spatio-temporel Vitesse cycle (m/s)'
+        'Param spatio-temporel Ratio marche (mm/pas/min)'
     };
 
     oldData = [];
@@ -36,26 +27,20 @@ function writeExcelEachTrial(c)
     outdata = array2table([
         oldData;
         [
-            [c.resultsAll.kin.Right.pctToeOff];
-            [c.resultsAll.kin.Left.pctToeOff];
-            [c.resultsAll.kin.Right.pctContactTalOppose];
-            [c.resultsAll.kin.Left.pctContactTalOppose];
-            [c.resultsAll.kin.Right.pctToeOffOppose];
-            [c.resultsAll.kin.Left.pctToeOffOppose];
-            [c.resultsAll.kin.Right.pctSimpleAppuie];
-            [c.resultsAll.kin.Left.pctSimpleAppuie];
-            [c.resultsAll.kin.Right.distPas];
-            [c.resultsAll.kin.Left.distPas];
-            [c.resultsAll.kin.Right.distFoulee];
-            [c.resultsAll.kin.Left.distFoulee];
-            [c.resultsAll.kin.Right.tempsFoulee];
-            [c.resultsAll.kin.Left.tempsFoulee];
-            [c.resultsAll.kin.Right.vitFoulee];
-            [c.resultsAll.kin.Left.vitFoulee];
-            [c.resultsAll.kin.Right.distPas]./[c.resultsAll.kin.Right.vitCadencePasParMinute];
-            [c.resultsAll.kin.Left.distPas]./[c.resultsAll.kin.Left.vitCadencePasParMinute];
-        ]';
+            [[c.resultsAll.kin.Left.pctToeOff]'; [c.resultsAll.kin.Right.pctToeOff]'], ...
+            [[c.resultsAll.kin.Left.pctContactTalOppose]'; [c.resultsAll.kin.Right.pctContactTalOppose]'], ...
+            [[c.resultsAll.kin.Left.pctToeOffOppose]'; [c.resultsAll.kin.Right.pctToeOffOppose]'], ...
+            [[c.resultsAll.kin.Left.pctSimpleAppuie]'; [c.resultsAll.kin.Right.pctSimpleAppuie]'], ...
+            [[c.resultsAll.kin.Left.distPas]'; [c.resultsAll.kin.Right.distPas]'], ...
+            [[c.resultsAll.kin.Left.distFoulee]'; [c.resultsAll.kin.Right.distFoulee]'], ...
+            [[c.resultsAll.kin.Left.tempsFoulee]'; [c.resultsAll.kin.Right.tempsFoulee]'], ...
+            [[c.resultsAll.kin.Left.vitFoulee]'; [c.resultsAll.kin.Right.vitFoulee]'], ...
+            [[c.resultsAll.kin.Left.distPas]'./[c.resultsAll.kin.Left.vitCadencePasParMinute]'; [c.resultsAll.kin.Right.distPas]'./[c.resultsAll.kin.Right.vitCadencePasParMinute]'], ...
+        ];
     ]);
+    fprintf('Left most column %s\n', ...
+        [repmat('L', size([c.resultsAll.kin.Left.pctToeOff], 2), 1); repmat('R', size([c.resultsAll.kin.Right.pctToeOff], 2), 1)] ...
+    )
     
     outdata.Properties.VariableNames = header;
     writetable(outdata, filepath, 'Delimiter', sep);

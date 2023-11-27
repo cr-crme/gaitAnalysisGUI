@@ -148,7 +148,7 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
                         end
                         if ~isempty(dyn_forceplateAll)
                             dyn_forceplateStd(pf).channels.(fp_fnames{j}) = std(dyn_forceplateAll(pf).channels.(fp_fnames{j}),[],3); %#ok<AGROW>
-                            dyn_forceplate(pf).channels.(fp_fnames{j}) = mean(dyn_forceplateAl(pf).channels.(fp_fnames{j}),3); %#ok<AGROW>
+                            dyn_forceplate(pf).channels.(fp_fnames{j}) = mean(dyn_forceplateAll(pf).channels.(fp_fnames{j}),3); %#ok<AGROW>
                         end
                     end
                 end

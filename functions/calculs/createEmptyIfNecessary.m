@@ -16,6 +16,7 @@ end
 function s2 = navigateStructure(s)
      % Aller chercher les fields qu'il faut moyenner
     fields = fieldnames(s);
+    s2 = [];
     
     for iF = 1:length(fields)
         if isnumeric(s.(fields{iF}))
