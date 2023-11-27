@@ -1,24 +1,25 @@
 function [ c ] = getFile( c )
 %GETFILE Summary of this function goes here
 %   Detailed explanation goes here
-     c = getFileGUI(c);
-%    c.info.name = 'Benjamin';
-%    c.info.height = 1756;
-%    c.info.mass = 50.1;
-%    c.info.age = 11.5;
-%    c.info.sexe = 0;
-%    c.info.aide = 2;
-%    c.info.aideStr = 'Canne (2)';
-%    c.info.note = 'Yo!';
-%    c.file.path = 'data/';
-%    c.file.names = {'DMC_BD_011_6mwe_min01.c3d' 'DMC_BD_011_6mwe_min06.c3d'};
-%    c.file.savepath = 'result/coucou.csv';
-%    c.staticfile.names = [];
-%    c.staticfile.path = '';
-%    c.eei.fc_repos = 80.4;
-%    c.eei.fc_marche = 172.52;
-%    c.eei.v_marche = 37.58;
-%    c.selectAllCycle = 1;
+    c = getFileGUI(c);
+%     c.info.name = 'Tata';
+%     c.info.height = 168    ;
+%     c.info.mass = 50.1;
+%     c.info.age = 11.5;
+%     c.info.sexe = 0;
+%     c.info.aide = 2;
+%     c.info.aideStr = 'Canne (2)';
+%     c.info.note = 'Yo!';
+%     c.file.path = 'data/Pariterre/';
+%     c.file.names = {'Steinert_BD01_Session1_6mwe_01.c3d'};
+%     c.file.savepath = 'result/coucou.csv';
+%     c.staticfile.names = {};
+%     c.staticfile.path = 'data/';
+%     c.eei.fc_repos = 80.4;
+%     c.eei.fc_marche = 172.52;
+%     c.eei.v_marche = 37.58;
+%     c.selectAllCycle = 1;
+%     c.automaticRemove = 1;
     
     % S'assurer qu'on veut analyser quelque chose
     if isempty(c)
@@ -42,7 +43,7 @@ function [ c ] = getFile( c )
     end
     
     % Faire choisir à l'utilisateur les essais à conserver
-    [ToKeep.kinToKeep, ToKeep.dynToKeep] = selectFilesToUse(dataAll);
+    [ToKeep.kinToKeep, ToKeep.dynToKeep] = selectFilesToUse(dataAll, c.automaticRemove);
 %     ToKeep.kinToKeep.Left = [1 2 7 8];
 %     ToKeep.kinToKeep.Right = [1];
 %     ToKeep.dynToKeep.Left = [1 7];
@@ -85,5 +86,17 @@ function [ c ] = getFile( c )
         end
     end
 
+
+    if ~isfield(c, 'dataAll')
+        error('Aucune donnée conservée dans les essais');
+    elseif ~isfield(c.dataAll, 'Right')
+        c.dataAll.Right = [];
+        c.dataAll.Right.kin = [];
+    elseif ~isfield(c.dataAll, 'Left')
+        c.dataAll.Left = [];
+        c.dataAll.Left.kin = [];
+    end
+
+    
 end
 

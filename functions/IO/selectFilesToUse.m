@@ -1,7 +1,14 @@
-function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data)
+function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data, automaticRemoveOfEmptyTrial)
     
     % Nom des angles
-    nameAngToKeep = fieldnames(data.Left(1).angle); % Pareil pour tous essais + côtés
+    nameAngToKeep = fieldnames(data.Left(1).angle);
+    for i = 1:length(data.Left)
+        nameAngToKeep = union(nameAngToKeep, fieldnames(data.Left(i).angle));
+    end
+    for i = 1:length(data.Right)
+        nameAngToKeep = union(nameAngToKeep, fieldnames(data.Right(i).angle));
+    end
+    
     % Retirer le préfixe L ou R
     nameAngToKeepToPopMenu = nameAngToKeep;
     for i = 1:length(nameAngToKeepToPopMenu)
@@ -37,7 +44,12 @@ function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data)
 
             % Dispatch des angles
             for iN = 1:length(nameAngToKeepToPopMenu)
-                dataToShowAng.(nameAngToKeepToPopMenu{iN})(:,:,cmp) = data.(sides{iSide})(i).angle.([sides{iSide}(1) nameAngToKeepToPopMenu{iN}]);
+                fieldname = [sides{iSide}(1) nameAngToKeepToPopMenu{iN}];
+                if isfield(data.(sides{iSide})(i).angle, fieldname)
+                    dataToShowAng.(nameAngToKeepToPopMenu{iN})(:,:,cmp) = data.(sides{iSide})(i).angle.(fieldname);
+                else
+                    dataToShowAng.(nameAngToKeepToPopMenu{iN})(:,:,cmp) = nan(100, 3);
+                end
             end
 
             % Dispatch des moments aux articulations
@@ -55,7 +67,7 @@ function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data)
     end
 
     % Demander les essais cinématiques à conserver
-    idx_kin = chooseFromAngle(dataToShowAng, dataToShowName, nameAngToKeepToPopMenu);
+    idx_kin = chooseFromAngle(dataToShowAng, dataToShowName, nameAngToKeepToPopMenu, automaticRemoveOfEmptyTrial);
 
     % Demander les essais avec moments à conserver
     trialWithPlateForme = intersect(trialWithPlateForme, idx_kin);

@@ -1,4 +1,4 @@
-function idx = chooseFromAngle(dataToShow, dataToShowName, nameAngToKeep)
+function idx = chooseFromAngle(dataToShow, dataToShowName, nameAngToKeep, automaticRemoveOfEmptyTrial)
     % Figure pour afficher les essais en terme d'angle afin d'élaguer les essais non pertinents
     h = figure( 'name', 'Choix des essais', ...
                 'units', 'normalize', ...
@@ -70,6 +70,22 @@ function idx = chooseFromAngle(dataToShow, dataToShowName, nameAngToKeep)
     end
     for i = 1:length(dataToShowName)
         set(check(i),  'callback', {@addRemoveTrial, check, xyzCheck, dataToShow,hplot, hplotmean,pop, Echelle});
+        
+        % If the trial has nan, remove it
+        if automaticRemoveOfEmptyTrial
+            fields = fieldnames(dataToShow);
+            for f = 1:length(fields)
+                if isempty(strfind(fields{f}, 'Angle'))
+                    continue
+                end
+                if sum(isnan(dataToShow.(fields{f})(:,:,i))) > 0
+                    set(check(i), 'value', false); 
+                    addRemoveTrial([], [], check, xyzCheck, dataToShow, hplot, hplotmean,pop, Echelle);
+                    break
+                end
+            end
+        end
+        
     end
     for i = 1:length(pop)
         set(pop, 'callback', {@changeAngles, hplot, hplotmean, dataToShow, check, true, Echelle});
