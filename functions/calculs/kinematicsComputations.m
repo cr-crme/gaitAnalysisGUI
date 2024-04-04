@@ -2,13 +2,13 @@ function results = kinematicsComputations(data, results)
 
     % Si lorsqu'aucune donnée est envoyée (notamment pour le statique), il
     % manque des fields dans writeExcel, il est possible de les ajouter ici
-    if isempty(data.Left.stamps) && isempty(data.Right.stamps)
+    if (~isfield(data, 'Left') || isempty(data.Left.stamps)) && (~isfield(data, 'Right') || isempty(data.Right.stamps))
         results.Left.kin = false;
         results.Right.kin = false;
         return;
     end
     
-    if ~isempty(data.Left.stamps)
+    if isfield(data, 'Left') && ~isempty(data.Left.stamps)
         % Orientation (Â°) de la hanche/genou/cheville/pied au contact talon (0% du cycle)
         results.Left.angAtFoot_Strike = extractData(data.Left, 'Left_Foot_Strike', 'angle', 'Angles');
         
@@ -92,7 +92,7 @@ function results = kinematicsComputations(data, results)
         
     end
     
-    if ~isempty(data.Right.stamps)
+    if isfield(data, 'Right') && ~isempty(data.Right.stamps)
         % Orientation (Â°) de la hanche/genou/cheville/pied au contact talon (0% du cycle)
         results.Right.angAtFoot_Strike = extractData(data.Right, 'Right_Foot_Strike', 'angle', 'Angles');
 

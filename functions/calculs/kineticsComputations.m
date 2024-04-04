@@ -2,13 +2,13 @@ function results = kineticsComputations(data, results)
 
     % Si lorsqu'aucune donnée est envoyée (notamment pour le statique), il
     % manque des fields dans writeExcel, il est possible de les ajouter ici
-    if isempty(data.Left.stamps) && isempty(data.Right.stamps)
+    if (~isfield(data, 'Left') || isempty(data.Left.stamps)) && (~isfield(data, 'Right') || isempty(data.Right.stamps))
         results.Left.kinetics = false;
         results.Right.kinetics = false;
         return;
     end
 
-    if ~isempty(data.Left.stamps)
+    if isfield(data, 'Left') && ~isempty(data.Left.stamps)
         % Extraction des moments
         results.Left.moment_FullCycle = extractData(data.Left, data.Left.stamps.Left_Foot_FullCycle.frameStamps, 'moment', 'Moment');
         results.Left.moment_0_OppFootOff = extractData(data.Left, data.Left.stamps.Left_Foot_0_OppPushOff.frameStamps, 'moment', 'Moment');
@@ -53,7 +53,7 @@ function results = kineticsComputations(data, results)
         
     end
     
-    if ~isempty(data.Right.stamps)
+    if isfield(data, 'Right') && ~isempty(data.Right.stamps)
         % Extraction des moments
         results.Right.moment_FullCycle = extractData(data.Right, data.Right.stamps.Right_Foot_FullCycle.frameStamps, 'moment', 'Moment');
         results.Right.moment_0_OppFootOff = extractData(data.Right, data.Right.stamps.Right_Foot_0_OppPushOff.frameStamps, 'moment', 'Moment');

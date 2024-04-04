@@ -159,6 +159,10 @@ for j = 1:(long_Left-1)
     vq.Left_Peroneal(j,:)= interp1(Frames_Numbers.Left(j):1:(Frames_Numbers.Left(j+1)-1),results.Left_Peroneal(Frames_Numbers.Left(j):(Frames_Numbers.Left(j+1)-1)),New_Frames.Left(j,:));
 end
 
+if ~exist("vq", 'var')
+    error('EMG could not be properly analysed, consider setting "useEMG" to false');
+end
+
 %Chercher seulement les 2 cycles
 u = 1;
 for i = 1:size(idxPiedDroit,2)

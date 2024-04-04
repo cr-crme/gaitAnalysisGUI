@@ -2,13 +2,13 @@ function results = spatiotempComputations(data, results)
     
     % Si lorsqu'aucune donnée est envoyée (notamment pour le statique), il
     % manque des fields dans writeExcel, il est possible de les ajouter ici
-    if isempty(data.Left.stamps) && isempty(data.Right.stamps)
+    if (~isfield(data, 'Left') || isempty(data.Left.stamps)) && (~isfield(data, 'Right') || isempty(data.Right.stamps))
         results.Left.spatio = false;
         results.Right.spatio = false;
         return;
     end
 
-    for sideTp = {'Left', 'Right'}
+    for sideTp = fieldnames(data)
         side = sideTp{1};
         if strcmp(side, 'Left')
             oppositeSide = 'Right';

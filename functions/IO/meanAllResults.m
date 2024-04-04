@@ -3,6 +3,10 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
     sides = fieldnames(kinToKeep);
     for iS = 1:length(sides)
         s = sides{iS};
+        if ~isfield(dataAll, s)
+            continue
+        end
+
         dataKinAll = dataAll.(s)(kinToKeep.(s));
         dataDynAll = dataAll.(s)(dynToKeep.(s));
  
@@ -180,7 +184,13 @@ function dataFinal = meanAllResults(dataAll, kinToKeep, dynToKeep, info)
 
             % Assembler les données moyennées
             dataFinalTp.info = info; % Prendre les infos demandé à l'ouverture
-            dataFinalTp.angleInfos = dataAll.Left(1).angleInfos; 
+            if isfield(dataAll, 'Left')
+                dataFinalTp.angleInfos = dataAll.Left(1).angleInfos; 
+            elseif isfield(dataAll, 'Right')
+                dataFinalTp.angleInfos = dataAll.Right(1).angleInfos; 
+            else
+                error('No data found in dataAll')
+            end
             
             dataFinalTp.angle = kin_angle;
             dataFinalTp.angleStd = kin_angleStd;

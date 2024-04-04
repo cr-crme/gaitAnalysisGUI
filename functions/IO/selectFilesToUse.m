@@ -1,12 +1,24 @@
 function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data, automaticRemoveOfEmptyTrial)
     
     % Nom des angles
-    nameAngToKeep = fieldnames(data.Left(1).angle);
-    for i = 1:length(data.Left)
-        nameAngToKeep = union(nameAngToKeep, fieldnames(data.Left(i).angle));
+    if isfield(data, 'Left')
+        dataRef = data.Left(1);
+    elseif isfield(data, 'Right')
+        dataRef = data.Right(1);
+    else
+        error('No data in the file')
     end
-    for i = 1:length(data.Right)
-        nameAngToKeep = union(nameAngToKeep, fieldnames(data.Right(i).angle));
+    
+    nameAngToKeep = fieldnames(dataRef.angle);
+    if isfield(data, 'Left')
+        for i = 1:length(data.Left)
+            nameAngToKeep = union(nameAngToKeep, fieldnames(data.Left(i).angle));
+        end
+    end
+    if isfield(data, 'Right')
+        for i = 1:length(data.Right)
+            nameAngToKeep = union(nameAngToKeep, fieldnames(data.Right(i).angle));
+        end
     end
     
     % Retirer le préfixe L ou R
@@ -18,7 +30,7 @@ function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data, automaticRemoveOfEm
    
     % Nom des moments
     % Retirer le préfixe L ou R
-    nameMomentToKeep = fieldnames(data.Left(1).moment); % Pareil pour tous essais + côtés
+    nameMomentToKeep = fieldnames(dataRef.moment); % Pareil pour tous essais + côtés
     for i = 1:length(nameMomentToKeep)
         nameMomentToKeep{i} = nameMomentToKeep{i}(2:end);
     end
@@ -29,8 +41,8 @@ function [idx_kin_out, idx_dyn_out] = selectFilesToUse(data, automaticRemoveOfEm
     cmp = 0;
     idxLeft = [];
     idxRight = [];
-    for iSide = 1:2 % Tous les fichiers ouverts (gauche - droit)
-        sides = fieldnames(data);
+    sides = fieldnames(data);
+    for iSide = 1:length(sides)
         for i = 1:length(data.(sides{iSide}))
             cmp = cmp+1;
             if strcmp(sides{iSide}, 'Left')
