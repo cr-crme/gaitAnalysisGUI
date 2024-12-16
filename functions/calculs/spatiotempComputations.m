@@ -8,8 +8,9 @@ function results = spatiotempComputations(data, results)
         return;
     end
 
-    for sideTp = fieldnames(data)
-        side = sideTp{1};
+    sides = fieldnames(data);
+    for iS = 1:length(sides)
+        side = sides{iS};
         if strcmp(side, 'Left')
             oppositeSide = 'Right';
         else
