@@ -265,7 +265,13 @@ function dataOut = resampleData(data, stamps, frames, isFootOnPlateForme, numPF,
     framesPF = frames(1)*data.ratioFrequence:(frames(end)+1)*data.ratioFrequence-1;
     newFramesPF = linspace(framesPF(1), framesPF(end), 1000);
     for iF = 1:length(analFieldToNormalize)
-        if strcmp(analFieldToNormalize{iF}, 'forceplate')
+        if isempty(data.(analFieldToNormalize{iF}))
+            % This is a special case where the data were not present at all
+            dataOut.(analFieldToNormalize{iF})(1).channels = struct(...
+                'Fx', [], 'Fy', [], 'Fz', [], 'Mx', [], 'My', [], 'Mz', [] ...
+            );
+            ndevices = [];
+        elseif strcmp(analFieldToNormalize{iF}, 'forceplate')
             ndevices = numPF;
         else
             ndevices = 1:length(data.(analFieldToNormalize{iF}));

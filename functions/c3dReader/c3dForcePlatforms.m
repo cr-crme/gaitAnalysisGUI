@@ -1,5 +1,6 @@
 function [out, outInfo] = c3dForcePlatforms(c3d)
-
+    
+    out = [];
     if isfield(c3d, 'ezc3d')
         names = c3d.ezc3d.c3d.parameters.ANALOG.LABELS.DATA;
         for npf = 1:c3d.ezc3d.c3d.parameters.FORCE_PLATFORM.USED.DATA
