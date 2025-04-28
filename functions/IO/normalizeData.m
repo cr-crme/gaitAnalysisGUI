@@ -263,7 +263,6 @@ function dataOut = resampleData(data, stamps, frames, isFootOnPlateForme, numPF,
     % Données dynamiques
     % Frames et leur conversion pour les deux cycles de marche
     framesPF = frames(1)*data.ratioFrequence:(frames(end)+1)*data.ratioFrequence-1;
-    newFramesPF = linspace(framesPF(1), framesPF(end), 1000);
     for iF = 1:length(analFieldToNormalize)
         if isempty(data.(analFieldToNormalize{iF}))
             % This is a special case where the data were not present at all
@@ -276,8 +275,10 @@ function dataOut = resampleData(data, stamps, frames, isFootOnPlateForme, numPF,
         else
             ndevices = 1:length(data.(analFieldToNormalize{iF}));
         end
+
         cmp = 1;
         for iN = ndevices % Pour chaque analogique de ce nom
+            newFramesPF = linspace(framesPF(1), framesPF(end), 1000);
             names = fieldnames(data.(analFieldToNormalize{iF})(iN).channels);
             for iC = 1:length(names)
                 dataOut.(analFieldToNormalize{iF})(cmp).channels.(names{iC}) = interp1(framesPF, data.(analFieldToNormalize{iF})(iN).channels.(names{iC})(framesPF,:), newFramesPF); 
